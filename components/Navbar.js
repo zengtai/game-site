@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Container from "./Container";
 
 export default function Navbar({ children }) {
   // console.log(children);

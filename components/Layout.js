@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Container from "./Container";
 
 export default function Layout({ list, children }) {
   // console.log(list);

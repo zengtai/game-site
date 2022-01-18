@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Container from "../components/Container";
+
 import Layout from "../components/Layout";
 import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
