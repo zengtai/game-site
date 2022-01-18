@@ -4,8 +4,7 @@ export default function GameList({ title, games }) {
   const gamesList = games.map((game) => (
     <li key={game.id}>
       <Link
-        href={`/game/${game.name}`}
-        as={`/game/${game.name
+        href={`/game/${game.name
           .replace(/([A-Z])/g, " $1")
           .trim()
           .replace(/3 D/g, "3D")
@@ -25,24 +24,32 @@ export default function GameList({ title, games }) {
       </Link>
     </li>
   ));
-  if (games.length != 0)
+  if (games.length != 0) {
     if (title === undefined) {
       return (
         <>
-          <ul className="grid grid-cols-4 gap-3 p-2">{gamesList}</ul>
+          <ul
+            className={`grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`}
+          >
+            {gamesList}
+          </ul>
         </>
       );
     } else {
       return (
         <>
-          <h2 className="px-4 pt-2 pb-0 text-xs font-semibold text-stone-900/70">
+          <h2 className="px-4 pt-2 pb-0 text-xs md:text-sm font-semibold text-stone-900/70">
             {title}
           </h2>
-          <ul className="grid grid-cols-4 gap-3 p-2">{gamesList}</ul>
+          <ul
+            className={`grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`}
+          >
+            {gamesList}
+          </ul>
         </>
       );
     }
-  else {
+  } else {
     return <></>;
   }
 }
