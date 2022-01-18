@@ -16,12 +16,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <Container>
+        <div className="grow">
           <GameList title="New Games" games={newGames} />
           <GameList title="Featured Games" games={featuredGames} />
           <GameList title="All Games" games={games} />
           <CategoryList title="Categories" categories={categories} />
-        </Container>
+        </div>
       </Layout>
     </>
   );

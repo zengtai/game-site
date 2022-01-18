@@ -2,7 +2,7 @@ import Layout from "../../components/Layout";
 import GameList from "../../components/GameList";
 import { useRouter } from "next/router";
 import { getGamesByCategory, getCategories } from "../../lib/api";
-import Container from "../../components/Container";
+
 export default function GamesListByCategory({ games, categories }) {
   // console.log(games);
   const router = useRouter();
@@ -12,12 +12,12 @@ export default function GamesListByCategory({ games, categories }) {
   return (
     <>
       <Layout list={categories}>
-        <Container>
+        <div className="grow">
           <h1 className="px-4 pt-2 pb-0 text-center text-lg font-semibold text-stone-900/80 capitalize">
             {slug} Games
           </h1>
           <GameList games={games} />
-        </Container>
+        </div>
       </Layout>
     </>
   );

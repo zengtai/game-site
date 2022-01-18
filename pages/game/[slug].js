@@ -2,7 +2,7 @@ import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
 import { getCategories, getGames, toSlug } from "../../lib/api";
 import GameDetail from "../../components/GameDetail";
-import Container from "../../components/Container";
+
 export default function Games({ game, categories }) {
   // console.log(games);
   // console.log(game);
@@ -13,12 +13,12 @@ export default function Games({ game, categories }) {
   return (
     <>
       <Layout list={categories}>
-        <Container className={`px-3`}>
+        <div className="px-3 grow">
           <h1 className="pt-2 pb-1 text-center text-lg font-semibold text-stone-900/80">
             <span>{game.name}</span>
           </h1>
           <GameDetail game={game} />
-        </Container>
+        </div>
       </Layout>
     </>
   );
