@@ -12,13 +12,14 @@ export default function GameList({ title, games }) {
           .replace(/ /g, "-")
           .toLowerCase()}`}
       >
-        <a>
+        <a className="block rounded-2xl overflow-hidden shadow-md shadow-yellow-900/30">
           <Image
             src={game.icon}
             alt={game.name}
-            height={100}
-            width={100}
+            height={200}
+            width={200}
             quality={83}
+            layout="responsive"
           />
         </a>
       </Link>
@@ -28,14 +29,16 @@ export default function GameList({ title, games }) {
     if (title === undefined) {
       return (
         <>
-          <ul>{gamesList}</ul>
+          <ul className="grid grid-cols-4 gap-3 p-2">{gamesList}</ul>
         </>
       );
     } else {
       return (
         <>
-          <h2>{title}</h2>
-          <ul>{gamesList}</ul>
+          <h2 className="px-4 pt-2 pb-0 text-xs font-semibold text-stone-900/70">
+            {title}
+          </h2>
+          <ul className="grid grid-cols-4 gap-3 p-2">{gamesList}</ul>
         </>
       );
     }

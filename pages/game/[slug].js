@@ -13,8 +13,8 @@ export default function Games({ game, categories }) {
   return (
     <>
       <Layout list={categories}>
-        <Container>
-          <h1>
+        <Container className={`px-3`}>
+          <h1 className="pt-2 pb-1 text-center text-lg font-semibold text-stone-900/80">
             <span>{game.name}</span>
           </h1>
           <GameDetail game={game} />
