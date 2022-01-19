@@ -24,7 +24,11 @@ export default function GameList({ title, games, icon, cols, className }) {
       return (
         <>
           <ul
-            className={`grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`}
+            className={
+              setCol()
+                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
+                : `grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
+            }
           >
             {gamesList}
           </ul>

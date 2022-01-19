@@ -35,10 +35,10 @@ export default function Navbar({ children }) {
     );
   });
   return (
-    <nav className="p-2">
+    <nav>
       <div className="flex flex-row justify-between">
         <Link href={`/`}>
-          <a className="text-slate-600/80">
+          <a className="flex justify-center items-center outline outline-[20px] rounded-full outline-cyan-100 text-slate-600/80 w-10 h-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -49,7 +49,10 @@ export default function Navbar({ children }) {
             </svg>
           </a>
         </Link>
-        <button onClick={toggle}>
+        <button
+          onClick={toggle}
+          className="flex justify-center items-center w-10 h-10"
+        >
           {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +86,7 @@ export default function Navbar({ children }) {
           )}
         </button>
       </div>
-      <div className={isOpen ? `hidden` : `block`}>
+      <div className={isOpen ? `hidden` : `block m-3 relative z-10`}>
         <ul className="flex flex-wrap p-2 mt-2 capitalize bg-slate-800/80 rounded-3xl shadow-lg shadow-slate-900/20">
           {categoryNav}
         </ul>

@@ -36,7 +36,8 @@
   position: fixed;
   z-index: 1031;
   top: 15px;
-  right: 15px;
+  left: 50%;
+  margin-left: -9px;
 }
 
 #nprogress .spinner-icon {

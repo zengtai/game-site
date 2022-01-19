@@ -25,7 +25,7 @@ export default function GamesListByCategory({ games, categories }) {
           <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold text-stone-900/80 capitalize">
             {categoryName} Games
           </h1>
-          <GameList games={games} />
+          <GameList cols="4" games={games} />
         </div>
       </Layout>
     </>
