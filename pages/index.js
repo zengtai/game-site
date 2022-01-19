@@ -29,7 +29,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="5"
             games={newGames}
           />
-          <GameList icon={gameIcon()} title="All Games" games={games} />
+          <GameList
+            icon={gameIcon()}
+            title="All Games"
+            games={games}
+            className="third:col-span-2 third:row-span-2"
+          />
           <CategoryList
             icon={categoryIcon()}
             title="Categories"

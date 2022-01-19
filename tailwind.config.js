@@ -1,3 +1,5 @@
+const plugin = require("tailwindcss/plugin");
+
 module.exports = {
   mode: "jit",
   content: [
@@ -11,5 +13,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant("third", "&:nth-child(11n+3)");
+    }),
+  ],
 };
