@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { toSlug } from "../lib/api";
-import { toTitle } from "../lib/api";
+import { toSlug, toTitle } from "../lib/api";
 export default function GameList({ title, games, icon, cols, className }) {
+  const setCol = () => (cols ? true : false);
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
@@ -19,13 +19,12 @@ export default function GameList({ title, games, icon, cols, className }) {
       </Link>
     </li>
   ));
-  const setCol = () => (cols ? true : false);
   if (games.length != 0) {
     if (title === undefined) {
       return (
         <>
           <ul
-            className={`grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`}
+            className={`grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`}
           >
             {gamesList}
           </ul>
