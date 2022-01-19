@@ -1,16 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import { toSlug } from "../lib/api";
 export default function GameList({ title, games }) {
   const gamesList = games.map((game) => (
     <li key={game.id}>
-      <Link
-        href={`/game/${game.name
-          .replace(/([A-Z])/g, " $1")
-          .trim()
-          .replace(/3 D/g, "3D")
-          .replace(/ /g, "-")
-          .toLowerCase()}`}
-      >
+      <Link href={`/game/${toSlug(game.name)}`}>
         <a className="block rounded-2xl overflow-hidden shadow-md shadow-yellow-900/30">
           <Image
             src={game.icon}
