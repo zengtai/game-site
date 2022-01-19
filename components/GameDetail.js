@@ -12,7 +12,7 @@ export default function GameDetail({ game }) {
           {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
         </title>
       </Head>
-      <div className="flex flex-col md:flex-row bg-slate-100/80 rounded-[2rem] p-5 shadow-lg shadow-amber-900/10">
+      <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-slate-900/10">
         <div className="block text-center">
           <Image
             src={game.icon}
@@ -25,23 +25,23 @@ export default function GameDetail({ game }) {
           />
         </div>
         <div className="text-center md:text-left md:px-5">
-          <h1 className="py-2 text-2xl font-semibold text-stone-900/80">
+          <h1 className="py-2 text-2xl font-semibold text-slate-700">
             <span>{toTitle(game.name)}</span>
           </h1>
           <p className="capitalize">
             <Link href={`/category/${game.category.toLowerCase()}`}>
-              <a className="text-xs py-1 px-2 bg-orange-600 text-slate-100/90 rounded-md shadow-md shadow-amber-900/30">
+              <a className="text-xs py-1 px-2 bg-slate-600/80 text-slate-100/60 rounded-md shadow-md shadow-slate-900/30">
                 {game.category.toLowerCase()}
               </a>
             </Link>
           </p>
-          <p className="py-3 text-left">{game.description}</p>
+          <p className="py-3 text-left text-xs">{game.description}</p>
         </div>
       </div>
       <p className="py-5">
         <Link href={game.url}>
           <a
-            className="block md:w-96 mx-auto bg-orange-600 text-center p-3 text-lg font-semibold text-slate-100 rounded-full shadow-lg shadow-amber-700/40"
+            className="block md:w-96 mx-auto bg-orange-500 text-center p-3 text-lg font-semibold text-white rounded-full shadow-lg shadow-orange-400/40"
             title={`Play ${toTitle(game.name)} now`}
           >
             Play now

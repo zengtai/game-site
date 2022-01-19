@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import { hotIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
 import Layout from "../components/Layout";
 import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
@@ -17,10 +17,24 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
         <div className="grow">
-          <GameList title="Hot Games" games={featuredGames} />
-          <GameList title="New Games" games={newGames} />
-          <GameList title="All Games" games={games} />
-          <CategoryList title="Categories" categories={categories} />
+          <GameList
+            icon={hotIcon()}
+            title="Popular This Week"
+            cols="2"
+            games={featuredGames}
+          />
+          <GameList
+            icon={topIcon()}
+            title="New Games"
+            cols="5"
+            games={newGames}
+          />
+          <GameList icon={gameIcon()} title="All Games" games={games} />
+          <CategoryList
+            icon={categoryIcon()}
+            title="Categories"
+            categories={categories}
+          />
         </div>
       </Layout>
     </>

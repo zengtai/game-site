@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Navbar({ children }) {
-  const [isOpen, setOpen] = useState(false);
+  const router = useRouter();
+  const current = router.query;
+  const [isOpen, setOpen] = useState(true);
   function toggle() {
     setOpen(!isOpen);
   }
@@ -10,11 +13,23 @@ export default function Navbar({ children }) {
   const categoryNav = children.map((e) => {
     return (
       <li
-        className="m-1 bg-slate-50/10 border-2 border-slate-50/20 rounded-xl shadow-lg"
+        className={
+          e == current.slug
+            ? `m-1 bg-slate-50/10 border-2 border-slate-50/60 rounded-xl shadow-lg`
+            : `m-1 bg-slate-50/10 border-2 border-slate-50/20 rounded-xl shadow-md`
+        }
         key={e}
       >
         <Link href={`/category/${e}`}>
-          <a className="p-2 block opacity-60 text-white">{e}</a>
+          <a
+            className={
+              e == current.slug
+                ? `p-2 block opacity-80 text-white`
+                : `p-2 block opacity-50 text-white`
+            }
+          >
+            {e}
+          </a>
         </Link>
       </li>
     );
@@ -23,7 +38,7 @@ export default function Navbar({ children }) {
     <nav className="p-2">
       <div className="flex flex-row justify-between">
         <Link href={`/`}>
-          <a className="text-stone-900/70">
+          <a className="text-slate-600/80">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -69,7 +84,7 @@ export default function Navbar({ children }) {
         </button>
       </div>
       <div className={isOpen ? `hidden` : `block`}>
-        <ul className="flex flex-wrap p-2 mt-2 capitalize bg-yellow-900 rounded-3xl shadow-lg shadow-yellow-900/20">
+        <ul className="flex flex-wrap p-2 mt-2 capitalize bg-slate-800/80 rounded-3xl shadow-lg shadow-slate-900/20">
           {categoryNav}
         </ul>
       </div>
