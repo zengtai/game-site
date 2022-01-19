@@ -17,8 +17,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
         <div className="grow">
+          <GameList title="Hot Games" games={featuredGames} />
           <GameList title="New Games" games={newGames} />
-          <GameList title="Featured Games" games={featuredGames} />
           <GameList title="All Games" games={games} />
           <CategoryList title="Categories" categories={categories} />
         </div>

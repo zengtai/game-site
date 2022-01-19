@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Head from "next/head";
+import { SITE_NAME } from "../lib/constants";
 export default function CategoryList({ title, categories }) {
   const categoryList = categories.map((category, index) => (
     <li key={index} className="capitalize mx-1 mb-2">

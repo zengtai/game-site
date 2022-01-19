@@ -1,10 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { toTitle } from "../lib/api";
+import Head from "next/head";
+import { SITE_NAME } from "../lib/constants";
 
 export default function GameDetail({ game }) {
   return (
     <>
+      <Head>
+        <title>
+          {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
+        </title>
+      </Head>
       <div className="flex flex-col md:flex-row bg-slate-100/80 rounded-[2rem] p-5 shadow-lg shadow-amber-900/10">
         <div className="block text-center">
           <Image
@@ -35,7 +42,7 @@ export default function GameDetail({ game }) {
         <Link href={game.url}>
           <a
             className="block md:w-96 mx-auto bg-orange-600 text-center p-3 text-lg font-semibold text-slate-100 rounded-full shadow-lg shadow-amber-700/40"
-            title={`Play ${game.name} now`}
+            title={`Play ${toTitle(game.name)} now`}
           >
             Play now
           </a>
