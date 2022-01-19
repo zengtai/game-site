@@ -33,7 +33,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             icon={gameIcon()}
             title="All Games"
             games={games}
-            className="third:col-span-2 third:row-span-2"
+            className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
           <CategoryList
             icon={categoryIcon()}
