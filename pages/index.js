@@ -19,20 +19,21 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <div className="grow">
           <GameList
             icon={hotIcon()}
+            games={featuredGames}
             title="Popular This Week"
             cols="2"
-            games={featuredGames}
           />
           <GameList
             icon={topIcon()}
+            games={newGames}
             title="New Games"
             cols="5"
-            games={newGames}
           />
           <GameList
             icon={gameIcon()}
-            title="All Games"
             games={games}
+            title="All Games"
+            cols="4"
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
           <CategoryList
