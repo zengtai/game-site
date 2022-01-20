@@ -25,12 +25,12 @@ export default function GameDetail({ game }) {
           />
         </div>
         <div className="text-center md:text-left md:px-5">
-          <h1 className="py-2 text-2xl font-semibold text-slate-700">
+          <h1 className="py-2 text-2xl font-semibold text-cyan-900/80">
             <span>{toTitle(game.name)}</span>
           </h1>
           <p className="capitalize">
             <Link href={`/category/${game.category.toLowerCase()}`}>
-              <a className="text-xs py-1 px-2 bg-slate-600/80 text-slate-100/60 rounded-md shadow-md shadow-slate-900/30">
+              <a className="text-xs py-1 px-2 bg-cyan-600/80 text-cyan-100/80 rounded-md shadow-md shadow-slate-900/30">
                 {game.category.toLowerCase()}
               </a>
             </Link>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { closeIcon, menuIcon } from "./Icons";
 
 export default function Navbar({ children }) {
   const router = useRouter();
@@ -13,20 +14,18 @@ export default function Navbar({ children }) {
   const categoryNav = children.map((e) => {
     return (
       <li
-        className={
+        className={`${
           e == current.slug
-            ? `m-1 bg-slate-50/10 border-2 border-slate-50/60 rounded-xl shadow-lg`
-            : `m-1 bg-slate-50/10 border-2 border-slate-50/20 rounded-xl shadow-md`
-        }
+            ? `border-slate-50/80 md:shadow-lg bg-slate-50/20 md:bg-slate-50/10`
+            : `md:border-slate-50/0 md:shadow-none border-slate-50/20 bg-slate-50/10`
+        } m-1 transition ease-in-out duration-500 md:bg-slate-50/0 hover:bg-slate-50/10 border-2 rounded-xl`}
         key={e}
       >
         <Link href={`/category/${e}`}>
           <a
-            className={
-              e == current.slug
-                ? `p-2 block opacity-80 text-white`
-                : `p-2 block opacity-50 text-white`
-            }
+            className={`${
+              e == current.slug ? `opacity-80 ` : `opacity-60`
+            } p-2 block text-white`}
           >
             {e}
           </a>
@@ -36,9 +35,9 @@ export default function Navbar({ children }) {
   });
   return (
     <nav>
-      <div className="flex flex-row justify-between">
+      <div className="block relative z-10">
         <Link href={`/`}>
-          <a className="flex justify-center items-center outline outline-[20px] rounded-full outline-cyan-100 text-slate-600/80 w-10 h-10">
+          <a className="absolute transition ease-in-out duration-500 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-cyan-600 w-20 h-20 -left-4 -top-5 z-20 bg-slate-200/80 shadow-[lg] shadow-stone-900">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -51,51 +50,21 @@ export default function Navbar({ children }) {
         </Link>
         <button
           onClick={toggle}
-          className="flex justify-center items-center w-10 h-10 md:hidden"
+          className="ml-auto flex justify-center items-center w-10 h-10 md:hidden"
         >
-          {isOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          )}
+          {isOpen ? closeIcon() : menuIcon()}
         </button>
-      </div>
-      <div
-        className={
-          isOpen
-            ? `hidden md:block  m-3  z-10 relative`
-            : `block m-3 relative z-10`
-        }
-      >
-        <ul className="flex flex-wrap p-2 mt-2 capitalize bg-slate-800/80 rounded-3xl shadow-lg shadow-slate-900/20">
-          {categoryNav}
-        </ul>
+        <div
+          className={
+            isOpen
+              ? `hidden md:block p-3  z-10 relative`
+              : `block p-3 relative z-30 md:z-10`
+          }
+        >
+          <ul className="flex md:pl-20 md:ml-3 flex-wrap p-2 md:mt-2 capitalize bg-cyan-600 rounded-3xl shadow-lg shadow-cyan-900/20">
+            {categoryNav}
+          </ul>
+        </div>
       </div>
     </nav>
   );
