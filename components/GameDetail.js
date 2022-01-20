@@ -20,7 +20,7 @@ export default function GameDetail({ game }) {
             width={150}
             height={150}
             quality="83"
-            className="rounded-xl bg-loading"
+            className="rounded-xl bg-loading bg-center bg-no-repeat"
             layout="fixed"
           />
         </div>
