@@ -47,7 +47,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
 export const getStaticProps = async () => {
   const games = await getGames();
-  const newGames = await getGames("NEW");
+  const newGames = await getGames("NEW", 30);
   const featuredGames = await getGames("FEATURED");
   const categories = await getCategories();
 

@@ -14,20 +14,18 @@ export default function Navbar({ children }) {
   const categoryNav = children.map((e) => {
     return (
       <li
-        className={
+        className={`${
           e == current.slug
-            ? `m-1 bg-slate-50/10 border-2 border-slate-50/60 rounded-xl md:shadow-lg`
-            : `m-1 transition ease-in-out duration-500 bg-slate-50/10 md:bg-slate-50/0 hover:bg-slate-50/10 border-2 border-transparent rounded-xl md:shadow-md`
-        }
+            ? `border-slate-50/80 md:shadow-lg bg-slate-50/20 md:bg-slate-50/10`
+            : `md:border-slate-50/0 md:shadow-none border-slate-50/20 bg-slate-50/10`
+        } m-1 transition ease-in-out duration-500 md:bg-slate-50/0 hover:bg-slate-50/10 border-2 rounded-xl`}
         key={e}
       >
         <Link href={`/category/${e}`}>
           <a
-            className={
-              e == current.slug
-                ? `p-2 block opacity-80 text-white`
-                : `p-2 block opacity-50 text-white`
-            }
+            className={`${
+              e == current.slug ? `opacity-80 ` : `opacity-50`
+            } p-2 block text-white`}
           >
             {e}
           </a>
