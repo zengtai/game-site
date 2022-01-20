@@ -6,7 +6,14 @@ import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
 
-export default function Home({ games, newGames, featuredGames, categories }) {
+export default function Home({
+  games,
+  newGames,
+  featuredGames,
+  categories,
+  gamesSortedByTime,
+}) {
+  console.log(gamesSortedByTime);
   // console.log(games);
   // console.log(categories);
   // const gameList = games.map((game) => <li key={game.id}>{game.name}</li>);
@@ -46,8 +53,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 }
 
 export const getStaticProps = async () => {
-  const games = await getGames();
-  const newGames = await getGames("NEW");
+  // const games = await getGames();
+  const games = await getGames("OLD");
+  const newGames = await getGames("NEW", 20);
   const featuredGames = await getGames("FEATURED");
   const categories = await getCategories();
 
