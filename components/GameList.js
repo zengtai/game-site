@@ -37,7 +37,7 @@ export default function GameList({ title, games, icon, cols, className }) {
     } else {
       return (
         <>
-          <h2 className="flex items-center px-3 py-2 pb-0 md:text-sm font-semibold text-cyan-600 space-x-2">
+          <h2 className="flex items-center px-3 py-2 pb-0 md:text-sm font-semibold text-cyan-900/80 space-x-2">
             {icon}
             <span>{title}</span>
           </h2>
