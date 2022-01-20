@@ -13,7 +13,7 @@ export default function GameDetail({ game }) {
         </title>
       </Head>
       <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-slate-900/10">
-        <div className="block text-center">
+        <div className="block text-center bg-loading bg-center bg-no-repeat">
           <Image
             src={game.icon}
             alt={toTitle(game.name)}
@@ -30,7 +30,7 @@ export default function GameDetail({ game }) {
           </h1>
           <p className="capitalize">
             <Link href={`/category/${game.category.toLowerCase()}`}>
-              <a className="text-xs py-1 px-2 bg-cyan-600/80 text-cyan-100/80 rounded-md shadow-md shadow-slate-900/30">
+              <a className="text-xs py-1 px-2 bg-cyan-600/80 text-cyan-100/80 rounded-md shadow-sm shadow-cyan-900/30">
                 {game.category.toLowerCase()}
               </a>
             </Link>
@@ -41,7 +41,7 @@ export default function GameDetail({ game }) {
       <p className="py-5">
         <Link href={game.url}>
           <a
-            className="block md:w-96 mx-auto bg-orange-500 text-center p-3 text-lg font-semibold text-white rounded-full shadow-lg shadow-orange-400/40"
+            className="block md:hover:scale-110 transition-transform ease-in-out duration-500 md:w-96 mx-auto bg-orange-500 text-center p-3 text-lg font-semibold text-white rounded-full shadow-lg shadow-orange-400/40"
             title={`Play ${toTitle(game.name)} now`}
           >
             Play now

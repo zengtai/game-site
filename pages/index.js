@@ -16,12 +16,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <div className="grow relative z-30">
-          <h2 className="flex items-center px-3 py-2 pb-0 md:text-sm font-semibold text-cyan-900/80 space-x-2">
+        <div className="grow p-4 md:p-8 relative z-30">
+          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {hotIcon()}
             <span>Popular This Week</span>
           </h2>
-          <GameList games={featuredGames} />
+          <GameList games={featuredGames} cols="2" />
           <GameList
             icon={topIcon()}
             games={newGames}

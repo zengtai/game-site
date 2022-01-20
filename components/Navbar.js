@@ -37,7 +37,7 @@ export default function Navbar({ children }) {
     <nav>
       <div className="block relative z-10">
         <Link href={`/`}>
-          <a className="absolute transition ease-in-out duration-500 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-cyan-600 w-20 h-20 -left-4 -top-5 z-20 bg-slate-200/80 shadow-[lg] shadow-stone-900">
+          <a className="absolute transition ease-in-out duration-400 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-cyan-600 w-20 h-20 -left-4 -top-5 z-20 bg-white/10 md:bg-white/80 shadow-[lg] shadow-stone-900">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -55,13 +55,10 @@ export default function Navbar({ children }) {
           {isOpen ? closeIcon() : menuIcon()}
         </button>
         <div
-          className={
-            isOpen
-              ? `hidden md:block p-3  z-10 relative`
-              : `block p-3 relative z-30 md:z-10`
-          }
+          className={`
+            ${isOpen ? `hidden md:block` : `block`} relative p-3 z-30 md:z-10`}
         >
-          <ul className="flex md:pl-20 md:ml-3 flex-wrap p-2 md:mt-2 capitalize bg-cyan-600 rounded-3xl shadow-lg shadow-cyan-900/20">
+          <ul className="flex md:pl-20 md:ml-3 flex-wrap p-2 md:mt-2 capitalize bg-cyan-600 rounded-3xl shadow-lg shadow-cyan-500/20">
             {categoryNav}
           </ul>
         </div>

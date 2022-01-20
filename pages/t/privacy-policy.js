@@ -5,8 +5,10 @@ export default function PrivacyPolicy({ categories }) {
   return (
     <>
       <Layout list={categories}>
-        <div className="p-3 xl:mx-auto xl:w-[1120px]">
-          <div className="text-xl font-bold">{SITE_NAME} Privacy Policy</div>
+        <div className="p-4 md:p-8 xl:mx-auto xl:w-[1120px]">
+          <div className="pb-3 text-2xl text-cyan-900/80 font-bold">
+            {SITE_NAME} Privacy Policy
+          </div>
           <p className="my-2">
             At {SITE_NAME}, accessible from {SITE_URL}, one of our main
             priorities is the privacy of our visitors. This Privacy Policy

@@ -19,11 +19,11 @@ export default function CategoryList({ title, categories, icon }) {
     } else {
       return (
         <>
-          <h2 className="flex items-center px-3 pt-2 pb-1 font-semibold text-cyan-600 space-x-2">
+          <h2 className="flex items-center py-2 font-semibold text-cyan-900/80 space-x-2">
             {icon}
             <span>{title}</span>
           </h2>
-          <ul className="flex flex-wrap px-3 py-2">{categoryList}</ul>
+          <ul className="flex flex-wrap py-2">{categoryList}</ul>
         </>
       );
     }
