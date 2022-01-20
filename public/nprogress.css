@@ -54,6 +54,20 @@
   animation: nprogress-spinner 400ms linear infinite;
 }
 
+@media (min-width: 768px) {
+  #nprogress .spinner {
+    top: 10px;
+    right: 5px;
+    left: auto;
+    margin-left: auto;
+  }
+  #nprogress .spinner-icon {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+  }
+}
+
 .nprogress-custom-parent {
   overflow: hidden;
   position: relative;
