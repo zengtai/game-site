@@ -6,14 +6,8 @@ import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
 
-export default function Home({
-  games,
-  newGames,
-  featuredGames,
-  categories,
-  gamesSortedByTime,
-}) {
-  console.log(gamesSortedByTime);
+export default function Home({ games, newGames, featuredGames, categories }) {
+  // console.log(gamesSortedByTime);
   // console.log(games);
   // console.log(categories);
   // const gameList = games.map((game) => <li key={game.id}>{game.name}</li>);
