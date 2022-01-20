@@ -21,7 +21,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             {hotIcon()}
             <span>Popular This Week</span>
           </h2>
-          <GameList games={featuredGames} />
+          <GameList games={featuredGames} cols="2" pri="true" />
           <GameList
             icon={topIcon()}
             games={newGames}

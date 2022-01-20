@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { toSlug, toTitle } from "../lib/api";
-export default function GameList({ title, games, icon, cols, className }) {
+export default function GameList({ title, games, icon, cols, className, pri }) {
   const setCol = () => (cols ? true : false);
+  const setPri = () => (pri ? true : false);
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
@@ -14,6 +15,7 @@ export default function GameList({ title, games, icon, cols, className }) {
             width={200}
             quality={83}
             layout="responsive"
+            priority={setPri() ? true : false}
           />
         </a>
       </Link>
