@@ -50,7 +50,7 @@ export default function Navbar({ children }) {
         </Link>
         <button
           onClick={toggle}
-          className="ml-auto flex justify-center items-center w-10 h-10 md:hidden"
+          className="ml-auto flex justify-center items-center w-10 h-10 md:hidden text-cyan-600"
         >
           {isOpen ? closeIcon() : menuIcon()}
         </button>
