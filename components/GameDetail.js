@@ -12,7 +12,7 @@ export default function GameDetail({ game }) {
           {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
         </title>
       </Head>
-      <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-slate-900/10">
+      <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-slate-900/10 border-4 border-slate-400/60">
         <div className="block text-center">
           <Image
             src={game.icon}
@@ -35,7 +35,9 @@ export default function GameDetail({ game }) {
               </a>
             </Link>
           </p>
-          <p className="py-3 text-left text-xs">{game.description}</p>
+          <p className="py-3 text-left text-xs md:text-sm">
+            {game.description}
+          </p>
         </div>
       </div>
       <p className="py-5">

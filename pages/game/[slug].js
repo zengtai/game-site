@@ -13,13 +13,13 @@ export default function Games({
 }) {
   // console.log(games);
   const router = useRouter();
-  const { slug } = router.query;
+  // const { slug } = router.query;
 
   return (
     <>
       <Layout list={categories}>
-        <div className="grow p-3">
-          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3">
+        <div className="grow p-3 md:px-6 xl:p-8 relative z-30">
+          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 xl:gap-6">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
               <GameDetail game={game} />
             </div>
@@ -27,17 +27,17 @@ export default function Games({
               You may also like
             </h3>
             <div className="xl:col-start-1 xl:row-start-1 xl:col-span-2 xl:row-span-5 ">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 xl:gap-6">
                 <CustomGameList games={leftGames} />
               </ul>
             </div>
             <div className="xl:col-start-11 xl:row-start-1 xl:col-span-2 xl:row-span-5">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 xl:gap-6">
                 <CustomGameList games={rightGames} />
               </ul>
             </div>
             <div className="xl:col-start-3 xl:row-start-4 xl:col-span-8 xl:row-span-2">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3">
+              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3 xl:gap-6">
                 <CustomGameList games={bottomGamesX44} />
               </ul>
             </div>
