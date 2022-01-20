@@ -1,5 +1,6 @@
 import { SITE_NAME } from "../lib/constants";
 import Link from "next/link";
+import Image from "next/image";
 export default function Footer(params) {
   return (
     <div className="mt-3 text-xs text-center text-slate-100/40 bg-slate-600">
@@ -11,7 +12,16 @@ export default function Footer(params) {
           <a>Terms of Use</a>
         </Link>
       </nav>
-      <p className="py-7 opacity-90">
+      <p className="py-7">
+        <div className="flex justify-center">
+          <Image
+            className="h-10 w-auto"
+            src="/brand/uptapgame-logo.svg"
+            alt={SITE_NAME}
+            width={170}
+            height={30}
+          />
+        </div>
         Copyright &copy; {SITE_NAME}. All Rights Reserved
       </p>
     </div>

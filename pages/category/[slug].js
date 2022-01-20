@@ -21,8 +21,8 @@ export default function GamesListByCategory({ games, categories }) {
             {categoryName} Games | Play {categoryName} Games on {SITE_NAME}
           </title>
         </Head>
-        <div className="grow">
-          <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold text-stone-900/80 capitalize">
+        <div className="grow relative z-30 md:px-4">
+          <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold text-slate-900/80 capitalize">
             {categoryName} Games
           </h1>
           <GameList cols="4" games={games} />

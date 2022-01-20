@@ -6,7 +6,7 @@ export default function GameList({ title, games, icon, cols, className }) {
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
-        <a className="block rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat">
+        <a className="block xl:hover:scale-125 transition ease-in-out duration-500 rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat">
           <Image
             src={game.icon}
             alt={toTitle(game.name)}
@@ -26,8 +26,8 @@ export default function GameList({ title, games, icon, cols, className }) {
           <ul
             className={
               setCol()
-                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
-                : `grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
+                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`
+                : `grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`
             }
           >
             {gamesList}
@@ -37,15 +37,15 @@ export default function GameList({ title, games, icon, cols, className }) {
     } else {
       return (
         <>
-          <h2 className="flex items-center px-3 py-2 pb-0 md:text-sm font-semibold text-slate-600 space-x-2">
+          <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
             {icon}
             <span>{title}</span>
           </h2>
           <ul
             className={
               setCol()
-                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
-                : `grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
+                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 xl:gap-6 p-2  xl:py-4 xl:px-8`
+                : `grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 xl:gap-6 p-2  xl:py-4 xl:px-8`
             }
           >
             {gamesList}
