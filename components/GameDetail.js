@@ -12,7 +12,7 @@ export default function GameDetail({ game }) {
           {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
         </title>
       </Head>
-      <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-slate-900/10">
+      <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
         <div className="block text-center bg-loading bg-center bg-no-repeat">
           <Image
             src={game.icon}

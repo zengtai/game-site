@@ -37,7 +37,7 @@ export default function Navbar({ children }) {
     <nav>
       <div className="block relative z-10">
         <Link href={`/`}>
-          <a className="absolute transition ease-in-out duration-400 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-cyan-600 w-20 h-20 -left-4 -top-5 z-20 bg-white/10 md:bg-white/80 shadow-[lg] shadow-stone-900">
+          <a className="absolute transition ease-in-out duration-400 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-cyan-600 w-20 h-20 -left-4 -top-5 z-20 bg-cyan-600/5 md:bg-white/80 shadow-[lg] shadow-stone-900">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
