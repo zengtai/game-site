@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Script from "next/script";
+// import Script from "next/script";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "../styles/globals.css";
@@ -53,11 +53,11 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       /> */}
-      <Script
-        strategy="beforeInteractive"
+      <script
+        async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209477879340784"
         crossOrigin="anonymous"
-      ></Script>
+      ></script>
       <Component {...pageProps} />
     </>
   );
