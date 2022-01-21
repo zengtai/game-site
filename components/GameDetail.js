@@ -14,15 +14,7 @@ export default function GameDetail({ game }) {
       </Head>
       <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
         <div className="block text-center bg-loading bg-center bg-no-repeat">
-          <Image
-            src={game.icon}
-            alt={toTitle(game.name)}
-            width={150}
-            height={150}
-            quality="83"
-            className="rounded-xl"
-            layout="fixed"
-          />
+          <img src={game.icon} alt={toTitle(game.name)} className="w-fit" />
         </div>
         <div className="text-center md:text-left md:px-5">
           <h1 className="py-2 text-2xl font-semibold text-cyan-900/80">

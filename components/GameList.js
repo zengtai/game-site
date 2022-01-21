@@ -7,14 +7,7 @@ export default function GameList({ title, games, icon, cols, className }) {
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
         <a className="block md:hover:origin-bottom md:hover:-rotate-6 hover:scale-125 transition duration-200 ease-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-cyan-600/30 hover:shadow-cyan-600/40 bg-loading bg-center bg-no-repeat">
-          <Image
-            src={game.icon}
-            alt={toTitle(game.name)}
-            height={200}
-            width={200}
-            quality={83}
-            layout="responsive"
-          />
+          <img src={game.icon} alt={toTitle(game.name)} className="w-fit" />
         </a>
       </Link>
     </li>
