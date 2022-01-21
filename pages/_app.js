@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "../styles/globals.css";
 import "../public/nprogress.css";
-import * as gtag from "../lib/gtag";
+// import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
       NProgress.start();
     };
     const handleStop = () => {
-      gtag.pageview(url);
+      // gtag.pageview(url);
       NProgress.done();
     };
     // const handleRouteChange = (url) => {
@@ -30,12 +30,12 @@ function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleStop);
       router.events.off("routeChangeError", handleStop);
     };
-  }, [router.events]);
+  }, [router]);
 
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
             });
           `,
         }}
-      />
+      /> */}
       <Component {...pageProps} />
     </>
   );
