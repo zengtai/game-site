@@ -18,26 +18,26 @@ export default function Games({
   return (
     <>
       <Layout list={categories}>
-        <div className="grow p-3">
-          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3">
+        <div className="grow p-4 md:p-8 relative z-30">
+          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
               <GameDetail game={game} />
             </div>
-            <h3 className="text-lg font-semibold px-2 xl:sr-only">
+            <h3 className="text-lg text-cyan-900/80 font-semibold px-2 xl:sr-only">
               You may also like
             </h3>
             <div className="xl:col-start-1 xl:row-start-1 xl:col-span-2 xl:row-span-5 ">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 md:gap-6">
                 <CustomGameList games={leftGames} />
               </ul>
             </div>
             <div className="xl:col-start-11 xl:row-start-1 xl:col-span-2 xl:row-span-5">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 md:gap-6">
                 <CustomGameList games={rightGames} />
               </ul>
             </div>
             <div className="xl:col-start-3 xl:row-start-4 xl:col-span-8 xl:row-span-2">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3">
+              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3 md:gap-6">
                 <CustomGameList games={bottomGamesX44} />
               </ul>
             </div>

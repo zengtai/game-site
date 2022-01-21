@@ -7,6 +7,7 @@ import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
+  // console.log(gamesSortedByTime);
   // console.log(games);
   // console.log(categories);
   // const gameList = games.map((game) => <li key={game.id}>{game.name}</li>);
@@ -16,12 +17,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <div className="grow">
-          <h2 className="flex items-center px-3 py-2 pb-0 md:text-sm font-semibold text-slate-600 space-x-2">
+        <div className="grow p-4 md:px-8 md:py-4 relative z-30">
+          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {hotIcon()}
             <span>Popular This Week</span>
           </h2>
-          <GameList games={featuredGames} />
+          <GameList games={featuredGames} cols="2" />
           <GameList
             icon={topIcon()}
             games={newGames}
@@ -46,8 +47,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 }
 
 export const getStaticProps = async () => {
+  // const games = await getGames();
   const games = await getGames();
-  const newGames = await getGames("NEW");
+  const newGames = await getGames("NEW", 20);
   const featuredGames = await getGames("FEATURED");
   const categories = await getCategories();
 

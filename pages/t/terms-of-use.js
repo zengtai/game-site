@@ -5,8 +5,10 @@ export default function Terms({ categories }) {
   return (
     <>
       <Layout list={categories}>
-        <div className="p-3 xl:mx-auto xl:w-[1120px]">
-          <div className="text-xl font-bold">{SITE_NAME} Terms of Use</div>
+        <div className="p-4 md:p-8 xl:mx-auto xl:w-[1120px]">
+          <div className="pb-3 text-2xl text-cyan-900/80 font-bold">
+            {SITE_NAME} Terms of Use
+          </div>
           <p className="my-2">
             The {SITE_NAME} website located at {SITE_URL} is a copyrighted work
             belonging to {SITE_NAME}. Certain features of the Site may be
