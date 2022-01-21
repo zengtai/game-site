@@ -3,7 +3,7 @@ export default function CategoryList({ title, categories, icon }) {
   const categoryList = categories.map((category, index) => (
     <li key={index} className="capitalize mx-1 mb-2">
       <Link href={`/category/${category}`}>
-        <a className="block text-sm py-1  md:py-2 px-2 md:px-3 bg-cyan-600/80 text-cyan-100/80 rounded-full shadow-md shadow-cyan-900/30">
+        <a className="block text-sm py-1  md:py-2 px-2 md:px-3 bg-cyan-600/80 text-cyan-100/80 shadow-cyan-900/30 rounded-full shadow-md">
           {category}
         </a>
       </Link>
