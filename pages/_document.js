@@ -10,12 +10,12 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script
+          {/* <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9209477879340784`}
             // src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
             crossOrigin="anonymous"
-          />
+          /> */}
         </Head>
         <body>
           <Main />

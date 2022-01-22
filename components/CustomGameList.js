@@ -6,13 +6,18 @@ export default function CustomGameList({ games }) {
   const gamesList = games.map((game) => (
     <li key={game.id}>
       <Link href={`/game/${toSlug(game.name)}`}>
-        <a className="block hover:scale-125 transition duration-200 ease-out rounded-lg md:rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-cyan-600/30 hover:shadow-cyan-600/40 bg-loading bg-center bg-no-repeat">
+        <a className="group relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40 bg-loading bg-center bg-no-repeat">
           <img
             src={game.icon}
             alt={toTitle(game.name)}
-            className="w-fit bg-loading bg-center bg-no-repeat"
+            className="w-full bg-black/10"
             loading="lazy"
           />
+          <div className="absolute flex justify-center items-end w-full h-full font-semibold md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
+            <div className="p-2 h-auto w-full text-ellipsis text-center">
+              {game.title}
+            </div>
+          </div>
         </a>
       </Link>
     </li>

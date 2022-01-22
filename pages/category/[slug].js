@@ -22,7 +22,7 @@ export default function GamesListByCategory({ games, categories }) {
           </title>
         </Head>
         <div className="grow p-4 md:p-8">
-          <h1 className="px-2 pb-2 md:pb-3 text-center text-2xl font-semibold text-cyan-900/80 capitalize">
+          <h1 className="px-2 pb-2 md:pb-3 text-center text-xl md:text-3xl font-semibold text-sky-100/90 capitalize">
             {categoryName} Games
           </h1>
           <GameList cols="4" games={games} />

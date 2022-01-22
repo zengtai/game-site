@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { getCategories, getGames, toSlug } from "../../lib/api";
 import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
+import Link from "next/link";
 
 export default function Games({
   game,
@@ -11,7 +12,7 @@ export default function Games({
   rightGames,
   bottomGamesX44,
 }) {
-  // console.log(games);
+  // console.log(game);
   const router = useRouter();
   const { slug } = router.query;
 
@@ -21,9 +22,60 @@ export default function Games({
         <div className="grow p-4 md:p-8 relative z-30">
           <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
+              <div className="pb-3 flex flex-row">
+                <Link href={`/`}>Home</Link>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <Link href={`/category/${game.category.toLowerCase()}`}>
+                  Action
+                </Link>
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                {game.title}
+              </div>
               <GameDetail game={game} />
             </div>
-            <h3 className="text-lg text-cyan-900/80 font-semibold px-2 xl:sr-only">
+            <h3 className="flex flex-row text-lg text-sky-100/80 font-semibold px-2 xl:sr-only">
+              <span className="mr-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                  />
+                </svg>
+              </span>
               You may also like
             </h3>
             <div className="xl:col-start-1 xl:row-start-1 xl:col-span-2 xl:row-span-5 ">
@@ -60,8 +112,8 @@ export async function getStaticProps(context) {
   );
   // console.log(currentGameIndex);
   games.splice(currentGameIndex, 1);
-  games.sort(function () {
-    return 0.5 - Math.random();
+  games.sort(function (a, b) {
+    return Date.parse(a) > Date.parse(b) ? 1 : -1;
   });
   return {
     props: {

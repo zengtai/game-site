@@ -18,11 +18,11 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
         <div className="grow p-4 md:px-8 md:py-4 relative z-30">
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
-            {hotIcon()}
+          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
+            <span className="text-orange-500">{hotIcon()}</span>
             <span>Popular This Week</span>
           </h2>
-          <GameList games={featuredGames} cols="2" />
+          <GameList games={featuredGames} cols="3" />
           <GameList
             icon={topIcon()}
             games={newGames}
@@ -48,8 +48,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
 export const getStaticProps = async () => {
   // const games = await getGames();
-  const games = await getGames();
-  const newGames = await getGames("NEW", 20);
+  const games = await getGames("SELECTED");
+  const newGames = await getGames("LATEST", 20);
   const featuredGames = await getGames("FEATURED");
   const categories = await getCategories();
 

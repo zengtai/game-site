@@ -6,7 +6,7 @@ export default function Terms({ categories }) {
     <>
       <Layout list={categories}>
         <div className="p-4 md:p-8 xl:mx-auto xl:w-[1120px]">
-          <div className="pb-3 text-2xl text-cyan-900/80 font-bold">
+          <div className="pb-3 text-2xl text-white/80 font-bold">
             {SITE_NAME} Terms of Use
           </div>
           <p className="my-2">

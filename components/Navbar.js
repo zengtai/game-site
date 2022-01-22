@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { closeIcon, menuIcon } from "./Icons";
+import { getIcon } from "../lib/api";
 
 export default function Navbar({ children }) {
   const router = useRouter();
@@ -11,22 +12,26 @@ export default function Navbar({ children }) {
     setOpen(!isOpen);
   }
   // console.log(children);
+  // console.log(getIcon(`action`));
   const categoryNav = children.map((e) => {
     return (
       <li
         className={`${
           e == current.slug
-            ? `border-slate-50/80 md:shadow-lg bg-slate-50/20 md:bg-slate-50/10`
-            : `md:border-slate-50/0 md:shadow-none border-slate-50/20 bg-slate-50/10`
-        } m-1 transition ease-in-out duration-500 md:bg-slate-50/0 hover:bg-slate-50/10 border-2 rounded-xl`}
+            ? `border-sky-50/60 md:border-transparent bg-sky-500/80 md:bg-sky-500/0 md:shadow-none md:bg-none lg:scale-125`
+            : `md:border-sky-50/0 md:shadow-none border-sky-50/0`
+        } basis-1/2 sm:basis-1/6 md:basis-1/12 my-1 lg:mx-4 transition ease-in-out duration-500 md:hover:bg-none border-2 rounded-xl`}
         key={e}
       >
         <Link href={`/category/${e}`}>
           <a
             className={`${
-              e == current.slug ? `opacity-80 ` : `opacity-60`
-            } p-2 block text-white`}
+              e == current.slug
+                ? `text-white`
+                : `text-white/70 md:hover:scale-125`
+            } p-2 pr-3 flex flex-row items-center hover:text-white/90 transition duration-200 delay-50 drop-shadow`}
           >
+            <span className="mr-1">{getIcon(e)}</span>
             {e}
           </a>
         </Link>
@@ -37,7 +42,7 @@ export default function Navbar({ children }) {
     <nav>
       <div className="block relative z-10">
         <Link href={`/`}>
-          <a className="absolute transition ease-in-out duration-400 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-cyan-600 w-20 h-20 -left-4 -top-5 z-20 bg-cyan-600/5 md:bg-white/80 shadow-[lg] shadow-stone-900">
+          <a className="absolute hover:scale-125 transition ease-in-out duration-400 delay-75 lg:top-8 lg:left-6 flex justify-center items-center text-lime-500 rounded-full w-10 h-10 left-0 top-0 z-20 lg:bg-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -50,15 +55,15 @@ export default function Navbar({ children }) {
         </Link>
         <button
           onClick={toggle}
-          className="ml-auto flex justify-center items-center w-10 h-10 md:hidden text-cyan-600"
+          className="ml-auto flex justify-center items-center w-10 h-10 lg:hidden text-lime-500"
         >
           {isOpen ? closeIcon() : menuIcon()}
         </button>
         <div
           className={`
-            ${isOpen ? `hidden md:block` : `block`} relative p-3 z-30 md:z-10`}
+            ${isOpen ? `hidden lg:block` : `block`} relative p-3 z-30 md:z-10`}
         >
-          <ul className="flex md:pl-20 md:ml-3 flex-wrap p-2 md:mt-2 capitalize bg-cyan-600 rounded-3xl shadow-lg shadow-cyan-500/20">
+          <ul className="flex flex-wrap lg:flex-nowrap lg:justify-center py-2 px-2 md:mt-2 capitalize bg-gradient-to-br from-cyan-600 to-blue-500 rounded-3xl lg:rounded-full shadow-lg shadow-black/20">
             {categoryNav}
           </ul>
         </div>
