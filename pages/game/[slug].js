@@ -60,7 +60,7 @@ export default function Games({
               <GameDetail game={game} />
             </div>
             <h3 className="flex flex-row text-lg text-sky-100/80 font-semibold px-2 xl:sr-only">
-              <span className="mr-1">
+              <span className="mr-1 text-yellow-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"

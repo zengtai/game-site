@@ -13,7 +13,7 @@ export default function GameDetail({ game }) {
         </title>
       </Head>
       <div className="flex flex-col md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-sky-700">
-        <div className="w-[150px] h-[150px] shrink-0">
+        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0">
           <img
             src={game.icon}
             alt={toTitle(game.name)}
@@ -21,7 +21,7 @@ export default function GameDetail({ game }) {
           />
         </div>
         <div className="text-center md:text-left md:px-5">
-          <h1 className="py-2 text-3xl font-semibold">
+          <h1 className="py-2 text-xl md:text-3xl font-semibold">
             <span>{toTitle(game.name)}</span>
           </h1>
           <p className="capitalize">
@@ -52,7 +52,7 @@ export default function GameDetail({ game }) {
           </p>
         </div>
       </div>
-      <p className="py-4 md:pt-6">
+      <p className="py-4 md:pt-2">
         <Link href={game.url}>
           <a
             className="block md:hover:scale-110 md:hover:shadow-2xl md:hover:delay-100 md:hover:shadow-black/40 transition-transform ease-in-out duration-300 md:w-96 mx-auto bg-lime-500 text-center p-3 lg:p-4 text-lg lg:text-2xl font-semibold text-white rounded-full shadow-xl shadow-black/20"
