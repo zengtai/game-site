@@ -1,7 +1,16 @@
 import Link from "next/link";
 // import Image from "next/image";
 import { toSlug, toTitle } from "../lib/api";
-export default function GameList({ title, games, icon, cols, className }) {
+export default function GameList({
+  title,
+  games,
+  icon,
+  cols,
+  className,
+  begin,
+  end,
+}) {
+  games = games.slice(begin - 1, end ? end : games.length);
   const setCol = () => (cols ? true : false);
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
@@ -22,7 +31,7 @@ export default function GameList({ title, games, icon, cols, className }) {
       return (
         <>
           <ul
-            className={`grid ${setCol() ? `grid-cols-${cols}` : `grid-cols-4`}
+            className={`grid ${setCol() ? `grid-cols-${cols}` : `grid-cols-3`}
                  sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
             // className={
             //   setCol()

@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { getGamesByCategory, getCategories } from "../../lib/api";
 import Head from "next/head";
 import { SITE_NAME } from "../../lib/constants";
+import Adsense from "../../components/Adsense";
 
 export default function GamesListByCategory({ games, categories }) {
   // console.log(games);
@@ -27,6 +28,7 @@ export default function GamesListByCategory({ games, categories }) {
           </h1>
           <GameList cols="4" games={games} />
         </div>
+        <Adsense slot="7572322975" />
       </Layout>
     </>
   );

@@ -5,6 +5,7 @@ import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
+import Adsense from "../components/Adsense";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
   // console.log(gamesSortedByTime);
@@ -22,19 +23,33 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             {hotIcon()}
             <span>Popular This Week</span>
           </h2>
-          <GameList games={featuredGames} cols="2" />
+          <GameList games={featuredGames} cols="3" />
+
           <GameList
             icon={topIcon()}
             games={newGames}
             title="New Games"
-            cols="5"
+            cols="4"
           />
-          <GameList
+          <Adsense slot="8902411049" height={`150px`} />
+          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
+            {gameIcon()}
+            <span>All Games</span>
+          </h2>
+          <GameList games={games} cols="4" begin="1" end="24" />
+          {/* <GameList
             icon={gameIcon()}
             games={games}
             title="All Games"
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
-          />
+          /> */}
+          <Adsense slot="8902411049" />
+          <GameList games={games} cols="4" begin="25" end="48" />
+          <Adsense slot="8902411049" />
+          <GameList games={games} cols="4" begin="49" end="72" />
+          <Adsense slot="8902411049" />
+          <GameList games={games} cols="4" begin="73" />
+          <Adsense slot="8902411049" />
           <CategoryList
             icon={categoryIcon()}
             title="Categories"
@@ -49,7 +64,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 export const getStaticProps = async () => {
   // const games = await getGames();
   const games = await getGames();
-  const newGames = await getGames("NEW", 20);
+  const newGames = await getGames("NEW", 12);
   const featuredGames = await getGames("FEATURED");
   const categories = await getCategories();
 

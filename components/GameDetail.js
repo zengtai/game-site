@@ -3,6 +3,7 @@ import Link from "next/link";
 import { toTitle } from "../lib/api";
 import Head from "next/head";
 import { SITE_NAME } from "../lib/constants";
+import Adsense from "./Adsense";
 
 export default function GameDetail({ game }) {
   return (
@@ -12,12 +13,12 @@ export default function GameDetail({ game }) {
           {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
         </title>
       </Head>
-      <div className="flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
-        <div className="w-[150px] h-[150px] mx-auto shrink-0">
+      <div className="relative flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
+        <div className="block text-center shrink-0">
           <img
             src={game.icon}
             alt={toTitle(game.name)}
-            className="rounded-xl bg-loading bg-center bg-no-repeat"
+            className="mx-auto w-20 h-20 md:w-[150px] md:h-[150px] rounded-xl bg-loading bg-center bg-no-repeat"
           />
         </div>
         <div className="text-center md:text-left md:px-5">
@@ -46,6 +47,8 @@ export default function GameDetail({ game }) {
           </a>
         </Link>
       </p>
+
+      {/* <Adsense slot="7173362568" /> */}
     </>
   );
 }

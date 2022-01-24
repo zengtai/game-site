@@ -19,7 +19,7 @@ export default function Games({
     <>
       <Layout list={categories}>
         <div className="grow p-4 md:p-8 relative z-30">
-          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
+          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6 items-end">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
               <GameDetail game={game} />
             </div>
