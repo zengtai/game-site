@@ -5,6 +5,7 @@ import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
+import Adsense from "../components/Adsense";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
   // console.log(gamesSortedByTime);
@@ -29,6 +30,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             title="New Games"
             cols="5"
           />
+          <Adsense slot="8902411049" />
           <GameList
             icon={gameIcon()}
             games={games}
