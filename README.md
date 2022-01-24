@@ -1,1 +1,6 @@
-小游戏站通用模板
+### demo.uptapgame.com
+
+- [ ] Adsense code
+- [x] ads.txt
+- [ ] GA code
+- [ ] ads code in position
