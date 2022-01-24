@@ -9,7 +9,7 @@ export default function GameList({ title, games, icon, cols, className }) {
       <Link href={`/game/${toSlug(game.name)}`}>
         <a className="group relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40 bg-loading bg-center bg-no-repeat">
           <img src={game.icon} alt={toTitle(game.name)} className="w-full" />
-          <div className="absolute flex justify-center items-end w-full h-full font-semibold md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
+          <div className="absolute hidden sm:flex justify-center items-end w-full h-full font-semibold -bottom-[150%] md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
             <div className="p-2 h-auto w-full text-ellipsis text-center">
               <h3 className="leading-4">{game.title}</h3>
               <p className="flex flex-row justify-center items-center text-xl font-bold text-orange-500">
