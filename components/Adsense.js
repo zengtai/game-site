@@ -18,8 +18,8 @@ export default function Adsense({ slot }) {
 
   return (
     <ins
-      className="adsbygoogle"
-      style={{ display: "block" }}
+      className="flex justify-center bg-loading bg-no-repeat bg-center"
+      // style={{ display: "block" }}
       data-ad-client={ADS_ID}
       data-ad-slot={slot}
       data-ad-format="auto"
