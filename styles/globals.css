@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
