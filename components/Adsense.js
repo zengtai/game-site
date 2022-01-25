@@ -24,8 +24,7 @@ export default function Adsense({ slot, height }) {
       <ins
         className={`adsbygoogle bg-loading bg-no-repeat bg-center`}
         style={{
-          // height: `${height}`,
-          height: `6rem`,
+          height: `${height}`,
           width: `100%`,
         }}
         data-ad-client={ADS_ID}
