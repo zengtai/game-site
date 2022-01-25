@@ -14,22 +14,32 @@ export default function GameDetail({ game }) {
           {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
         </title>
       </Head>
-      <div className="relative flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
-        <div className="block text-center shrink-0">
+      <div className="relative flex flex-col md:flex-row items-center md:items-start bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
+        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0">
           <Image
             src={game.icon}
             alt={toTitle(game.name)}
-            width={200}
-            height={200}
+            className="rounded-xl bg-loading bg-center bg-no-repeat bg-black/10"
             layout="responsive"
-            className="mx-auto w-20 h-20 md:w-[150px] md:h-[150px] rounded-xl bg-loading bg-center bg-no-repeat"
+            width={100}
+            height={100}
           />
-          {/* <img
+        </div>
+        {/* <div className="block text-center shrink-0">
+          <Image
+            src={game.icon}
+            alt={toTitle(game.name)}
+            width={120}
+            height={120}
+            layout="fixed"
+            className="mx-auto md:w-[200px] md:h-[200px] rounded-xl bg-loading bg-center bg-no-repeat"
+          />
+          <img
             src={game.icon}
             alt={toTitle(game.name)}
             className="mx-auto w-20 h-20 md:w-[150px] md:h-[150px] rounded-xl bg-loading bg-center bg-no-repeat"
-          /> */}
-        </div>
+          />
+        </div> */}
         <div className="text-center md:text-left md:px-5">
           <h1 className="py-2 text-2xl font-semibold text-cyan-700">
             <span>{toTitle(game.name)}</span>
