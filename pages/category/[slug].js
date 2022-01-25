@@ -27,20 +27,9 @@ export default function GamesListByCategory({ games, categories }) {
           <h1 className="px-2 pb-2 md:pb-3 text-center text-2xl font-semibold text-cyan-900/80 capitalize">
             {categoryName} Games
           </h1>
-          <div
-            aria-hidden={true}
-            className="mx-auto h-[100px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-          >
-            <Adsense slot="8902411049" />
-          </div>
           <GameList cols="4" games={games} />
         </div>
-        <div
-          aria-hidden={true}
-          className="mx-auto h-[100px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-        >
-          <Adsense slot="8902411049" />
-        </div>
+        <Adsense slot="7572322975" />
       </Layout>
     </>
   );
