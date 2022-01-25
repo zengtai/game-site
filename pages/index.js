@@ -18,9 +18,6 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <div className="mx-auto w-full">
-          <Adsense slot="8902411049" />
-        </div>
         <Adsense slot="8902411049" />
         <div className="grow relative z-30 p-4 md:px-8 md:py-4">
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
@@ -28,9 +25,6 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span>Popular This Week</span>
           </h2>
           <GameList games={featuredGames} cols="3" />
-          <div className="mx-auto w-[320px] sm:w-[600px] md:w-[728px] lg:w-[970px] h-[90px]">
-            <Adsense slot="8902411049" />
-          </div>
           <Adsense slot="8902411049" />
           <GameList
             icon={topIcon()}
@@ -38,9 +32,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             title="New Games"
             cols="4"
           />
-          <div className="w-[320px] sm:w-[600px] md:w-[728px] lg:w-[970px]">
-            <Adsense slot="8902411049" />
-          </div>
+
+          <Adsense slot="8902411049" />
 
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {gameIcon()}
