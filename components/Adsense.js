@@ -26,6 +26,8 @@ export default function Adsense({ slot, height }) {
         style={{
           height: `${height}`,
           width: `100%`,
+          display: `flex`,
+          justifyContent: `center`,
         }}
         data-ad-client={ADS_ID}
         data-ad-slot={slot}
