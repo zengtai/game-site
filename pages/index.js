@@ -18,66 +18,67 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <div className="grow p-4 md:px-8 md:py-4 relative z-30">
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
-            {hotIcon()}
-            <span>Popular This Week</span>
-          </h2>
-          <GameList games={featuredGames} cols="3" />
+        <div className="grow relative z-30">
+          <div className="p-4 md:px-8 md:py-4">
+            <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
+              {hotIcon()}
+              <span>Popular This Week</span>
+            </h2>
+            <GameList games={featuredGames} cols="3" />
+          </div>
+          {/* ad-01 */}
           <div
             aria-hidden={true}
-            className="mx-auto h-[100px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
+            className="mx-auto h-[100px] w-fit md:h-[90px] md:w-[970px] sm:w-[728px]"
           >
             <Adsense slot="8902411049" />
           </div>
-          <GameList
-            icon={topIcon()}
-            games={newGames}
-            title="New Games"
-            cols="4"
-          />
-          <div
-            aria-hidden={true}
-            className="mx-auto h-[100px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-          >
+          {/* ad-01 */}
+          <div className="p-4 md:px-8 md:py-4">
+            <GameList
+              icon={topIcon()}
+              games={newGames}
+              title="New Games"
+              cols="4"
+            />
+          </div>
+          {/* ad-02 */}
+          <div aria-hidden={true} className="mx-auto">
             <Adsense slot="8902411049" />
           </div>
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
-            {gameIcon()}
-            <span>All Games</span>
-          </h2>
-          <GameList games={games} cols="4" begin="1" end="24" />
+          {/* ad-02 */}
+          <div className="p-4 md:px-8 md:py-4">
+            <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
+              {gameIcon()}
+              <span>All Games</span>
+            </h2>
+            <GameList games={games} cols="4" begin="1" end="24" />
+          </div>
           {/* <GameList
             icon={gameIcon()}
             games={games}
             title="All Games"
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           /> */}
-          <div
-            aria-hidden={true}
-            className="mx-auto h-[100px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-          >
+          <div aria-hidden={true} className="mx-auto">
             <Adsense slot="8902411049" />
           </div>
-          <GameList games={games} cols="4" begin="25" end="48" />
-          <div
-            aria-hidden={true}
-            className="mx-auto h-[100px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-          >
+          <div className="p-4 md:px-8 md:py-4">
+            <GameList games={games} cols="4" begin="25" end="48" />
+          </div>
+          <div aria-hidden={true} className="mx-auto">
             <Adsense slot="8902411049" />
           </div>
-          <GameList games={games} cols="4" begin="49" end="72" />
-          <div
-            aria-hidden={true}
-            className="mx-auto h-[250px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-          >
+          <div className="p-4 md:px-8 md:py-4">
+            <GameList games={games} cols="4" begin="49" end="72" />
+          </div>
+          <div aria-hidden={true} className="mx-auto">
             <Adsense slot="8902411049" />
           </div>
-          <GameList games={games} cols="4" begin="73" />
-          <div
-            aria-hidden={true}
-            className="mx-auto h-[250px] w-[300px] md:h-[90px] md:w-[970px] sm:w-[728px]"
-          >
+          <div className="p-4 md:px-8 md:py-4">
+            <GameList games={games} cols="4" begin="73" />
+          </div>
+          <div aria-hidden={true} className="mx-auto">
             <Adsense slot="8902411049" />
           </div>
           <CategoryList
