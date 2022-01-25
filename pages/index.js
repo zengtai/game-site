@@ -25,26 +25,24 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span>Popular This Week</span>
           </h2>
           <GameList games={featuredGames} cols="3" />
+          <div className="mx-auto w-[320px] sm:w-[600px] md:w-[728px] lg:w-[970px] h-[90px]">
+            <Adsense slot="8902411049" />
+          </div>
           <GameList
             icon={topIcon()}
             games={newGames}
             title="New Games"
             cols="4"
           />
-          <Adsense slot="8902411049" />
+          <div className="w-[320px] sm:w-[600px] md:w-[728px] lg:w-[970px]">
+            <Adsense slot="8902411049" />
+          </div>
 
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {gameIcon()}
             <span>All Games</span>
           </h2>
           <GameList games={games} cols="4" begin="1" end="24" />
-
-          {/* <GameList
-            icon={gameIcon()}
-            games={games}
-            title="All Games"
-            className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
-          /> */}
 
           <Adsense slot="8902411049" />
 
@@ -56,7 +54,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
           <Adsense slot="8902411049" />
 
-          <GameList games={games} cols="4" begin="73" />
+          <GameList
+            games={games}
+            cols="4"
+            begin="73"
+            className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
+          />
 
           <Adsense slot="8902411049" />
 
