@@ -4,6 +4,7 @@ import { toTitle } from "../lib/api";
 import Head from "next/head";
 import { SITE_NAME } from "../lib/constants";
 import Adsense from "./Adsense";
+import Image from "next/image";
 
 export default function GameDetail({ game }) {
   return (
@@ -15,11 +16,19 @@ export default function GameDetail({ game }) {
       </Head>
       <div className="relative flex flex-col md:flex-row bg-white rounded-[2rem] p-5 shadow-lg shadow-cyan-600/10">
         <div className="block text-center shrink-0">
-          <img
+          <Image
+            src={game.icon}
+            alt={toTitle(game.name)}
+            width={200}
+            height={200}
+            layout="responsive"
+            className="mx-auto w-20 h-20 md:w-[150px] md:h-[150px] rounded-xl bg-loading bg-center bg-no-repeat"
+          />
+          {/* <img
             src={game.icon}
             alt={toTitle(game.name)}
             className="mx-auto w-20 h-20 md:w-[150px] md:h-[150px] rounded-xl bg-loading bg-center bg-no-repeat"
-          />
+          /> */}
         </div>
         <div className="text-center md:text-left md:px-5">
           <h1 className="py-2 text-2xl font-semibold text-cyan-700">

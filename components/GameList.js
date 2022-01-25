@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-// import Image from "next/image";
 import { toSlug, toTitle } from "../lib/api";
 export default function GameList({
   title,
@@ -16,12 +16,20 @@ export default function GameList({
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
         <a className="block md:hover:origin-bottom md:hover:-rotate-6 md:hover:scale-125 transition duration-200 ease-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-cyan-600/30 hover:shadow-cyan-600/40 aspect-square">
-          <img
+          <Image
+            src={game.icon}
+            alt={toTitle(game.name)}
+            width={200}
+            height={200}
+            layout="responsive"
+            className="w-full bg-loading bg-center bg-no-repeat"
+          />
+          {/* <img
             src={game.icon}
             alt={toTitle(game.name)}
             className="w-full bg-loading bg-center bg-no-repeat"
             loading="lazy"
-          />
+          /> */}
         </a>
       </Link>
     </li>
