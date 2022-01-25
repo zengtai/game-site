@@ -1,14 +1,19 @@
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "./Image";
 import { toSlug, toTitle } from "../lib/api";
-import { starIcon } from "./Icons";
 export default function GameList({ title, games, icon, cols, className }) {
   const setCol = () => (cols !== undefined ? true : false);
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
-        <a className="group relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40 bg-loading bg-center bg-no-repeat">
-          <img src={game.icon} alt={toTitle(game.name)} className="w-full" />
+        <a className="group relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
+          <Image
+            src={game.icon}
+            alt={toTitle(game.name)}
+            width={200}
+            height={200}
+            className="w-full bg-loading bg-center bg-no-repeat"
+          />
           <div className="absolute hidden sm:flex justify-center items-end w-full h-full font-semibold -bottom-[150%] md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
             <div className="p-2 h-auto w-full text-ellipsis text-center">
               <h3 className="leading-4">{game.title}</h3>
@@ -34,13 +39,9 @@ export default function GameList({ title, games, icon, cols, className }) {
       return (
         <>
           <ul
-            className={`grid ${setCol() ? `grid-cols-${cols}` : `grid-cols-3`}
-                 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
-            // className={
-            //   setCol()
-            //     ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
-            //     : `grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
-            // }
+            className={`grid ${
+              setCol() ? `grid-cols-${cols}` : `grid-cols-3`
+            } sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
           >
             {gamesList}
           </ul>
@@ -54,8 +55,9 @@ export default function GameList({ title, games, icon, cols, className }) {
             <span>{title}</span>
           </h2>
           <ul
-            className={`grid ${setCol() ? `grid-cols-${cols}` : `grid-cols-4`}
-                 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
+            className={`grid ${
+              setCol() ? `grid-cols-${cols}` : `grid-cols-4`
+            } sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
 
             // className={
             //   setCol()

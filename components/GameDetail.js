@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "./Image";
 import Link from "next/link";
 import { toTitle } from "../lib/api";
 import Head from "next/head";
@@ -13,11 +13,13 @@ export default function GameDetail({ game }) {
         </title>
       </Head>
       <div className="flex flex-col md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-sky-700">
-        <div className="w-32 h-32 md:w-40 md:h-40 shrink-0">
-          <img
+        <div className="md:w-40 md:h-40 shrink-0">
+          <Image
             src={game.icon}
             alt={toTitle(game.name)}
-            className="rounded-xl bg-loading bg-center bg-no-repeat bg-black/10"
+            width={200}
+            height={200}
+            className="w-full rounded-xl bg-loading bg-center bg-no-repeat bg-black/10"
           />
         </div>
         <div className="text-center md:text-left md:px-5">
