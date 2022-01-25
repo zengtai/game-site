@@ -25,7 +25,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span>Popular This Week</span>
           </h2>
           <GameList games={featuredGames} cols="3" />
-          <Adsense slot="8902411049" />
+
           <GameList
             icon={topIcon()}
             games={newGames}
