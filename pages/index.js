@@ -18,14 +18,17 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <Adsense slot="8902411049" h="100" w="320" f="rectangle" />
         <div className="grow relative z-30 p-4 md:px-8 md:py-4">
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {hotIcon()}
             <span>Popular This Week</span>
           </h2>
           <GameList games={featuredGames} cols="3" />
-          <Adsense slot="8902411049" h="100" w="320" f="rectangle" />
+
+          <Adsense slot="8902411049" h="100px" w="320px" f="rectangle" />
+          <div className="w-[320px] h-[100px] mx-auto">
+            <Adsense slot="8902411049" h="100px" w="320px" f="rectangle" />
+          </div>
           <GameList
             icon={topIcon()}
             games={newGames}

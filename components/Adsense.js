@@ -5,7 +5,7 @@ export default function Adsense({ slot, f = "auto", h, w }) {
   const loadAds = () => {
     try {
       if (typeof window !== "undefined") {
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
       }
     } catch (error) {
       console.log("adsense error", error.message);
