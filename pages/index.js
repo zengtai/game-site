@@ -34,7 +34,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="4"
           />
 
-          <div className="absolute w-[320px] h-[100px!important] mx-auto">
+          <div className="w-[320px] h-[100px!important] mx-auto">
             <Adsense slot="8902411049" />
           </div>
 
