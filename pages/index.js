@@ -26,7 +26,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <GameList games={featuredGames} cols="3" />
           {/* ads for first screen */}
           <div className="mx-auto w-[300px] h-[100px]">
-            <Adsense slot="6305173453" />
+            <Adsense slot="6305173453" h="100px" />
           </div>
           {/* ads for first screen */}
           <GameList
@@ -37,7 +37,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           />
 
           <div className="w-[320px] h-[100px!important] mx-auto">
-            <Adsense slot="8902411049" />
+            <Adsense slot="8902411049" h="200px" />
           </div>
 
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
