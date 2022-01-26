@@ -20,8 +20,8 @@ export default function Adsense({ slot, h = `100px`, w = `320px` }) {
     <ins
       className="adsbygoogle"
       style={{
-        display: `flex`,
-        justifyContent: `center`,
+        display: `block`,
+        margin: `0 auto`,
         height: `${h}`,
         width: `${w}`,
       }}
