@@ -42,22 +42,22 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             {gameIcon()}
             <span>All Games</span>
           </h2>
-          <GameList games={games} cols="4" begin="1" end="24" />
+          <GameList games={games} cols="4" begin="1" end="36" />
 
           <Adsense slot="8902411049" />
 
-          <GameList games={games} cols="4" begin="25" end="48" />
+          <GameList games={games} cols="4" begin="37" end="72" />
 
           <Adsense slot="8902411049" />
 
-          <GameList games={games} cols="4" begin="49" end="72" />
+          <GameList games={games} cols="4" begin="73" end="108" />
 
           <Adsense slot="8902411049" />
 
           <GameList
             games={games}
             cols="4"
-            begin="73"
+            begin="109"
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
 
