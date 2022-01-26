@@ -6,6 +6,7 @@ import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
 import Adsense from "../components/Adsense";
+import AdsenseFixed from "../components/AdsenseFixed";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
   // console.log(gamesSortedByTime);
@@ -54,7 +55,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
           <GameList games={games} cols="4" begin="73" end="108" />
 
-          <Adsense slot="8902411049" />
+          <AdsenseFixed slot="8902411049" />
 
           <GameList
             games={games}
@@ -63,7 +64,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
 
-          <Adsense slot="8902411049" />
+          <AdsenseFixed slot="8902411049" />
 
           <CategoryList
             icon={categoryIcon()}
