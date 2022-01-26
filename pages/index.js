@@ -25,7 +25,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           {/* ads for first screen */}
-          <Adsense slot="6305173453" />
+          <div className="mx-auto w-[300px] h-[100px]">
+            <Adsense slot="6305173453" />
+          </div>
           {/* ads for first screen */}
           <GameList
             icon={topIcon()}
