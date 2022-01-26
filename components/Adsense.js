@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ADS_ID } from "../lib/constants";
 
-export default function Adsense({ slot }) {
+export default function Adsense({ slot, f = auto, h, w }) {
   const loadAds = () => {
     try {
       if (typeof window !== "undefined") {
@@ -22,12 +22,12 @@ export default function Adsense({ slot }) {
       style={{
         display: `flex`,
         justifyContent: `center`,
-        height: `100px`,
-        width: `100%`,
+        height: `${h}`,
+        width: `${w}`,
       }}
       data-ad-client={ADS_ID}
       data-ad-slot={slot}
-      data-ad-format="auto"
+      data-ad-format={f}
       data-full-width-responsive="true"
     ></ins>
   );

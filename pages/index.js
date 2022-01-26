@@ -26,9 +26,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           <div className="mx-auto w-[300px] h-[250px]">
-            <Adsense slot="8902411049" />
+            <Adsense slot="8902411049" f="rectangle" />
           </div>
-          <Adsense slot="8902411049" />
+          <Adsense slot="8902411049" h="300" w="250" f="rectangle" />
           <GameList
             icon={topIcon()}
             games={newGames}
