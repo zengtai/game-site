@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Script from "next/script";
+import { GA_ID } from "../lib/constants";
+import * as gtag from "../lib/gtag";
 import NProgress from "nprogress";
 import "../styles/globals.css";
 import "../public/nprogress.css";
@@ -11,7 +14,8 @@ function MyApp({ Component, pageProps }) {
       console.log(`Loading: ${url}`);
       NProgress.start();
     };
-    const handleStop = () => {
+    const handleStop = (url) => {
+      gtag.pageview(url);
       NProgress.done();
     };
 
@@ -24,9 +28,31 @@ function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleStop);
       router.events.off("routeChangeError", handleStop);
     };
-  }, [router]);
+  }, [router.events]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+      <Component {...pageProps} />;
+    </>
+  );
 }
 
 export default MyApp;
