@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ADS_ID } from "../lib/constants";
 
-export default function Adsense({ slot, h = `100px`, w = `300px` }) {
+export default function Adsense({ slot, h = `100%`, w = `100%` }) {
   const loadAds = () => {
     try {
       if (typeof window !== "undefined") {
