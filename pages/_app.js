@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-// import Script from "next/script";
+import Script from "next/script";
 import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import "../styles/globals.css";
 import "../public/nprogress.css";
-// import * as gtag from "../lib/gtag";
+import * as gtag from "../lib/gtag";
+import { GA_ID } from "../lib/constants";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -13,8 +14,8 @@ function MyApp({ Component, pageProps }) {
       console.log(`Loading: ${url}`);
       NProgress.start();
     };
-    const handleStop = () => {
-      // gtag.pageview(url);
+    const handleStop = (url) => {
+      gtag.pageview(url);
       NProgress.done();
     };
     // const handleRouteChange = (url) => {
@@ -30,14 +31,14 @@ function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", handleStop);
       router.events.off("routeChangeError", handleStop);
     };
-  }, [router]);
+  }, [router.events]);
 
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
-      {/* <Script
+      <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
       />
       <Script
         id="gtag-init"
@@ -47,12 +48,12 @@ function MyApp({ Component, pageProps }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtag.GA_TRACKING_ID}', {
+            gtag('config', '${GA_ID}', {
               page_path: window.location.pathname,
             });
           `,
         }}
-      /> */}
+      />
       <Component {...pageProps} />
     </>
   );
