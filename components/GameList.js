@@ -6,7 +6,10 @@ export default function GameList({ title, games, icon, cols, className }) {
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
-        <a className="block xl:hover:scale-125 transition ease-in-out duration-500 rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat">
+        <a
+          title={toTitle(game.name)}
+          className="block xl:hover:scale-125 transition ease-in-out duration-500 rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat"
+        >
           <Image
             src={game.icon}
             alt={toTitle(game.name)}
@@ -17,6 +20,9 @@ export default function GameList({ title, games, icon, cols, className }) {
           />
         </a>
       </Link>
+      <h3 className="my-1 text-xs text-center leading-tight">
+        {toTitle(game.name)}
+      </h3>
     </li>
   ));
   if (games.length != 0) {
