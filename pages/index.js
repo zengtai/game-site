@@ -37,9 +37,11 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="4"
           />
 
-          <div className="w-[320px] h-[200px] mx-auto">
+          {/* <div className="w-[320px] h-[200px] mx-auto">
             <Adsense slot="8902411049" h="200px" />
-          </div>
+          </div> */}
+
+          <Adsense slot="8902411049" />
 
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {gameIcon()}
