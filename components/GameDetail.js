@@ -13,7 +13,7 @@ export default function GameDetail({ game }) {
         </title>
       </Head>
       <div className="flex flex-col md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-sky-700">
-        <div className="md:w-40 md:h-40 shrink-0">
+        <div className="aspect-square w-24 h-24 md:w-40 md:h-40 shrink-0">
           <Image
             src={game.icon}
             alt={toTitle(game.name)}

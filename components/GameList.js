@@ -6,7 +6,7 @@ export default function GameList({ title, games, icon, cols, className }) {
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
-        <a className="group relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
+        <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
           <Image
             src={game.icon}
             alt={toTitle(game.name)}

@@ -18,12 +18,12 @@ export default function Adsense({ slot }) {
 
   return (
     <ins
-      className="adsbygoogle my-3 bg-loading bg-no-repeat bg-center bg-black/10"
-      style={{ display: "flex", justifyContent: "center" }}
+      className="adsbygoogle bg-loading bg-no-repeat bg-center bg-black/10"
+      style={{ display: "block", height: "100%", width: "100%" }}
       data-ad-client={ADS_ID}
       data-ad-slot={slot}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
+      // data-ad-format="auto"
+      // data-full-width-responsive="true"
     ></ins>
   );
 }
