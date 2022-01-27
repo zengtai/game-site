@@ -26,7 +26,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           {/* ads 01 */}
-          <div className="mx-auto w-[300px] h-[100px]">
+          <div className="mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px]">
             <Adsense slot="6305173453" />
           </div>
           {/* ads 01 */}
@@ -51,7 +51,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={games} cols="4" begin="1" end="36" />
           {/* ads 03 */}
-          <div className="h-[100px] w-[300px] mx-auto">
+          <div className="h-[100px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
             <AdsenseFixed slot="8902411049" />
           </div>
           {/* ads 03 */}
