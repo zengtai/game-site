@@ -22,8 +22,8 @@ export default function AdsenseFixed({ slot }) {
       style={{
         display: `block`,
         margin: `0 auto`,
-        height: `300px`,
-        width: `200px`,
+        height: `200px`,
+        width: `300px`,
       }}
       data-ad-client={ADS_ID}
       data-ad-slot={slot}
