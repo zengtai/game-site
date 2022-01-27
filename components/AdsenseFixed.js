@@ -27,7 +27,7 @@ export default function AdsenseFixed({ slot }) {
       }}
       data-ad-client={ADS_ID}
       data-ad-slot={slot}
-      data-ad-format="auto"
+      // data-ad-format="auto"
       data-full-width-responsive="false"
     ></ins>
   );

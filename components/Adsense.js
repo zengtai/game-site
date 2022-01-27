@@ -27,7 +27,6 @@ export default function Adsense({ slot, h = `100px`, w = `300px` }) {
       }}
       data-ad-client={ADS_ID}
       data-ad-slot={slot}
-      data-auto-ad-size="false"
       data-full-width-responsive="false"
     ></ins>
   );
