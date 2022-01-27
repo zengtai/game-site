@@ -26,8 +26,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           {/* ads 01 */}
-          <div className="mx-auto w-[300px] h-[200px]">
-            <Adsense slot="6305173453" h="200px" />
+          <div className="mx-auto w-[300px] h-[100px]">
+            <Adsense slot="6305173453" h="100px" />
           </div>
           {/* ads 01 */}
           <GameList
@@ -49,11 +49,11 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={games} cols="4" begin="1" end="36" />
           {/* ads 03 */}
-          <Adsense slot="8902411049" />
+          <AdsenseFixed slot="8902411049" />
           {/* ads 03 */}
           <GameList games={games} cols="4" begin="37" end="72" />
           {/* ads 04 */}
-          <Adsense slot="8902411049" />
+          <AdsenseFixed slot="8902411049" />
           {/* ads 04 */}
           <GameList games={games} cols="4" begin="73" end="108" />
           {/* ads 05 */}

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { getCategories, getGames, toSlug } from "../../lib/api";
 import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
+import AdsenseFixed from "../../components/AdsenseFixed";
 import Adsense from "../../components/Adsense";
 
 export default function Games({
@@ -19,7 +20,7 @@ export default function Games({
   return (
     <>
       <Layout list={categories}>
-        <Adsense slot="7173362568" />
+        <AdsenseFixed slot="7173362568" />
         <div className="grow p-4 md:p-8 relative z-30">
           <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
