@@ -4,11 +4,14 @@ import { toSlug, toTitle } from "../lib/api";
 export default function GameList({ title, games, icon, cols, className }) {
   const setCol = () => (cols ? true : false);
   const gamesList = games.map((game) => (
-    <li key={game.id} className={className}>
+    <li
+      key={game.id}
+      className={`xl:hover:scale-125 transition ease-in-out duration-500 ${className}`}
+    >
       <Link href={`/game/${toSlug(game.name)}`}>
         <a
           title={toTitle(game.name)}
-          className="block xl:hover:scale-125 transition ease-in-out duration-500 rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat"
+          className="block rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat"
         >
           <Image
             src={game.icon}

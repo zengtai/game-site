@@ -19,7 +19,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <div className="grow relative z-30 md:px-4">
           <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
             {hotIcon()}
-            <span>Popular This Week</span>
+            <span>Popular Games</span>
           </h2>
           <GameList games={featuredGames} />
           <GameList
