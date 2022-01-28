@@ -5,4 +5,5 @@ module.exports = {
     disableStaticImages: true,
   },
   reactStrictMode: true,
+  // basePath: "/webs/baxiang/baxiang_main+new",
 };

@@ -22,7 +22,7 @@ export default function GamesListByCategory({ games, categories }) {
             {categoryName} Games | Play {categoryName} Games on {SITE_NAME}
           </title>
         </Head>
-        <div className="mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+        <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
           <Adsense slot="8598905129" />
         </div>
         <div className="grow p-4 md:p-8">
@@ -31,7 +31,7 @@ export default function GamesListByCategory({ games, categories }) {
           </h1>
           <GameList cols="4" games={games} />
         </div>
-        <div className="mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+        <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
           <Adsense slot="8598905129" />
         </div>
       </Layout>

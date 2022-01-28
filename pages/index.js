@@ -20,7 +20,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span>Popular This Week</span>
           </h2>
           <GameList games={featuredGames} cols="3" />
-          <div className="mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+          <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
             <Adsense slot="3055394511" />
           </div>
           <GameList
@@ -29,7 +29,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             title="New Games"
             cols="5"
           />
-          <div className="mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+          <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
             <Adsense slot="3055394511" />
           </div>
           <GameList
@@ -38,7 +38,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             title="All Games"
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
-          <div className="mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+          <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
             <Adsense slot="3055394511" />
           </div>
           <CategoryList

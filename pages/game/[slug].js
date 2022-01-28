@@ -20,7 +20,7 @@ export default function Games({
   return (
     <>
       <Layout list={categories}>
-        <div className="mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+        <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
           <Adsense slot="2156785701" />
         </div>
         <div className="grow p-4 md:p-8 relative z-30">
@@ -99,7 +99,7 @@ export default function Games({
             </div>
           </div>
         </div>
-        <div className="mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
+        <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
           <Adsense slot="2156785701" />
         </div>
       </Layout>
