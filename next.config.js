@@ -5,5 +5,9 @@ module.exports = {
     disableStaticImages: true,
   },
   reactStrictMode: true,
-  // basePath: "/webs/baxiang/baxiang_main+new",
+  basePath: "/webs/baxiang/baxiang_main_new",
+  // basePath: "/www/channel/baxiang",
+  distDir: "build",
+  trailingSlash: true,
+  // assetPrefix: ".",
 };

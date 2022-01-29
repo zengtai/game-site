@@ -43,7 +43,7 @@ export default function Games({
                   </svg>
                 </span>
                 <Link href={`/category/${game.category.toLowerCase()}`}>
-                  Action
+                  <a title={game.category}>{game.category}</a>
                 </Link>
                 <span>
                   <svg
