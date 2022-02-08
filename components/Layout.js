@@ -7,7 +7,16 @@ export default function Layout({ list, children }) {
   return (
     <div className="flex flex-col text-sm bg-gradient-to-br from-blue-800 to-blue-900 text-white/80 min-h-screen">
       <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="viewport"
+          content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, height=device-height"
+        />
+        <link
+          rel="icon"
+          href="brand/favicon.svg"
+          sizes="any"
+          type="image/svg+xml"
+        ></link>
       </Head>
 
       <Navbar>{list}</Navbar>
