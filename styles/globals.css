@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
 ins.adsbygoogle[data-ad-status="unfilled"] {
   display: none !important;
 }
@@ -9,3 +10,4 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
 .bg-loading {
   background-image: url(/images/loading.svg);
 }
+*/
