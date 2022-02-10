@@ -11,7 +11,6 @@ export default function CustomGameList({ games }) {
             src={game.icon}
             alt={toTitle(game.name)}
             className="bg-black/10 bg-loading bg-center bg-no-repeat"
-            loading="lazy"
             width={200}
             height={200}
           />

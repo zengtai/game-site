@@ -108,7 +108,7 @@ export default function Games({
 }
 
 export async function getStaticProps(context) {
-  let games = await getGames();
+  let games = await getGames("SELECTED");
   const categories = await getCategories();
   let game = games.filter(
     (game) => toSlug(game.name) == `${context.params.slug}`
@@ -135,7 +135,7 @@ export async function getStaticProps(context) {
 }
 
 export const getStaticPaths = async () => {
-  const games = await getGames();
+  const games = await getGames("SELECTED");
   const paths = games.map((game) => ({
     params: {
       slug: toSlug(game.name),
