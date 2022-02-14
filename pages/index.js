@@ -21,7 +21,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot="3055394511" />
+            <Adsense slot="1977361307" />
           </div>
           <GameList
             icon={topIcon()}
@@ -30,7 +30,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="5"
           />
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot="3055394511" />
+            <Adsense slot="1977361307" />
           </div>
           <GameList
             icon={gameIcon()}
@@ -39,7 +39,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot="3055394511" />
+            <Adsense slot="1977361307" />
           </div>
           <CategoryList
             icon={categoryIcon()}
