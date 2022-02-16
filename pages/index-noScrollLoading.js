@@ -1,34 +1,31 @@
 import Head from "next/head";
-import { useState } from "react";
+
 import { hotIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
-import { toSlug, toTitle } from "../lib/api";
-import Link from "next/link";
-import Image from "../components/Image";
+
 import Layout from "../components/Layout";
 import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
 import Adsense from "../components/Adsense";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
-  const initGames = games.slice(0, 24);
-  const total = games.length;
-  const [scrollGames, setScrollGames] = useState(initGames);
-  const [hasMore, setHasMore] = useState(true);
+  // const initGames = games.slice(0, 24);
+  // const total = games.length;
+  // const [scrollGames, setScrollGames] = useState(initGames);
+  // const [hasMore, setHasMore] = useState(true);
 
-  const getMoreGames = () => {
-    const newScrollGames = games.slice(
-      scrollGames.length,
-      scrollGames.length + 12
-    );
-    setScrollGames((game) => [...game, ...newScrollGames]);
+  // const getMoreGames = () => {
+  //   const newScrollGames = games.slice(
+  //     scrollGames.length,
+  //     scrollGames.length + 12
+  //   );
+  //   setScrollGames((game) => [...game, ...newScrollGames]);
 
-    if (scrollGames.length >= total) {
-      setHasMore(!hasMore);
-    }
-  };
+  //   if (scrollGames.length >= total) {
+  //     setHasMore(!hasMore);
+  //   }
+  // };
 
   return (
     <>
@@ -64,15 +61,15 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span className="text-orange-500">{hotIcon()}</span>
             <span>All Games</span>
           </h2>
-          <InfiniteScroll
+          {/* <InfiniteScroll
             dataLength={scrollGames.length}
             next={getMoreGames}
             hasMore={hasMore}
             loader={<div className="my-2 text-center">Loading...</div>}
           >
-            <ul className="overflow-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3">
+            <ul>
               {scrollGames.map((game) => (
-                <li key={game.id}>
+                <li key={game.id} className={className}>
                   <Link href={`/game/${toSlug(game.name)}`}>
                     <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
                       <Image
@@ -103,7 +100,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
                 </li>
               ))}
             </ul>
-          </InfiniteScroll>
+          </InfiniteScroll> */}
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
             <Adsense slot="6305173453" />
           </div>
