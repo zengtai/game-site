@@ -1,4 +1,9 @@
 @tailwind base;
+@layer base {
+  body {
+    @apply bg-blue-900 bg-gradient-to-br from-blue-800 to-blue-900;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 

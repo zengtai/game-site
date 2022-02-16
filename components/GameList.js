@@ -13,6 +13,7 @@ export default function GameList({ title, games, icon, cols, className }) {
             width={200}
             height={200}
             className="w-full bg-loading bg-center bg-no-repeat"
+            layout="responsive"
           />
           <div className="absolute hidden sm:flex justify-center items-end w-full h-full font-semibold -bottom-[150%] md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
             <div className="p-2 h-auto w-full text-ellipsis text-center">

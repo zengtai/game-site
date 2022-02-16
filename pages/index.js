@@ -61,7 +61,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           /> */}
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
-            <span className="text-orange-500">{hotIcon()}</span>
+            <span className="text-orange-500">{gameIcon()}</span>
             <span>All Games</span>
           </h2>
           <InfiniteScroll
@@ -70,9 +70,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             hasMore={hasMore}
             loader={<div className="my-2 text-center">Loading...</div>}
           >
-            <ul className="overflow-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3">
+            <ul className="overflow-auto grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3">
               {scrollGames.map((game) => (
-                <li key={game.id}>
+                <li
+                  key={game.id}
+                  className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
+                >
                   <Link href={`/game/${toSlug(game.name)}`}>
                     <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
                       <Image
@@ -80,6 +83,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
                         alt={toTitle(game.name)}
                         width={200}
                         height={200}
+                        layout="responsive"
                         className="w-full bg-loading bg-center bg-no-repeat"
                       />
                       <div className="absolute hidden sm:flex justify-center items-end w-full h-full font-semibold -bottom-[150%] md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
