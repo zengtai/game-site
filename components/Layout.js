@@ -17,7 +17,7 @@ export default function Layout({ list, children }) {
           href="brand/favicon.svg"
           sizes="any"
           type="image/svg+xml"
-        ></link>
+        />
       </Head>
 
       <Navbar>{list}</Navbar>
