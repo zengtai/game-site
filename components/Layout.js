@@ -4,6 +4,7 @@ import Footer from "./Footer";
 
 export default function Layout({ list, children }) {
   // console.log(list);
+
   return (
     <div className="flex flex-col text-sm bg-gradient-to-br from-blue-800 to-blue-900 text-white/80 min-h-screen">
       <Head>
