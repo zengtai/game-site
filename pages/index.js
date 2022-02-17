@@ -1,12 +1,11 @@
 import Head from "next/head";
 import { useState } from "react";
 import { hotIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
-import { toSlug, toTitle } from "../lib/api";
+import { toSlug, toTitle, getGames, getCategories } from "../lib/api";
 import Link from "next/link";
 import Image from "../components/Image";
 import Layout from "../components/Layout";
-import { SITE_NAME } from "../lib/constants";
-import { getGames, getCategories } from "../lib/api";
+import { SITE_NAME, HOME_ADS_ID } from "../lib/constants";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
 import Adsense from "../components/Adsense";
@@ -43,7 +42,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot="6305173453" />
+            <Adsense slot={HOME_ADS_ID} />
           </div>
           <GameList
             icon={topIcon()}
@@ -52,7 +51,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="5"
           />
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot="6305173453" />
+            <Adsense slot={HOME_ADS_ID} />
           </div>
           {/* <GameList
             icon={gameIcon()}
@@ -109,7 +108,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             </ul>
           </InfiniteScroll>
           <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot="6305173453" />
+            <Adsense slot={HOME_ADS_ID} />
           </div>
           <CategoryList
             icon={categoryIcon()}

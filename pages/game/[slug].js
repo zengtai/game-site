@@ -5,6 +5,7 @@ import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
 import Link from "next/link";
 import Adsense from "../../components/Adsense";
+import { DETAIL_ADS_ID } from "../../lib/constants";
 
 export default function Games({
   game,
@@ -21,7 +22,7 @@ export default function Games({
     <>
       <Layout list={categories}>
         <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-          <Adsense slot="6305173453" />
+          <Adsense slot={DETAIL_ADS_ID} />
         </div>
         <div className="grow p-4 md:p-8 relative z-30">
           <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
@@ -100,7 +101,7 @@ export default function Games({
           </div>
         </div>
         <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-          <Adsense slot="6305173453" />
+          <Adsense slot={DETAIL_ADS_ID} />
         </div>
       </Layout>
     </>
