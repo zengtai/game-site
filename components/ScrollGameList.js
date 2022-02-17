@@ -41,16 +41,19 @@ export default function ScrollGameList({
           ``
         )}
         <InfiniteScroll
+          style={{ overflow: "visible" }}
           dataLength={scrollGames.length}
           next={getMoreGames}
           hasMore={hasMore}
           loader={
-            <h4
+            <div
               className="m-3 p-4 w-auto mx-auto animate-pulse text-center text-md"
               onClick={getMoreGames}
             >
-              Loading More
-            </h4>
+              <span className="p-4 bg-slate-200 rounded-lg cursor-pointer">
+                Load More
+              </span>
+            </div>
           }
         >
           <ul
