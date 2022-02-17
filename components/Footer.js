@@ -12,18 +12,17 @@ export default function Footer(params) {
           <a>Terms of Use</a>
         </Link>
       </nav>
-      <p className="py-7">
-        <div className="flex justify-center">
-          <Image
-            className="h-10 w-auto"
-            src="/brand/uptapgame-logo.svg"
-            alt={SITE_NAME}
-            width={170}
-            height={30}
-          />
-        </div>
-        Copyright &copy; {SITE_NAME}. All Rights Reserved
-      </p>
+
+      <div className="flex flex-col py-7 justify-center">
+        <Image
+          className="h-10 w-auto"
+          src="/brand/uptapgame-logo.svg"
+          alt={SITE_NAME}
+          width={170}
+          height={30}
+        />
+        <p>Copyright &copy; {SITE_NAME}. All Rights Reserved</p>
+      </div>
     </div>
   );
 }
