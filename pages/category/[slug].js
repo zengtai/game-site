@@ -15,10 +15,10 @@ export default function GamesListByCategory({ games, categories }) {
   // console.log(categoryName);
   return (
     <>
-      <Layout list={categories}>
+      <Layout list={categories} isOpen>
         <Head>
           <title>
-            {categoryName} Games | Play {categoryName} Games on {SITE_NAME}
+            {categoryName} Games | {SITE_NAME}
           </title>
         </Head>
         <div className="grow relative z-30 md:px-4">

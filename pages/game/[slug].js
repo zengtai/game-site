@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { getCategories, getGames, toSlug } from "../../lib/api";
 import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
+import Head from "next/head";
+import SITE_NAME from "../../lib/constants";
 
 export default function Games({
   game,
@@ -18,6 +20,11 @@ export default function Games({
   return (
     <>
       <Layout list={categories}>
+        <Head>
+          <title>
+            Play {game} on {SITE_NAME}
+          </title>
+        </Head>
         <div className="grow p-3 md:px-6 xl:p-8 relative z-30">
           <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 xl:gap-6">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">

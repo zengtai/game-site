@@ -5,6 +5,7 @@ import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
+import ScrollGameList from "../components/ScrollGameList";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
   // console.log(games);
@@ -21,14 +22,16 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             {hotIcon()}
             <span>Popular Games</span>
           </h2>
-          <GameList games={featuredGames} />
-          <GameList
+          <GameList games={featuredGames} cols="2" />
+          <ScrollGameList
             icon={topIcon()}
             games={newGames}
             title="New Games"
-            cols="5"
+            cols="3"
+            init="9"
+            step="6"
           />
-          <GameList
+          <ScrollGameList
             icon={gameIcon()}
             games={games}
             title="All Games"

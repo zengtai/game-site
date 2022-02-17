@@ -3,31 +3,34 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { closeIcon, menuIcon } from "./Icons";
 
-export default function Navbar({ children }) {
+export default function Navbar({ list, isOpen }) {
   const router = useRouter();
   const current = router.query;
-  const [isOpen, setOpen] = useState(true);
+  const [isMenuOpen, setMenuOpen] = useState(isOpen);
+
   function toggle() {
-    setOpen(!isOpen);
+    setMenuOpen(!isMenuOpen);
   }
   // console.log(children);
-  const categoryNav = children.map((e) => {
+  const categoryNav = list.map((category) => {
     return (
       <li
         className={`${
-          e == current.slug
+          category == current.slug
             ? `border-slate-50/80 md:shadow-lg bg-slate-50/20 md:bg-slate-50/10`
             : `md:border-slate-50/0 md:shadow-none border-slate-50/20 bg-slate-50/10`
         } m-1 transition ease-in-out duration-500 md:bg-slate-50/0 hover:bg-slate-50/10 border-2 rounded-xl`}
-        key={e}
+        key={category}
       >
-        <Link href={`/category/${e}`}>
+        <Link href={`/category/${category}`}>
           <a
             className={`${
-              e == current.slug ? `opacity-80 ` : `opacity-50`
+              category == current.slug
+                ? `opacity-80 bg-slate-50/10`
+                : `opacity-50`
             } p-2 block text-white`}
           >
-            {e}
+            {category}
           </a>
         </Link>
       </li>
@@ -52,14 +55,13 @@ export default function Navbar({ children }) {
           onClick={toggle}
           className="ml-auto flex justify-center items-center w-10 h-10 md:hidden"
         >
-          {isOpen ? closeIcon() : menuIcon()}
+          {!isMenuOpen ? closeIcon() : menuIcon()}
         </button>
         <div
-          className={
-            isOpen
-              ? `hidden md:block p-3  z-10 relative`
-              : `block p-3 relative z-30 md:z-10`
-          }
+          className={`${
+            !isMenuOpen ? `hidden md:block` : `block`
+          } block p-3 relative z-30 md:z-10
+          `}
         >
           <ul className="flex md:pl-20 md:ml-3 flex-wrap p-2 md:mt-2 capitalize bg-slate-800 rounded-3xl shadow-lg shadow-slate-900/20">
             {categoryNav}

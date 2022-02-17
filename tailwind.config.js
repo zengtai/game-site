@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        loading: "url('/images/loading.svg')",
+        loading: "url('../public/images/loading.svg')",
       },
     },
   },

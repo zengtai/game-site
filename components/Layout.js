@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-export default function Layout({ list, children }) {
+export default function Layout({ list, isOpen, children }) {
   // console.log(list);
   return (
     <div className="flex flex-col text-sm bg-slate-50 text-stone-900/80 min-h-screen">
@@ -18,9 +18,9 @@ export default function Layout({ list, children }) {
         />
       </Head>
 
-      <Navbar>{list}</Navbar>
+      <Navbar list={list} isOpen={isOpen} />
       {children}
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

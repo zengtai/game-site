@@ -1,8 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { toSlug, toTitle } from "../lib/api";
+import GameListItem from "./GameListItem";
 export default function GameList({ title, games, icon, cols, className }) {
-  const setCol = () => (cols ? true : false);
+  const setCol = () => {
+    if (cols == "2") return `grid-cols-2`;
+    else if (cols == "3") return `grid-cols-3`;
+    else if (cols == "5") return `grid-cols-5`;
+    else return `grid-cols-4`;
+  };
+
   const gamesList = games.map((game) => (
     <li
       key={game.id}
@@ -33,13 +40,9 @@ export default function GameList({ title, games, icon, cols, className }) {
       return (
         <>
           <ul
-            className={
-              setCol()
-                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`
-                : `grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`
-            }
+            className={`grid ${setCol()} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`}
           >
-            {gamesList}
+            <GameListItem games={games} />
           </ul>
         </>
       );
@@ -51,13 +54,9 @@ export default function GameList({ title, games, icon, cols, className }) {
             <span>{title}</span>
           </h2>
           <ul
-            className={
-              setCol()
-                ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 xl:gap-6 p-2  xl:py-4 xl:px-8`
-                : `grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 xl:gap-6 p-2  xl:py-4 xl:px-8`
-            }
+            className={`overflow-auto grid ${setCol()} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`}
           >
-            {gamesList}
+            <GameListItem games={games} />
           </ul>
         </>
       );
