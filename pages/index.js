@@ -31,7 +31,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
   return (
     <>
-      <Layout list={categories}>
+      <Layout navItems={categories}>
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
@@ -41,18 +41,18 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span>Popular This Week</span>
           </h2>
           <GameList games={featuredGames} cols="3" />
-          <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot={HOME_ADS_ID} />
-          </div>
+
+          <Adsense height={`h-[100px]`} slot={HOME_ADS_ID} />
+
           <GameList
             icon={topIcon()}
             games={newGames}
             title="New Games"
             cols="5"
           />
-          <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot={HOME_ADS_ID} />
-          </div>
+
+          <Adsense height={`h-[200px]`} slot={HOME_ADS_ID} />
+
           {/* <GameList
             icon={gameIcon()}
             games={games}
@@ -107,9 +107,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
               ))}
             </ul>
           </InfiniteScroll>
-          <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[200px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-            <Adsense slot={HOME_ADS_ID} />
-          </div>
+
+          <Adsense height={`h-[200px]`} slot={HOME_ADS_ID} />
+
           <CategoryList
             icon={categoryIcon()}
             title="Categories"

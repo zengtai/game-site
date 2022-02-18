@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-export default function Layout({ list, children }) {
+export default function Layout({ navItems, children, open }) {
   // console.log(list);
 
   return (
@@ -20,7 +20,7 @@ export default function Layout({ list, children }) {
         />
       </Head>
 
-      <Navbar>{list}</Navbar>
+      <Navbar open={open} navItems={navItems} />
       {children}
       <Footer />
     </div>

@@ -2,7 +2,12 @@ import Link from "next/link";
 import Image from "./Image";
 import { toSlug, toTitle } from "../lib/api";
 export default function GameList({ title, games, icon, cols, className }) {
-  const setCol = () => (cols !== undefined ? true : false);
+  const setCol = () => {
+    if (cols == "2") return `grid-cols-2`;
+    else if (cols == "3") return `grid-cols-3`;
+    else if (cols == "5") return `grid-cols-5`;
+    else return `grid-cols-4`;
+  };
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${toSlug(game.name)}`}>
@@ -40,9 +45,7 @@ export default function GameList({ title, games, icon, cols, className }) {
       return (
         <>
           <ul
-            className={`grid ${
-              setCol() ? `grid-cols-${cols}` : `grid-cols-3`
-            } sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
+            className={`grid ${setCol()} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
           >
             {gamesList}
           </ul>
@@ -56,14 +59,7 @@ export default function GameList({ title, games, icon, cols, className }) {
             <span>{title}</span>
           </h2>
           <ul
-            className={`grid ${
-              setCol() ? `grid-cols-${cols}` : `grid-cols-4`
-            } sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
-
-            // className={
-            //   setCol()
-            //     ? `grid grid-cols-${cols} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
-            //     : `grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 p-2`
+            className={`grid ${setCol()} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3`}
           >
             {gamesList}
           </ul>

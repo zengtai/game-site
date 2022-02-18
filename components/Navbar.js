@@ -4,16 +4,16 @@ import { useRouter } from "next/router";
 import { closeIcon, menuIcon } from "./Icons";
 import { getIcon } from "../lib/api";
 
-export default function Navbar({ children }) {
+export default function Navbar({ navItems, open }) {
   const router = useRouter();
   const current = router.query;
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(open);
   function toggle() {
     setOpen(!isOpen);
   }
   // console.log(children);
   // console.log(getIcon(`action`));
-  const categoryNav = children.map((e) => {
+  const categoryNav = navItems.map((e) => {
     return (
       <li
         className={`${
