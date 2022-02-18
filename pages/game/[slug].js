@@ -20,9 +20,7 @@ export default function Games({
   return (
     <>
       <Layout list={categories}>
-        <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[100px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-          <AdsenseFixed slot="7173362568" />
-        </div>
+        <AdsenseFixed height={`h-[100px]`} slot="7173362568" />
         <div className="grow p-4 md:p-8 relative z-30">
           <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
             <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
@@ -48,9 +46,8 @@ export default function Games({
             </div>
           </div>
         </div>
-        <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[200px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-          <Adsense slot="7173362568" />
-        </div>
+
+        <Adsense height={`h-[200px]`} slot="7173362568" />
       </Layout>
     </>
   );

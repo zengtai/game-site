@@ -26,9 +26,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={featuredGames} cols="3" />
           {/* ads 01 */}
-          <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px]">
-            <Adsense slot="6305173453" />
-          </div>
+
+          <Adsense h="h-[100px]" slot="6305173453" />
+
           {/* ads 01 */}
           <GameList
             icon={topIcon()}
@@ -37,9 +37,9 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="4"
           />
           {/* ads 02 */}
-          <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[200px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-            <AdsenseFixed slot="8902411049" />
-          </div>
+
+          <AdsenseFixed height="h-[200px]" slot="8902411049" />
+
           {/* ads 02 */}
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-cyan-900/80 space-x-2">
             {gameIcon()}
@@ -47,21 +47,15 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           </h2>
           <GameList games={games} cols="4" begin="1" end="36" />
           {/* ads 03 */}
-          <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[100px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-            <AdsenseFixed slot="8902411049" />
-          </div>
+          <AdsenseFixed height="h-[100px]" slot="8902411049" />
           {/* ads 03 */}
           <GameList games={games} cols="4" begin="37" end="72" />
           {/* ads 04 */}
-          <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[200px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-            <AdsenseFixed slot="8902411049" />
-          </div>
+          <AdsenseFixed height="h-[200px]" slot="8902411049" />
           {/* ads 04 */}
           <GameList games={games} cols="4" begin="73" end="108" />
           {/* ads 05 */}
-          <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[200px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-            <AdsenseFixed slot="8902411049" />
-          </div>
+          <AdsenseFixed height="h-[200px]" slot="8902411049" />
           {/* ads 05 */}
           <GameList
             games={games}
@@ -70,9 +64,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
           />
           {/* ads 06 */}
-          <div className="before:content-['Advertisement'] before:flex before:justify-center before:opacity-50 bg-black/5 h-[200px] w-[300px] md:h-[90px] md:w-[728px] lg:w-[970px] mx-auto">
-            <AdsenseFixed slot="8902411049" />
-          </div>
+          <AdsenseFixed height="h-[200px]" slot="8902411049" />
           {/* ads 06 */}
           <CategoryList
             icon={categoryIcon()}
