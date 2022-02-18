@@ -53,23 +53,18 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
           <Adsense height={`h-[200px]`} slot={HOME_ADS_ID} />
 
-          {/* <GameList
-            icon={gameIcon()}
-            games={games}
-            title="All Games"
-            className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
-          /> */}
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
             <span className="text-orange-500">{gameIcon()}</span>
             <span>All Games</span>
           </h2>
           <InfiniteScroll
+            style={{ overflow: "visible" }}
             dataLength={scrollGames.length}
             next={getMoreGames}
             hasMore={hasMore}
             loader={<div className="my-2 text-center">Loading...</div>}
           >
-            <ul className="overflow-auto grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3">
+            <ul className="grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3">
               {scrollGames.map((game) => (
                 <li
                   key={game.id}

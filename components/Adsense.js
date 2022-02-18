@@ -18,7 +18,7 @@ export default function Adsense({ slot, height }) {
 
   return (
     <div
-      className={`relative overflow-hidden before:content-['Advertisement'] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] ${height} md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10`}
+      className={`relative my-3 overflow-hidden before:content-['Advertisement'] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] ${height} md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10`}
     >
       <ins
         className="adsbygoogle bg-loading bg-no-repeat bg-center"
