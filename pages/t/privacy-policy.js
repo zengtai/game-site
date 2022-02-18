@@ -4,7 +4,7 @@ import { getCategories } from "../../lib/api";
 export default function PrivacyPolicy({ categories }) {
   return (
     <>
-      <Layout list={categories}>
+      <Layout navItems={categories}>
         <div className="p-4 md:p-8 xl:mx-auto xl:w-[1120px]">
           <div className="pb-3 text-2xl text-white/80 font-bold">
             {SITE_NAME} Privacy Policy
