@@ -4,12 +4,13 @@ import { useRouter } from "next/router";
 import { closeIcon, menuIcon } from "./Icons";
 import { getIcon } from "../lib/api";
 
-export default function Navbar({ navItems, open }) {
+export default function Navbar({ navItems, isOpen }) {
+  console.log(isOpen);
   const router = useRouter();
   const current = router.query;
-  const [isOpen, setOpen] = useState(open);
+  const [isMenuOpen, setOpen] = useState(isOpen);
   function toggle() {
-    setOpen(!isOpen);
+    setOpen(!isMenuOpen);
   }
   // console.log(children);
   // console.log(getIcon(`action`));
@@ -57,11 +58,13 @@ export default function Navbar({ navItems, open }) {
           onClick={toggle}
           className="ml-auto flex justify-center items-center w-10 h-10 lg:hidden text-lime-500"
         >
-          {isOpen ? closeIcon() : menuIcon()}
+          {!isMenuOpen ? closeIcon() : menuIcon()}
         </button>
         <div
           className={`
-            ${isOpen ? `hidden lg:block` : `block`} relative p-3 z-30 md:z-10`}
+            ${
+              !isMenuOpen ? `hidden lg:block` : `block`
+            } relative p-3 z-30 md:z-10`}
         >
           <ul className="flex flex-wrap lg:flex-nowrap lg:justify-center py-2 px-2 md:mt-2 capitalize bg-gradient-to-br from-cyan-600 to-blue-500 rounded-3xl lg:rounded-full shadow-lg shadow-black/20">
             {categoryNav}
