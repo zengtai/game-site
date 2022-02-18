@@ -5,7 +5,7 @@ import { closeIcon, menuIcon } from "./Icons";
 import { getIcon } from "../lib/api";
 
 export default function Navbar({ navItems, isOpen }) {
-  console.log(isOpen);
+  // console.log(isOpen);
   const router = useRouter();
   const current = router.query;
   const [isMenuOpen, setOpen] = useState(isOpen);
