@@ -22,18 +22,17 @@ export default function GamesListByCategory({ games, categories }) {
             {categoryName} Games | Play {categoryName} Games on {SITE_NAME}
           </title>
         </Head>
-        <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-          <Adsense slot="8598905129" />
-        </div>
+
+        <Adsense slot="8598905129" height={`h-[100px]`} />
+
         <div className="grow p-4 md:p-8">
           <h1 className="px-2 pb-2 md:pb-3 text-center text-xl md:text-3xl font-semibold text-sky-100/90 capitalize">
             {categoryName} Games
           </h1>
           <GameList cols="4" games={games} />
         </div>
-        <div className="before:content-['Advertisement'] before:absolute before:left-1/2 before:-translate-x-1/2 before:opacity-50 mx-auto w-[300px] h-[100px] md:h-[90px] md:w-[728px] lg:w-[970px] bg-black/10">
-          <Adsense slot="8598905129" />
-        </div>
+
+        <Adsense slot="8598905129" height={`h-200px`} />
       </Layout>
     </>
   );
