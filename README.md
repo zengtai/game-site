@@ -1,4 +1,4 @@
-### AdBee
+### adbee
 
 - [x] Adsense code
 - [x] ads.txt
