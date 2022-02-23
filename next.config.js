@@ -10,4 +10,5 @@ module.exports = {
   distDir: "build",
   trailingSlash: true,
   // assetPrefix: ".",
+  generateBuildId: () => "baxiang",
 };
