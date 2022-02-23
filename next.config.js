@@ -1,3 +1,4 @@
+const nextBuildId = require("next-build-id");
 module.exports = {
   images: {
     loader: "custom",
@@ -12,4 +13,5 @@ module.exports = {
   distDir: "build",
   trailingSlash: true,
   // assetPrefix: ".",
+  generateBuildId: () => nextBuildId({ dir: __dirname }),
 };
