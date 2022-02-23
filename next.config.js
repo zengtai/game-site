@@ -1,4 +1,4 @@
-const nextBuildId = require("next-build-id");
+// const nextBuildId = require("next-build-id"); // 插件，设置buildid
 module.exports = {
   images: {
     loader: "custom",
@@ -13,5 +13,6 @@ module.exports = {
   distDir: "build",
   trailingSlash: true,
   // assetPrefix: ".",
-  generateBuildId: () => nextBuildId({ dir: __dirname }),
+  // generateBuildId: () => nextBuildId({ dir: __dirname }), // 设置为git hash
+  generateBuildId: () => "adbee_input", // 设置为固定id
 };
