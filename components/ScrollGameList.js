@@ -35,7 +35,9 @@ export default function ScrollGameList({
         {title !== undefined ? (
           <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
             {icon}
-            <span>{title}</span>
+            <span>
+              {title} {games.length > 30 ? <span>({games.length})</span> : ``}
+            </span>
           </h2>
         ) : (
           ``

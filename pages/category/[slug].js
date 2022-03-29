@@ -23,7 +23,8 @@ export default function GamesListByCategory({ games, categories }) {
         </Head>
         <div className="grow relative z-30 md:px-4">
           <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold text-slate-900/80 capitalize">
-            {categoryName} Games
+            {categoryName} {games.length > 1 ? `Games` : `Game`}{" "}
+            {`(${games.length})`}
           </h1>
           <GameList cols="4" games={games} />
         </div>
@@ -41,6 +42,7 @@ export async function getStaticProps(context) {
       games,
       categories,
     },
+    revalidate: 10,
   };
 }
 
@@ -53,6 +55,6 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
