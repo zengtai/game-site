@@ -21,7 +21,10 @@ export default function Footer(params) {
           width={170}
           height={30}
         />
-        <p>Copyright &copy; {SITE_NAME}. All Rights Reserved</p>
+        <p>
+          Copyright &copy; {new Date().getFullYear()} {SITE_NAME}. All Rights
+          Reserved
+        </p>
       </div>
     </div>
   );
