@@ -42,6 +42,7 @@ export async function getStaticProps(context) {
       games,
       categories,
     },
+    revalidate: 10,
   };
 }
 
@@ -54,6 +55,6 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };

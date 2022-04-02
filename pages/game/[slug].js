@@ -80,6 +80,7 @@ export async function getStaticProps(context) {
       bottomGamesX44: games.slice(22, 38),
       games,
     },
+    revalidate: 10,
   };
 }
 
@@ -92,6 +93,6 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };

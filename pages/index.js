@@ -60,5 +60,6 @@ export const getStaticProps = async () => {
       featuredGames,
       categories,
     },
+    revalidate: 10,
   };
 };
