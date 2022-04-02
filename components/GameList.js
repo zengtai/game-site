@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { toSlug, toTitle } from "../lib/api";
+import { toSlug, toTitle } from "../utils/generator";
 import GameListItem from "./GameListItem";
 export default function GameList({ title, games, icon, cols, className }) {
   const setCol = () => {

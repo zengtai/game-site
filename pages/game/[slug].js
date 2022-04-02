@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout";
 import { useRouter } from "next/router";
-import { getCategories, getGames, toSlug } from "../../lib/api";
+import { getCategories, getGames } from "../../lib/api";
+import { toSlug } from "../../utils/generator";
 import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
 import Head from "next/head";

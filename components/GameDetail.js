@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { toTitle } from "../lib/api";
+import { toTitle } from "../utils/generator";
 import Head from "next/head";
 import { SITE_NAME } from "../lib/constants";
 

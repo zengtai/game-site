@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { toTitle, toSlug } from "../lib/api";
+import { toTitle, toSlug } from "../utils/generator";
 
 const GameListItem = ({ games, className }) => {
   return games.map((game) => (

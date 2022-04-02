@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { toSlug, toTitle } from "../lib/api";
+import { toSlug, toTitle } from "../utils/generator";
 
 export default function CustomGameList({ games }) {
   const gamesList = games.map((game) => (

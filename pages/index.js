@@ -18,24 +18,23 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
         <div className="grow relative z-30 md:px-4">
-          <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
+          {/* <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
             {hotIcon()}
             <span>Popular Games</span>
           </h2>
-          <GameList games={featuredGames} cols="2" />
-          <ScrollGameList
-            icon={topIcon()}
-            games={newGames}
-            title="New Games"
-            cols="3"
-            init="9"
-            step="6"
-          />
+          <GameList games={featuredGames} cols="2" /> */}
+          <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
+            {topIcon()}
+            <span>New Games</span>
+          </h2>
+          <GameList games={newGames} cols="3" />
           <ScrollGameList
             icon={gameIcon()}
             games={games}
             title="All Games"
             className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
+            init="36"
+            step="12"
           />
           <CategoryList
             icon={categoryIcon()}
@@ -50,8 +49,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
 export const getStaticProps = async () => {
   const games = await getGames();
-  const newGames = await getGames("NEW", 30);
-  const featuredGames = await getGames("FEATURED");
+  const newGames = await getGames("LATEST", 12);
+  const featuredGames = await getGames("FEATURED_GAMES");
   const categories = await getCategories();
 
   return {
