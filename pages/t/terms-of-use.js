@@ -503,7 +503,7 @@ export default function Terms({ categories }) {
           </p>
           <h2 className="text-md font-bold my-3">Contact Information</h2>
           <p className="my-2">Address: Singapore</p>
-          <p className="my-2">Email: contact@{SITE_NAME}.com</p>
+          <p className="my-2">Email: contact@{SITE_NAME.toLowerCase()}.com</p>
         </div>
       </Layout>
     </>
