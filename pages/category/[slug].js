@@ -42,7 +42,7 @@ export async function getStaticProps(context) {
       games,
       categories,
     },
-    revalidate: 10,
+    revalidate: 600,
   };
 }
 

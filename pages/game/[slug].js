@@ -80,7 +80,7 @@ export async function getStaticProps(context) {
       bottomGamesX44: games.slice(22, 38),
       games,
     },
-    revalidate: 10,
+    revalidate: 600,
   };
 }
 
