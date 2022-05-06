@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { hotIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
+import { topIcon, gameIcon, categoryIcon } from "../components/Icons";
 import Layout from "../components/Layout";
 import { SITE_NAME } from "../lib/constants";
 import { getGames, getCategories } from "../lib/api";
@@ -60,6 +60,6 @@ export const getStaticProps = async () => {
       featuredGames,
       categories,
     },
-    revalidate: 600,
+    revalidate: 60,
   };
 };

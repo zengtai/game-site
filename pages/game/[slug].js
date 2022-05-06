@@ -1,11 +1,11 @@
 import Layout from "../../components/Layout";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { getCategories, getGames } from "../../lib/api";
 import { toSlug } from "../../utils/generator";
 import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
 import Head from "next/head";
-import SITE_NAME from "../../lib/constants";
+import { SITE_NAME } from "../../lib/constants";
 
 export default function Games({
   game,
@@ -15,7 +15,7 @@ export default function Games({
   bottomGamesX44,
 }) {
   // console.log(games);
-  const router = useRouter();
+  //const router = useRouter();
   // const { slug } = router.query;
 
   return (
@@ -80,7 +80,7 @@ export async function getStaticProps(context) {
       bottomGamesX44: games.slice(22, 38),
       games,
     },
-    revalidate: 600,
+    revalidate: 60,
   };
 }
 
