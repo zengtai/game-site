@@ -27,10 +27,10 @@ export default function Navbar({ navItems, isOpen }) {
         <Link href={`/category/${e.toLowerCase()}`}>
           <a
             className={`${
-              e == current.slug
-                ? `text-white`
+              e.toLowerCase() == current.slug
+                ? `text-white md:scale-125 border-2 rounded-full border-white/20 md:border-0`
                 : `text-white/70 md:hover:scale-125`
-            } p-2 pr-3 flex flex-row items-center hover:text-white/90 transition duration-200 delay-50 drop-shadow`}
+            } p-2 pr-3 flex flex-row items-center md:justify-center hover:text-white/90 transition duration-200 delay-50 drop-shadow`}
           >
             <span className="mr-1">{getIcon(e.toLowerCase())}</span>
             {e}
@@ -43,7 +43,7 @@ export default function Navbar({ navItems, isOpen }) {
     <nav>
       <div className="block relative z-10">
         <Link href={`/`}>
-          <a className="absolute hover:scale-125 transition ease-in-out duration-400 delay-75 lg:top-8 lg:left-6 flex justify-center items-center text-lime-500 rounded-full w-10 h-10 left-0 top-0 z-20 lg:bg-white">
+          <a className="absolute hover:scale-125 origin-center transition ease-in-out duration-400 delay-75 lg:top-8 lg:left-6 flex justify-center items-center text-lime-500 rounded-full w-10 h-10 left-0 top-0 z-20 lg:bg-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

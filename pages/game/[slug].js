@@ -120,7 +120,6 @@ export default function Games({
 export async function getStaticProps(context) {
   const categories = await getGames().then((res) => res.categories);
   let game = await getGameBySlug(`${context.params.slug}`);
-  console.log(game);
 
   const relatedGames = await getGames()
     .then((res) => res.basicData)

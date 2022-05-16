@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "./Image";
 
 export default function CustomGameList({ games }) {
-  console.log(games);
   const gamesList = games.map((game) => (
     <li key={game.id}>
       <Link href={`/game/${game.slug}`}>

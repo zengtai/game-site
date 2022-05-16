@@ -12,7 +12,7 @@ export default function GameDetail({ game }) {
             alt={game.title}
             width={100}
             height={100}
-            layout={`fixed`}
+            layout={`responsive`}
           />
         </div>
         <div className="text-center md:text-left md:px-5">
