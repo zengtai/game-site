@@ -21,7 +21,7 @@ export default function Layout({ list, children }) {
 
       <Navbar>{list}</Navbar>
       {children}
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
