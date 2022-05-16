@@ -7,7 +7,7 @@ module.exports = {
   reactStrictMode: true,
 
   // basePath: "/rt_main2_new", // lovinjoy
-  distDir: "build",
+  // distDir: "build",
   trailingSlash: true,
   // assetPrefix: ".",
 };
