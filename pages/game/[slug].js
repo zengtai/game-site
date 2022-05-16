@@ -1,27 +1,33 @@
 import Layout from "../../components/Layout";
-import { useRouter } from "next/router";
-import { getCategories, getGames, toSlug } from "../../lib/api";
+import { getGameBySlug, getGames } from "../../lib/api";
 import GameDetail from "../../components/GameDetail";
 import CustomGameList from "../../components/CustomGameList";
 import Link from "next/link";
-import Adsense from "../../components/Adsense";
-import { DETAIL_ADS_ID } from "../../lib/constants";
+import Head from "next/head";
+import { ADS_SLOT_ID, SITE_META } from "../../lib/constants";
+import Banner from "../../components/Banner";
 
 export default function Games({
   game,
   categories,
   leftGames,
   rightGames,
-  bottomGamesX44,
+  bottomGames,
 }) {
-  // console.log(game);
-  const router = useRouter();
-  const { slug } = router.query;
-
   return (
     <>
       <Layout navItems={categories}>
-        <Adsense height={`h-[100px]`} slot={DETAIL_ADS_ID} />
+        <Head>
+          <title>
+            {game.title} | Play {game.title} on {SITE_META.name}
+          </title>
+        </Head>
+        <Banner
+          className={`banner`}
+          style={{ display: "block" }}
+          slot={ADS_SLOT_ID.detail}
+          responsive="false"
+        />
 
         <div className="grow p-4 md:p-8 relative z-30">
           <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
@@ -59,7 +65,7 @@ export default function Games({
                     />
                   </svg>
                 </span>
-                {game.title}
+                <span className="opacity-50">{game.title}</span>
               </div>
               <GameDetail game={game} />
             </div>
@@ -94,50 +100,50 @@ export default function Games({
             </div>
             <div className="xl:col-start-3 xl:row-start-4 xl:col-span-8 xl:row-span-2">
               <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3 md:gap-6">
-                <CustomGameList games={bottomGamesX44} />
+                <CustomGameList games={bottomGames} />
               </ul>
             </div>
           </div>
         </div>
 
-        <Adsense height={`h-200px`} slot={DETAIL_ADS_ID} />
+        <Banner
+          className={`banner rectangle`}
+          style={{ display: "block" }}
+          slot={ADS_SLOT_ID.detail}
+          responsive="false"
+        />
       </Layout>
     </>
   );
 }
 
 export async function getStaticProps(context) {
-  let games = await getGames("SELECTED");
-  const categories = await getCategories();
-  let game = games.filter(
-    (game) => toSlug(game.name) == `${context.params.slug}`
-  );
-  // console.log(game);
-  const currentGameIndex = games.findIndex(
-    (g) => toSlug(g.name) == `${context.params.slug}`
-  );
-  // console.log(currentGameIndex);
-  games.splice(currentGameIndex, 1);
-  games.sort(function (a, b) {
-    return Date.parse(a) > Date.parse(b) ? 1 : -1;
-  });
+  const categories = await getGames().then((res) => res.categories);
+  let game = await getGameBySlug(`${context.params.slug}`);
+  console.log(game);
+
+  const relatedGames = await getGames()
+    .then((res) => res.basicData)
+    .then((res) =>
+      res.filter((game) => game.slug !== `${context.params.slug}`)
+    );
+
   return {
     props: {
       game: game[0],
       categories,
-      rightGames: games.slice(0, 10),
-      leftGames: games.slice(11, 21),
-      bottomGamesX44: games.slice(22, 38),
-      games,
+      rightGames: relatedGames.slice(0, 10),
+      leftGames: relatedGames.slice(11, 21),
+      bottomGames: relatedGames.slice(22, 38),
     },
   };
 }
 
 export const getStaticPaths = async () => {
-  const games = await getGames("SELECTED");
+  const games = await getGames().then((res) => res.basicData);
   const paths = games.map((game) => ({
     params: {
-      slug: toSlug(game.name),
+      slug: game.slug,
     },
   }));
   return {

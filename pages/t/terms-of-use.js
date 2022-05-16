@@ -1,19 +1,20 @@
 import Layout from "../../components/Layout";
-import { SITE_NAME, SITE_URL } from "../../lib/constants";
-import { getCategories } from "../../lib/api";
+import { SITE_META } from "../../lib/constants";
+import { getGames } from "../../lib/api";
+
 export default function Terms({ categories }) {
   return (
     <>
-      <Layout navItems={categories}>
+      <Layout title={`Terms of Use`} navItems={categories}>
         <div className="p-4 md:p-8 xl:mx-auto xl:w-[1120px]">
           <div className="pb-3 text-2xl text-white/80 font-bold">
-            {SITE_NAME} Terms of Use
+            {SITE_META.name} Terms of Use
           </div>
           <p className="my-2">
-            The {SITE_NAME} website located at {SITE_URL} is a copyrighted work
-            belonging to {SITE_NAME}. Certain features of the Site may be
-            subject to additional guidelines, terms, or rules, which will be
-            posted on the Site in connection with such features.
+            The {SITE_META.name} website located at {SITE_META.url} is a
+            copyrighted work belonging to {SITE_META.name}. Certain features of
+            the Site may be subject to additional guidelines, terms, or rules,
+            which will be posted on the Site in connection with such features.
           </p>
           <p className="my-2">
             All such additional terms, guidelines, and rules are incorporated by
@@ -122,7 +123,7 @@ export default function Terms({ categories }) {
           </p>
           <p className="my-2">
             <strong>Cookies and Web Beacons.</strong> Like any other website,
-            {SITE_NAME} uses ‘cookies’. These cookies are used to store
+            {SITE_META.name} uses ‘cookies’. These cookies are used to store
             information including visitors’ preferences, and the pages on the
             website that the visitor accessed or visited. The information is
             used to optimize the users’ experience by customizing our web page
@@ -505,7 +506,7 @@ export default function Terms({ categories }) {
           </p>
           <h2 className="text-md font-bold my-3">Contact Information</h2>
           <p className="my-2">Address: Singapore</p>
-          <p className="my-2">Email: contact@{SITE_NAME}.com</p>
+          <p className="my-2">Email: contact@{SITE_META.name}.com</p>
         </div>
       </Layout>
     </>
@@ -513,7 +514,7 @@ export default function Terms({ categories }) {
 }
 
 export const getStaticProps = async () => {
-  const categories = await getCategories();
+  const categories = await getGames().then((res) => res.categories);
 
   return {
     props: {

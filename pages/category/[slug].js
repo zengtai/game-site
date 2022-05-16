@@ -1,29 +1,34 @@
 import Layout from "../../components/Layout";
 import GameList from "../../components/GameList";
-import { useRouter } from "next/router";
-import { getGamesByCategory, getCategories } from "../../lib/api";
+
+import { getGamesByCategory, getCategories, getGames } from "../../lib/api";
 import Head from "next/head";
-import { SITE_NAME, CAT_ADS_ID } from "../../lib/constants";
+import { SITE_META, ADS_SLOT_ID } from "../../lib/constants";
 import Adsense from "../../components/Adsense";
+import Banner from "../../components/Banner";
 
 export default function GamesListByCategory({ games, categories }) {
   // console.log(games);
-  const router = useRouter();
-  const { slug } = router.query;
+
   // console.log(router.query);
   // console.log({ slug });
-  const categoryName = slug.toString().replace(/^\S/, (s) => s.toUpperCase());
+  const categoryName = games[0].category;
   // console.log(categoryName);
   return (
     <>
       <Layout navItems={categories} isOpen>
         <Head>
           <title>
-            {categoryName} Games | Play {categoryName} Games on {SITE_NAME}
+            {categoryName} Games | Play {categoryName} Games on {SITE_META.name}
           </title>
         </Head>
 
-        <Adsense height={`h-[100px]`} slot={CAT_ADS_ID} />
+        <Banner
+          className={`banner`}
+          style={{ display: "block" }}
+          slot={ADS_SLOT_ID.category}
+          responsive="false"
+        />
 
         <div className="grow p-4 md:p-8">
           <h1 className="px-2 pb-2 md:pb-3 text-center text-xl md:text-3xl font-semibold text-sky-100/90 capitalize">
@@ -32,7 +37,12 @@ export default function GamesListByCategory({ games, categories }) {
           <GameList cols="4" games={games} />
         </div>
 
-        <Adsense height={`h-[200px]`} slot={CAT_ADS_ID} />
+        <Banner
+          className={`banner rectangle`}
+          style={{ display: "block" }}
+          slot={ADS_SLOT_ID.category}
+          responsive="false"
+        />
       </Layout>
     </>
   );
@@ -40,7 +50,7 @@ export default function GamesListByCategory({ games, categories }) {
 
 export async function getStaticProps(context) {
   const games = await getGamesByCategory(`${context.params.slug}`);
-  const categories = await getCategories();
+  const categories = await getGames().then((res) => res.categories);
 
   return {
     props: {
@@ -51,10 +61,10 @@ export async function getStaticProps(context) {
 }
 
 export const getStaticPaths = async () => {
-  const categories = await getCategories();
+  const categories = await getGames().then((res) => res.categories);
   const paths = categories.map((category) => ({
     params: {
-      slug: category,
+      slug: category.toLowerCase(),
     },
   }));
   return {

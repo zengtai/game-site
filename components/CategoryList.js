@@ -1,31 +1,11 @@
 import Link from "next/link";
-import {
-  iconAction,
-  iconCasual,
-  iconDefense,
-  iconPuzzles,
-  iconShooting,
-  iconSports,
-  iconSimulation,
-  iconStrategy,
-} from "./Icons";
+import { getIcon } from "../lib/api";
 export default function CategoryList({ title, categories, icon }) {
-  const icons = {
-    action: iconAction(),
-    casual: iconCasual(),
-    defense: iconDefense(),
-    puzzles: iconPuzzles(),
-    shooting: iconShooting(),
-    sports: iconSports(),
-    strategy: iconStrategy(),
-    simulation: iconSimulation(),
-  };
-  const getIcon = (cat) => icons[cat];
   const categoryList = categories.map((category, index) => (
     <li key={index} className="capitalize mx-1 mb-2">
       <Link href={`/category/${category}`}>
         <a className="flex flex-row text-sm py-2 px-3 bg-sky-600/80 text-sky-100/80 hover:text-sky-100 shadow-black/10 rounded-full shadow-md">
-          <span className="mr-1">{getIcon(`${category}`)}</span>
+          <span className="mr-1">{getIcon(`${category.toLowerCase()}`)}</span>
           {category}
         </a>
       </Link>

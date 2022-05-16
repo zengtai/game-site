@@ -1,18 +1,18 @@
 import Head from "next/head";
 import { useState } from "react";
 import { hotIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
-import { toSlug, toTitle, getGames, getCategories } from "../lib/api";
+import { getGames } from "../lib/api";
 import Link from "next/link";
 import Image from "../components/Image";
 import Layout from "../components/Layout";
-import { SITE_NAME, HOME_ADS_ID } from "../lib/constants";
+import { ADS_SLOT_ID, SITE_META, FEATURED_GAMES } from "../lib/constants";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
-import Adsense from "../components/Adsense";
+import Banner from "../components/Banner";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
-  const initGames = games.slice(0, 24);
+  const initGames = games.slice(0, 12);
   const total = games.length;
   const [scrollGames, setScrollGames] = useState(initGames);
   const [hasMore, setHasMore] = useState(true);
@@ -33,16 +33,22 @@ export default function Home({ games, newGames, featuredGames, categories }) {
     <>
       <Layout navItems={categories}>
         <Head>
-          <title>{SITE_NAME} | Play Free Games Online</title>
+          <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
         <div className="grow p-4 md:px-8 md:py-4 relative z-30">
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
             <span className="text-orange-500">{hotIcon()}</span>
             <span>Popular This Week</span>
           </h2>
+
           <GameList games={featuredGames} cols="3" />
 
-          <Adsense height={`h-[100px]`} slot={HOME_ADS_ID} />
+          <Banner
+            className={`banner`}
+            style={{ display: "block" }}
+            slot={ADS_SLOT_ID.home}
+            responsive="false"
+          />
 
           <GameList
             icon={topIcon()}
@@ -51,7 +57,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             cols="5"
           />
 
-          <Adsense height={`h-[200px]`} slot={HOME_ADS_ID} />
+          <Banner
+            className={`banner rectangle`}
+            style={{ display: "block" }}
+            slot={ADS_SLOT_ID.home}
+            responsive="false"
+          />
 
           <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
             <span className="text-orange-500">{gameIcon()}</span>
@@ -70,11 +81,11 @@ export default function Home({ games, newGames, featuredGames, categories }) {
                   key={game.id}
                   className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
                 >
-                  <Link href={`/game/${toSlug(game.name)}`}>
+                  <Link href={`/game/${game.slug}`}>
                     <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
                       <Image
                         src={game.icon}
-                        alt={toTitle(game.name)}
+                        alt={game.title}
                         width={200}
                         height={200}
                         layout="responsive"
@@ -103,7 +114,12 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             </ul>
           </InfiniteScroll>
 
-          <Adsense height={`h-[200px]`} slot={HOME_ADS_ID} />
+          <Banner
+            className={`banner rectangle`}
+            style={{ display: "block" }}
+            slot={ADS_SLOT_ID.home}
+            responsive="false"
+          />
 
           <CategoryList
             icon={categoryIcon()}
@@ -117,11 +133,15 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 }
 
 export const getStaticProps = async () => {
-  // const games = await getGames();
-  const games = await getGames("SELECTED");
-  const newGames = await getGames("LATEST", 20);
-  const featuredGames = await getGames("FEATURED");
-  const categories = await getCategories();
+  const data = await getGames();
+
+  const games = data.basicData;
+
+  const newGames = games.slice(0, 20);
+  const featuredGames = games.filter((game) =>
+    FEATURED_GAMES.includes(game.name)
+  );
+  const categories = data.categories;
 
   return {
     props: {

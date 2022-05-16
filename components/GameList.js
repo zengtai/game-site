@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "./Image";
-import { toSlug, toTitle } from "../lib/api";
 export default function GameList({ title, games, icon, cols, className }) {
   const setCol = () => {
     if (cols == "2") return `grid-cols-2`;
@@ -10,11 +9,11 @@ export default function GameList({ title, games, icon, cols, className }) {
   };
   const gamesList = games.map((game) => (
     <li key={game.id} className={className}>
-      <Link href={`/game/${toSlug(game.name)}`}>
+      <Link href={`/game/${game.slug}`}>
         <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
           <Image
             src={game.icon}
-            alt={toTitle(game.name)}
+            alt={game.title}
             width={200}
             height={200}
             className="w-full bg-loading bg-center bg-no-repeat"

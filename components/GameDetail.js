@@ -1,30 +1,23 @@
 import Image from "./Image";
 import Link from "next/link";
-import { toTitle } from "../lib/api";
-import Head from "next/head";
-import { SITE_NAME } from "../lib/constants";
 
 export default function GameDetail({ game }) {
   return (
     <>
-      <Head>
-        <title>
-          {toTitle(game.name)} | Play {toTitle(game.name)} on {SITE_NAME}
-        </title>
-      </Head>
       <div className="flex flex-col md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-sky-700">
         <div className="aspect-square w-24 h-24 md:w-40 md:h-40 shrink-0">
           <Image
+            className="rounded-xl bg-black/5"
             src={game.icon}
-            alt={toTitle(game.name)}
-            width={200}
-            height={200}
-            className="w-full rounded-xl bg-loading bg-center bg-no-repeat bg-black/10"
+            alt={game.title}
+            width={100}
+            height={100}
+            layout={`fixed`}
           />
         </div>
         <div className="text-center md:text-left md:px-5">
           <h1 className="py-2 text-xl md:text-3xl font-semibold">
-            <span>{toTitle(game.name)}</span>
+            <span>{game.title}</span>
           </h1>
           <p className="capitalize">
             <Link href={`/category/${game.category.toLowerCase()}`}>
@@ -58,7 +51,7 @@ export default function GameDetail({ game }) {
         <Link href={game.url}>
           <a
             className="block md:hover:scale-110 md:hover:shadow-2xl md:hover:delay-100 md:hover:shadow-black/40 transition-transform ease-in-out duration-300 md:w-96 mx-auto bg-lime-500 text-center p-3 lg:p-4 text-lg lg:text-2xl font-semibold text-white rounded-full shadow-xl shadow-black/20"
-            title={`Play ${toTitle(game.name)} now`}
+            title={`Play ${game.title} now`}
           >
             PLAY NOW
           </a>

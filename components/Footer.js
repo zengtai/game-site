@@ -1,4 +1,4 @@
-import { SITE_NAME } from "../lib/constants";
+import { SITE_META } from "../lib/constants";
 import Link from "next/link";
 export default function Footer(params) {
   return (
@@ -16,7 +16,8 @@ export default function Footer(params) {
         </Link>
       </nav>
       <p className="py-7 opacity-90">
-        Copyright &copy; {SITE_NAME}. All Rights Reserved
+        Copyright &copy; {new Date().getFullYear()} {SITE_META.name}. All Rights
+        Reserved
       </p>
     </div>
   );

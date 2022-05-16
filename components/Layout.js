@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { SITE_META } from "../lib/constants";
 
-export default function Layout({ navItems, children, isOpen }) {
+export default function Layout({ title, navItems, children, isOpen }) {
   // console.log(list);
 
   return (
@@ -18,6 +19,9 @@ export default function Layout({ navItems, children, isOpen }) {
           sizes="any"
           type="image/svg+xml"
         />
+        <title>
+          {title} | {SITE_META.name}
+        </title>
       </Head>
 
       <Navbar isOpen={isOpen} navItems={navItems} />

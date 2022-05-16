@@ -24,7 +24,7 @@ export default function Navbar({ navItems, isOpen }) {
         } basis-1/2 sm:basis-1/6 md:basis-1/12 my-1 lg:mx-4 transition ease-in-out duration-500 md:hover:bg-none border-2 rounded-xl`}
         key={e}
       >
-        <Link href={`/category/${e}`}>
+        <Link href={`/category/${e.toLowerCase()}`}>
           <a
             className={`${
               e == current.slug
@@ -32,7 +32,7 @@ export default function Navbar({ navItems, isOpen }) {
                 : `text-white/70 md:hover:scale-125`
             } p-2 pr-3 flex flex-row items-center hover:text-white/90 transition duration-200 delay-50 drop-shadow`}
           >
-            <span className="mr-1">{getIcon(e)}</span>
+            <span className="mr-1">{getIcon(e.toLowerCase())}</span>
             {e}
           </a>
         </Link>
