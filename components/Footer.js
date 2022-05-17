@@ -5,14 +5,10 @@ export default function Footer(params) {
     <div className="mt-3 text-xs text-center text-yellow-100/50 bg-emerald-700/80">
       <nav className="group bg-emerald-600/80 p-3 space-x-5 shadow">
         <Link href={`/t/privacy-policy`}>
-          <a className="group-hover:text-white/70 transition duration-500">
-            Privacy Policy
-          </a>
+          <a title={`Privacy Policy`}>Privacy Policy</a>
         </Link>
         <Link href={`/t/terms-of-use`}>
-          <a className="group-hover:text-white/70 transition duration-500">
-            Terms of Use
-          </a>
+          <a title={`Terms of Use`}>Terms of Use</a>
         </Link>
       </nav>
       <p className="py-7 opacity-90">
