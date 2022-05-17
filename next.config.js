@@ -5,9 +5,10 @@ module.exports = {
     disableStaticImages: true,
   },
   reactStrictMode: true,
-  swcMinify: true,
-  // basePath: "/rt_main2_new", // lovinjoy
-  // distDir: "build",
+  // swcMinify: true,
+  // basePath: "/webs/youle", // youle
+  distDir: "build",
+  // buildid: "20220517",
   trailingSlash: true,
   // assetPrefix: ".",
 };
