@@ -21,9 +21,6 @@ function MyApp({ Component, pageProps }) {
       gtag.pageview(url);
       NProgress.done();
     };
-    // const handleRouteChange = (url) => {
-    //   gtag.pageview(url);
-    // };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleDone);
@@ -38,7 +35,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

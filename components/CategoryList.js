@@ -3,7 +3,7 @@ import { getIcon } from "../lib/api";
 export default function CategoryList({ title, categories, icon }) {
   const categoryList = categories.map((category, index) => (
     <li key={index} className="capitalize mx-1 mb-2">
-      <Link href={`/category/${category}`}>
+      <Link href={`/category/${category.toLowerCase()}`}>
         <a className="flex flex-row text-sm py-2 px-3 bg-amber-400 text-white hover:text-yellow-100 shadow-black/10 rounded-full shadow-md">
           <span className="mr-1 drop-shadow">
             {getIcon(`${category.toLowerCase()}`)}

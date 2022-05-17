@@ -13,12 +13,6 @@ export default function Layout({ title, navItems, children, isOpen }) {
           name="viewport"
           content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, height=device-height"
         />
-        <link
-          rel="icon"
-          href="brand/favicon.svg"
-          sizes="any"
-          type="image/svg+xml"
-        />
         <title>
           {title} | {SITE_META.name}
         </title>
