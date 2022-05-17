@@ -4,7 +4,7 @@ import GameList from "../../components/GameList";
 import { getGamesByCategory, getCategories, getGames } from "../../lib/api";
 import Head from "next/head";
 import { SITE_META, ADS_SLOT_ID } from "../../lib/constants";
-import Adsense from "../../components/Adsense";
+
 import Banner from "../../components/Banner";
 
 export default function GamesListByCategory({ games, categories }) {
@@ -31,7 +31,7 @@ export default function GamesListByCategory({ games, categories }) {
         />
 
         <div className="grow p-4 md:p-8">
-          <h1 className="px-2 pb-2 md:pb-3 text-center text-xl md:text-3xl font-semibold text-sky-100/90 capitalize">
+          <h1 className="px-2 pb-2 md:pb-3 text-center text-xl md:text-3xl font-semibold text-yellow-100/90 capitalize">
             {categoryName} Games
           </h1>
           <GameList cols="4" games={games} />

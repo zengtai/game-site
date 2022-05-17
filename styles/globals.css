@@ -1,7 +1,7 @@
 @tailwind base;
 @layer base {
   body {
-    @apply bg-blue-900 bg-gradient-to-br from-blue-800 to-blue-900;
+    @apply bg-emerald-900 bg-gradient-to-br bg-fixed from-emerald-800 to-emerald-900;
   }
 }
 @tailwind components;

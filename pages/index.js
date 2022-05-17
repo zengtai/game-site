@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import { hotIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
+import { fireIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
 import { getGames } from "../lib/api";
 import Link from "next/link";
 import Image from "../components/Image";
@@ -36,8 +36,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
         <div className="grow p-4 md:px-8 md:py-4 relative z-30">
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
-            <span className="text-orange-500">{hotIcon()}</span>
+          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-yellow-100/70 space-x-1">
+            <span className="text-orange-500">{fireIcon()}</span>
             <span>Popular This Week</span>
           </h2>
 
@@ -64,8 +64,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             responsive="false"
           />
 
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-sky-100/80 space-x-2">
-            <span className="text-orange-500">{gameIcon()}</span>
+          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-yellow-100/70 space-x-2">
+            <span className="text-yellow-500">{gameIcon()}</span>
             <span>All Games</span>
           </h2>
           <InfiniteScroll

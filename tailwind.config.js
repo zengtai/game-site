@@ -15,7 +15,6 @@ module.exports = {
   },
   plugins: [
     plugin(function ({ addVariant }) {
-      // addVariant("third", "&:nth-child(11n+7)");
       addVariant("third", "&:nth-child(11n+7)");
     }),
   ],

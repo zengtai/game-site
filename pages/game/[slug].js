@@ -69,7 +69,7 @@ export default function Games({
               </div>
               <GameDetail game={game} />
             </div>
-            <h3 className="flex flex-row text-lg text-sky-100/80 font-semibold px-2 xl:sr-only">
+            <h3 className="flex flex-row text-lg text-yellow-100/70 font-semibold px-2 xl:sr-only">
               <span className="mr-1 text-yellow-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +142,7 @@ export const getStaticPaths = async () => {
   const games = await getGames().then((res) => res.basicData);
   const paths = games.map((game) => ({
     params: {
-      slug: game.slug,
+      slug: game.slug.toLowerCase(),
     },
   }));
   return {

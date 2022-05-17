@@ -4,9 +4,11 @@ export default function CategoryList({ title, categories, icon }) {
   const categoryList = categories.map((category, index) => (
     <li key={index} className="capitalize mx-1 mb-2">
       <Link href={`/category/${category}`}>
-        <a className="flex flex-row text-sm py-2 px-3 bg-sky-600/80 text-sky-100/80 hover:text-sky-100 shadow-black/10 rounded-full shadow-md">
-          <span className="mr-1">{getIcon(`${category.toLowerCase()}`)}</span>
-          {category}
+        <a className="flex flex-row text-sm py-2 px-3 bg-amber-400 text-white hover:text-yellow-100 shadow-black/10 rounded-full shadow-md">
+          <span className="mr-1 drop-shadow">
+            {getIcon(`${category.toLowerCase()}`)}
+          </span>
+          <span className="drop-shadow">{category}</span>
         </a>
       </Link>
     </li>
@@ -21,8 +23,8 @@ export default function CategoryList({ title, categories, icon }) {
     } else {
       return (
         <>
-          <h2 className="flex items-center py-2 font-semibold text-sky-100/80 md:text-lg space-x-2">
-            <span className="text-cyan-500">{icon}</span>
+          <h2 className="flex items-center py-2 font-semibold text-yellow-100/70 md:text-lg space-x-2">
+            <span className="text-lime-500">{icon}</span>
             <span>{title}</span>
           </h2>
           <ul className="flex flex-wrap py-2">{categoryList}</ul>

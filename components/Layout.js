@@ -7,7 +7,7 @@ export default function Layout({ title, navItems, children, isOpen }) {
   // console.log(list);
 
   return (
-    <div className="flex flex-col text-sm bg-gradient-to-br from-blue-800 to-blue-900 text-white/80 min-h-screen">
+    <div className="flex flex-col text-sm bg-gradient-to-br from-emerald-700 to-emerald-900 text-white/80 bg-fixed min-h-screen">
       <Head>
         <meta
           name="viewport"
