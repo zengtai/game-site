@@ -5,7 +5,7 @@ module.exports = {
     disableStaticImages: true,
   },
   reactStrictMode: true,
-
+  swcMinify: true,
   // basePath: "/rt_main2_new", // lovinjoy
   // distDir: "build",
   trailingSlash: true,
