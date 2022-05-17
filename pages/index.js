@@ -41,7 +41,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             <span>Popular This Week</span>
           </h2>
 
-          <GameList games={featuredGames} cols="3" />
+          <GameList games={featuredGames} isPriority cols="3" />
 
           <Banner
             className={`banner`}

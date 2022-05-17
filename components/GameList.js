@@ -1,16 +1,43 @@
 import Link from "next/link";
 import Image from "./Image";
-export default function GameList({ title, games, icon, cols, className }) {
+export default function GameList({
+  title,
+  games,
+  icon,
+  cols,
+  className,
+  isPriority,
+}) {
   const setCol = () => {
     if (cols == "2") return `grid-cols-2`;
     else if (cols == "3") return `grid-cols-3`;
     else if (cols == "5") return `grid-cols-5`;
     else return `grid-cols-4`;
   };
-  const gamesList = games.map((game) => (
+  const gamesList = games.map((game, index) => (
     <li key={game.id} className={className}>
       <Link href={`/game/${game.slug}`}>
         <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
+          {isPriority && index < 3 ? (
+            <Image
+              src={game.icon}
+              alt={game.title}
+              width={200}
+              height={200}
+              className="w-full bg-loading bg-center bg-no-repeat"
+              layout="responsive"
+              priority
+            />
+          ) : (
+            <Image
+              src={game.icon}
+              alt={game.title}
+              width={200}
+              height={200}
+              className="w-full bg-loading bg-center bg-no-repeat"
+              layout="responsive"
+            />
+          )}
           <Image
             src={game.icon}
             alt={game.title}
