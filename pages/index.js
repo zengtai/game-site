@@ -12,13 +12,14 @@ import Banner from "../components/Banner";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Home({ games, newGames, featuredGames, categories }) {
-  const initGames = games.reverse().slice(0, 9);
-  const total = games.length;
+  const data = games.reverse();
+  const initGames = data.slice(0, 9);
+  const total = data.length;
   const [scrollGames, setScrollGames] = useState(initGames);
   const [hasMore, setHasMore] = useState(true);
 
   const getMoreGames = () => {
-    const newScrollGames = games.slice(
+    const newScrollGames = data.slice(
       scrollGames.length,
       scrollGames.length + 9
     );
