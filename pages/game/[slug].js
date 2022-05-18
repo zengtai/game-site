@@ -5,7 +5,10 @@ import CustomGameList from "../../components/CustomGameList";
 import Link from "next/link";
 import Head from "next/head";
 import { ADS_SLOT_ID, SITE_META } from "../../lib/constants";
-import Banner from "../../components/Banner";
+import dynamic from "next/dynamic";
+const Banner = dynamic(() => import("../../components/Banner"), {
+  loading: () => <div>Loading...</div>,
+});
 
 export default function Games({
   game,
@@ -29,10 +32,10 @@ export default function Games({
           responsive="false"
         />
 
-        <div className="grow p-4 md:p-8 relative z-30">
-          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 md:gap-6">
-            <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
-              <div className="pb-3 flex flex-row">
+        <div className="relative z-30 grow py-4 md:px-12 md:py-10">
+          <div className="grid gap-3 md:gap-6 xl:grid-cols-12 xl:grid-rows-5">
+            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-3 xl:row-start-1">
+              <div className="flex flex-row px-4 pb-3">
                 <Link href={`/`}>Home</Link>
                 <span>
                   <svg
@@ -69,7 +72,7 @@ export default function Games({
               </div>
               <GameDetail game={game} />
             </div>
-            <h3 className="flex flex-row text-lg text-yellow-100/70 font-semibold px-2 xl:sr-only">
+            <h3 className="flex flex-row px-4 text-lg font-semibold text-yellow-100/70 xl:sr-only">
               <span className="mr-1 text-yellow-500">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,18 +91,18 @@ export default function Games({
               </span>
               You may also like
             </h3>
-            <div className="xl:col-start-1 xl:row-start-1 xl:col-span-2 xl:row-span-5 ">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 md:gap-6">
+            <div className="xl:col-span-2 xl:col-start-1 xl:row-span-5 xl:row-start-1 ">
+              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-2">
                 <CustomGameList games={leftGames} />
               </ul>
             </div>
-            <div className="xl:col-start-11 xl:row-start-1 xl:col-span-2 xl:row-span-5">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 md:gap-6">
+            <div className="xl:col-span-2 xl:col-start-11 xl:row-span-5 xl:row-start-1">
+              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-2">
                 <CustomGameList games={rightGames} />
               </ul>
             </div>
-            <div className="xl:col-start-3 xl:row-start-4 xl:col-span-8 xl:row-span-2">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3 md:gap-6">
+            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-2 xl:row-start-4">
+              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-8">
                 <CustomGameList games={bottomGames} />
               </ul>
             </div>

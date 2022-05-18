@@ -8,8 +8,11 @@ import Layout from "../components/Layout";
 import { ADS_SLOT_ID, SITE_META, FEATURED_GAMES } from "../lib/constants";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
-import Banner from "../components/Banner";
 import InfiniteScroll from "react-infinite-scroll-component";
+import dynamic from "next/dynamic";
+const Banner = dynamic(() => import("../components/Banner"), {
+  loading: () => <div>Loading...</div>,
+});
 
 export default function Home({ games, newGames, featuredGames, categories }) {
   let data = games.slice();
@@ -38,8 +41,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
-        <div className="grow p-4 md:px-8 md:py-4 relative z-30">
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-yellow-100/70 space-x-1">
+        <div className="relative z-30 grow">
+          <h2 className="flex items-center space-x-1 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
             <span className="text-orange-500">{fireIcon()}</span>
             <span>Popular This Week</span>
           </h2>
@@ -55,8 +58,10 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
           <GameList
             icon={topIcon()}
+            iconClassName={``}
             games={newGames}
             title="New Games"
+            isPriority
             cols="5"
           />
 
@@ -67,7 +72,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             responsive="false"
           />
 
-          <h2 className="flex items-center py-2 pb-0 md:text-lg font-semibold text-yellow-100/70 space-x-2">
+          <h2 className="flex items-center space-x-2 px-4 py-2 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
             <span className="text-yellow-500">{gameIcon()}</span>
             <span>All Games</span>
           </h2>
@@ -78,14 +83,14 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             hasMore={hasMore}
             loader={<div className="my-2 text-center">Loading...</div>}
           >
-            <ul className="grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-3 md:gap-6 py-3">
+            <ul className="grid grid-cols-4 gap-3 py-3 px-4 md:grid-cols-6 md:gap-6 md:px-12 lg:grid-cols-8 2xl:grid-cols-12">
               {scrollGames.map((game) => (
                 <li
                   key={game.id}
-                  className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
+                  className="third:col-span-2 third:row-span-2 md:third:col-auto md:third:row-auto"
                 >
                   <Link href={`/game/${game.slug}`}>
-                    <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
+                    <a className="md:delay-50 duration-400 group relative block aspect-square overflow-hidden rounded-2xl shadow-md shadow-black/30 transition ease-in-out hover:shadow-lg hover:shadow-black/40 md:hover:origin-bottom md:hover:scale-110">
                       <Image
                         src={game.icon}
                         alt={game.title}
@@ -94,10 +99,10 @@ export default function Home({ games, newGames, featuredGames, categories }) {
                         layout="responsive"
                         className="w-full bg-loading bg-center bg-no-repeat"
                       />
-                      <div className="absolute hidden sm:flex justify-center items-end w-full h-full font-semibold -bottom-[150%] md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
-                        <div className="p-2 h-auto w-full text-ellipsis text-center">
+                      <div className="absolute -bottom-[150%] hidden h-full w-full items-end justify-center text-center text-xs font-semibold group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 sm:flex md:group-hover:bottom-0">
+                        <div className="h-auto w-full text-ellipsis p-2 text-center">
                           <h3 className="leading-4">{game.title}</h3>
-                          <p className="flex flex-row justify-center items-center text-xl font-bold text-orange-500">
+                          <p className="flex flex-row items-center justify-center text-xl font-bold text-orange-500">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="-ml-1 h-5 w-5"

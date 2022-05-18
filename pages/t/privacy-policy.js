@@ -6,9 +6,9 @@ export default function PrivacyPolicy({ categories }) {
     <>
       <Layout title={`Privacy Policy`} navItems={categories}>
         <div className="p-4 md:p-8 xl:mx-auto xl:w-[1120px]">
-          <div className="pb-3 text-2xl text-white/80 font-bold">
-            {SITE_META.name} Privacy Policy
-          </div>
+          <h1 className="pb-3 text-2xl font-bold text-white/80">
+            Privacy Policy
+          </h1>
           <p className="my-2">
             At {SITE_META.name}, accessible from {SITE_META.url}, one of our
             main priorities is the privacy of our visitors. This Privacy Policy
@@ -26,12 +26,12 @@ export default function PrivacyPolicy({ categories }) {
             not applicable to any information collected offline or via channels
             other than this website.
           </p>
-          <h2 className="text-md font-bold my-3">Consent</h2>
+          <h2 className="text-md my-3 font-bold">Consent</h2>
           <p className="my-2">
             By using our website, you hereby consent to our Privacy Policy and
             agree to its terms.
           </p>
-          <h2 className="text-md font-bold my-3">Information we collect</h2>
+          <h2 className="text-md my-3 font-bold">Information we collect</h2>
           <p className="my-2">
             The personal information that you are asked to provide, and the
             reasons why you are asked to provide it, will be made clear to you
@@ -48,13 +48,13 @@ export default function PrivacyPolicy({ categories }) {
             information, including items such as name, company name, address,
             email address, and telephone number.
           </p>
-          <h2 className="text-md font-bold my-3">
+          <h2 className="text-md my-3 font-bold">
             How we use your information
           </h2>
           <p className="my-2">
             We use the information we collect in various ways, including to:
           </p>
-          <ul className="list-disc list-outside ml-4 my-2">
+          <ul className="my-2 ml-4 list-outside list-disc">
             <li>Provide, operate, and maintain our website</li>
             <li>Improve, personalize, and expand our website</li>
             <li>Understand and analyze how you use our website</li>
@@ -68,7 +68,7 @@ export default function PrivacyPolicy({ categories }) {
             <li>Send you emails</li>
             <li>Find and prevent fraud</li>
           </ul>
-          <h2 className="text-md font-bold my-3">Log Files</h2>
+          <h2 className="text-md my-3 font-bold">Log Files</h2>
           <p className="my-2">
             {SITE_META.name} follows a standard procedure of using log files.
             These files log visitors when they visit websites. All hosting
@@ -81,7 +81,7 @@ export default function PrivacyPolicy({ categories }) {
             trends, administering the site, tracking users’ movement on the
             website, and gathering demographic information.
           </p>
-          <h2 className="text-md font-bold my-3">Cookies and Web Beacons</h2>
+          <h2 className="text-md my-3 font-bold">Cookies and Web Beacons</h2>
           <p className="my-2">
             Like any other website, {SITE_META.name} uses ‘cookies’. These
             cookies are used to store information including visitors’
@@ -97,7 +97,7 @@ export default function PrivacyPolicy({ categories }) {
             </a>
             .
           </p>
-          <h2 className="text-md font-bold my-3">
+          <h2 className="text-md my-3 font-bold">
             Google DoubleClick DART Cookie
           </h2>
           <p className="my-2">
@@ -111,7 +111,7 @@ export default function PrivacyPolicy({ categories }) {
               https://policies.google.com/technologies/ads
             </a>
           </p>
-          <h2 className="text-md font-bold my-3">
+          <h2 className="text-md my-3 font-bold">
             Advertising Partners Privacy Policies
           </h2>
           <p className="my-2">
@@ -132,7 +132,7 @@ export default function PrivacyPolicy({ categories }) {
             Note that {SITE_META.name} has no access to or control over these
             cookies that are used by third-party advertisers.
           </p>
-          <h2 className="text-md font-bold my-3">
+          <h2 className="text-md my-3 font-bold">
             Third Party Privacy Policies
           </h2>
           <p className="my-2">
@@ -148,7 +148,7 @@ export default function PrivacyPolicy({ categories }) {
             with specific web browsers, it can be found at the browsers’
             respective websites.
           </p>
-          <h2 className="text-md font-bold my-3">
+          <h2 className="text-md my-3 font-bold">
             CCPA Privacy Rights (Do Not Sell My Personal Information)
           </h2>
           <p className="my-2">
@@ -172,7 +172,7 @@ export default function PrivacyPolicy({ categories }) {
             If you make a request, we have one month to respond to you. If you
             would like to exercise any of these rights, please contact us.
           </p>
-          <h2 className="text-md font-bold my-3">
+          <h2 className="text-md my-3 font-bold">
             GDPR Data Protection Rights
           </h2>
           <p className="my-2">
@@ -211,7 +211,7 @@ export default function PrivacyPolicy({ categories }) {
             If you make a request, we have one month to respond to you. If you
             would like to exercise any of these rights, please contact us.
           </p>
-          <h2 className="text-md font-bold my-3">Children’s Information</h2>
+          <h2 className="text-md my-3 font-bold">Children’s Information</h2>
           <p className="my-2">
             Another part of our priority is adding protection for children while
             using the internet. We encourage parents and guardians to observe,

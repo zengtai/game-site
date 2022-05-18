@@ -1,4 +1,8 @@
-### rt_main2_new
+### 框架
+
+Next.js
+
+### youletech
 
 - [x] Adsense code
 - [x] ads.txt
@@ -7,15 +11,15 @@
 
 ## 输出路径
 
-`/rt_main2_new`
+`/webs/youle`
 
 ## 游戏路径
 
-`https://uptapapi.uptap.com/h5Game/?type=Game&platform=rt_main2_new&appid=`
+`https://uptapapi.uptap.com/h5Game/?type=Game&platform=youletech&appid=`
 
 ## GA
 
-`UA-183890722-51`
+`G-DDF82DXW7Z`
 
 ## Adsense id
 
@@ -23,6 +27,6 @@
 
 ## Adsense ADs Id
 
-首页 `8093148837`
-列表页 `4582430613`
-详情页 `7287333621`
+首页 `8841942463`
+列表页 `2623469732`
+详情页 `7528860791`

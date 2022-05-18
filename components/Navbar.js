@@ -16,16 +16,16 @@ export default function Navbar({ navItems, isOpen }) {
   const categoryNav = navItems.map((e) => {
     return (
       <li
-        className={`basis-1/2 sm:basis-1/6 md:basis-1/12 my-1 lg:mx-4 transition ease-in-out duration-500 md:hover:bg-none rounded-xl`}
+        className={`my-1 basis-1/2 rounded-xl transition duration-500 ease-in-out sm:basis-1/6 md:basis-1/12 md:hover:bg-none`}
         key={e}
       >
         <Link href={`/category/${e.toLowerCase()}`}>
           <a
             className={`${
               e.toLowerCase() == current.slug
-                ? `text-white md:scale-125 rounded-full border-white/40 md:border-0`
-                : `text-white/90 md:hover:scale-125 border-transparent`
-            } p-2 pr-3 flex font-bold border-2 flex-row items-center md:justify-center hover:text-white/90 transition duration-200 delay-50 drop-shadow`}
+                ? `rounded-full border-white/40 text-white md:scale-125 md:border-0`
+                : `border-transparent text-white/90 md:hover:scale-125`
+            } delay-50 flex flex-row items-center border-2 p-2 pr-3 font-bold drop-shadow transition duration-200 hover:text-white/90 md:justify-center`}
           >
             <span className="mr-1.5">{getIcon(e.toLowerCase())}</span>
             {e}
@@ -36,9 +36,9 @@ export default function Navbar({ navItems, isOpen }) {
   });
   return (
     <nav>
-      <div className="block relative z-10">
+      <div className="relative z-10 block">
         <Link href={`/`}>
-          <a className="absolute hover:scale-125 origin-center transition ease-in-out duration-400 delay-75 lg:top-8 lg:left-6 flex justify-center items-center text-yellow-300 rounded-full w-10 h-10 left-0 top-0 z-20 lg:bg-white">
+          <a className="duration-400 absolute left-0 top-0 z-20 flex h-10 w-10 origin-center items-center justify-center rounded-full text-yellow-300 transition delay-75 ease-in-out hover:scale-125 lg:top-8 lg:left-6 lg:bg-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -51,7 +51,7 @@ export default function Navbar({ navItems, isOpen }) {
         </Link>
         <button
           onClick={toggle}
-          className="ml-auto flex justify-center items-center w-10 h-10 lg:hidden text-yellow-300"
+          className="ml-auto flex h-10 w-10 items-center justify-center text-yellow-300 lg:hidden"
         >
           {!isMenuOpen ? closeIcon() : menuIcon()}
         </button>
@@ -59,9 +59,9 @@ export default function Navbar({ navItems, isOpen }) {
           className={`
             ${
               !isMenuOpen ? `hidden lg:block` : `block`
-            } relative p-3 z-30 md:z-10`}
+            } relative z-30 p-3 md:z-10`}
         >
-          <ul className="flex flex-wrap lg:flex-nowrap lg:justify-center py-2 px-2 md:mt-2 capitalize bg-gradient-to-b from-yellow-500 to-amber-500 rounded-3xl lg:rounded-full shadow-lg shadow-black/20">
+          <ul className="flex flex-wrap rounded-3xl bg-gradient-to-b from-yellow-500 to-amber-500 py-2 px-2 capitalize shadow-lg shadow-black/20 md:mt-2 lg:flex-nowrap lg:justify-center lg:rounded-full">
             {categoryNav}
           </ul>
         </div>

@@ -5,7 +5,10 @@ import { getGamesByCategory, getCategories, getGames } from "../../lib/api";
 import Head from "next/head";
 import { SITE_META, ADS_SLOT_ID } from "../../lib/constants";
 
-import Banner from "../../components/Banner";
+import dynamic from "next/dynamic";
+const Banner = dynamic(() => import("../../components/Banner"), {
+  loading: () => <div>Loading...</div>,
+});
 
 export default function GamesListByCategory({ games, categories }) {
   // console.log(games);
@@ -30,8 +33,8 @@ export default function GamesListByCategory({ games, categories }) {
           responsive="false"
         />
 
-        <div className="grow p-4 md:p-8">
-          <h1 className="px-2 pb-2 md:pb-3 text-center text-xl md:text-3xl font-semibold text-yellow-100/90 capitalize">
+        <div className="grow py-4">
+          <h1 className="px-4 pb-2 text-center text-xl font-semibold capitalize text-yellow-100/90 md:pb-3 md:text-3xl">
             {categoryName} Games
           </h1>
           <GameList cols="4" games={games} />

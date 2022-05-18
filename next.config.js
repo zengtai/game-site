@@ -6,7 +6,7 @@ module.exports = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  basePath: "/webs/youle", // youle
+  // basePath: "/webs/youle", // youle
   distDir: "build",
   generateBuildId: async () => {
     // You can, for example, get the latest git commit hash here

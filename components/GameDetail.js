@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function GameDetail({ game }) {
   return (
     <>
-      <div className="flex flex-col md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-emerald-700">
+      <div className="flex flex-col mx-4 md:mx-0 md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-emerald-700">
         <div className="aspect-square w-24 h-24 md:w-40 md:h-40 shrink-0">
           <Image
             className="rounded-xl bg-black/5"
@@ -47,7 +47,7 @@ export default function GameDetail({ game }) {
           </p>
         </div>
       </div>
-      <p className="py-4 md:pt-2">
+      <p className="py-4 mx-4 md:pt-2">
         <Link href={game.url}>
           <a
             className="block md:hover:scale-110 md:hover:shadow-2xl md:hover:delay-100 md:hover:shadow-black/40 transition-transform ease-in-out duration-300 md:w-96 mx-auto bg-gradient-to-r from-yellow-500 to-orange-400 text-center p-3 lg:p-4 text-lg lg:text-2xl font-bold text-white rounded-full shadow-xl shadow-black/20"
