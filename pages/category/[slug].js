@@ -19,7 +19,7 @@ export default function GamesListByCategory({ games, categories }) {
   // console.log(categoryName);
   return (
     <>
-      <Layout navItems={categories} isOpen>
+      <Layout navItems={categories}>
         <Head>
           <title>
             {categoryName} Games | Play {categoryName} Games on {SITE_META.name}

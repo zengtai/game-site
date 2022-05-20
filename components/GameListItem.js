@@ -7,8 +7,8 @@ export default function GameListItem({ games, className, isPriority }) {
       {games.map((game, index) => (
         <li key={game.id} className={className}>
           <Link href={`/game/${game.slug}`}>
-            <a className="md:delay-50 duration-400 group relative block aspect-square overflow-hidden rounded-2xl shadow-md shadow-black/30 transition ease-in-out hover:shadow-lg hover:shadow-black/40 md:hover:origin-bottom md:hover:scale-110">
-              {isPriority ? (
+            <a className="lg:delay-50 lg:duration-400 group relative block aspect-square overflow-hidden rounded-2xl shadow-md shadow-black/30 lg:transition lg:ease-in-out lg:hover:origin-bottom lg:hover:scale-110 lg:hover:shadow-lg lg:hover:shadow-black/40">
+              {isPriority && index < 6 ? (
                 <Image
                   src={game.icon}
                   alt={game.title}
@@ -28,7 +28,7 @@ export default function GameListItem({ games, className, isPriority }) {
                   layout="responsive"
                 />
               )}
-              <div className="absolute -bottom-[150%] hidden h-full w-full items-end justify-center text-center text-xs font-semibold group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 sm:flex md:group-hover:bottom-0">
+              <div className="absolute -bottom-[150%] hidden h-full w-full items-end justify-center text-center text-xs font-semibold sm:flex lg:group-hover:bottom-0 lg:group-hover:bg-gradient-to-t lg:group-hover:from-black lg:group-hover:to-black/0">
                 <div className="h-auto w-full text-ellipsis p-2 text-center">
                   <h3 className="leading-4">{game.title}</h3>
                   <p className="flex flex-row items-center justify-center text-xl font-bold text-orange-500">

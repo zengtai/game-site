@@ -38,7 +38,7 @@ export default function Navbar({ navItems, isOpen }) {
     <nav className="fixed z-50 w-full border-b border-black/10 bg-black/5 drop-shadow-sm backdrop-blur backdrop-filter md:relative md:border-b-0 md:bg-transparent md:backdrop-blur-none md:backdrop-filter-none">
       <div className="z-10 block md:relative">
         <Link href={`/`}>
-          <a className="duration-400 absolute left-0 top-0 z-20 flex h-10 w-10 origin-center items-center justify-center rounded-full text-yellow-300 transition delay-75 ease-in-out hover:scale-125 lg:top-8 lg:left-6 lg:bg-white">
+          <a className="lg:duration-400 absolute left-0 top-0 z-20 flex h-10 w-10 origin-center items-center justify-center rounded-full text-yellow-300 lg:top-8 lg:left-6 lg:bg-white lg:transition lg:delay-75 lg:ease-in-out lg:hover:scale-125">
             {homeIcon()}
           </a>
         </Link>
