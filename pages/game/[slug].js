@@ -28,7 +28,7 @@ export default function Games({
           </title>
         </Head>
         <Banner
-          className={`banner`}
+          className={`banner mt-14`}
           style={{ display: "block" }}
           slot={ADS_SLOT_ID.detail}
           responsive="false"
