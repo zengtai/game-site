@@ -1,11 +1,13 @@
 import Layout from "../../components/Layout";
 import { getGameBySlug, getGames } from "../../lib/api";
 import GameDetail from "../../components/GameDetail";
-import CustomGameList from "../../components/CustomGameList";
 import Link from "next/link";
 import Head from "next/head";
 import { ADS_SLOT_ID, SITE_META } from "../../lib/constants";
 import dynamic from "next/dynamic";
+import GameListItem from "../../components/GameListItem";
+
+import { sparkleIcon } from "../../components/Icons";
 const Banner = dynamic(() => import("../../components/Banner"), {
   loading: () => <div>Loading...</div>,
 });
@@ -74,7 +76,8 @@ export default function Games({
             </div>
             <h3 className="flex flex-row px-4 text-lg font-semibold text-yellow-100/70 xl:sr-only">
               <span className="mr-1 text-yellow-500">
-                <svg
+                {sparkleIcon()}
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
                   fill="none"
@@ -87,23 +90,26 @@ export default function Games({
                     strokeWidth={2}
                     d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                   />
-                </svg>
+                </svg> */}
               </span>
               You may also like
             </h3>
             <div className="xl:col-span-2 xl:col-start-1 xl:row-span-5 xl:row-start-1 ">
               <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-2">
-                <CustomGameList games={leftGames} />
+                {/* <CustomGameList games={leftGames} /> */}
+                <GameListItem games={leftGames} />
               </ul>
             </div>
             <div className="xl:col-span-2 xl:col-start-11 xl:row-span-5 xl:row-start-1">
               <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-2">
-                <CustomGameList games={rightGames} />
+                {/* <CustomGameList games={rightGames} /> */}
+                <GameListItem games={rightGames} />
               </ul>
             </div>
             <div className="xl:col-span-8 xl:col-start-3 xl:row-span-2 xl:row-start-4">
               <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-8">
-                <CustomGameList games={bottomGames} />
+                {/* <CustomGameList games={bottomGames} /> */}
+                <GameListItem games={bottomGames} />
               </ul>
             </div>
           </div>

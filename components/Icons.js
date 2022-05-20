@@ -1,4 +1,56 @@
-export const topIcon = () => {
+export function getIcon(name) {
+  return icons[name];
+  // return categoryIcons[name];
+}
+const icons = {
+  action: iconAction(),
+  casual: iconCasual(),
+  defense: iconDefense(),
+  puzzles: iconPuzzles(),
+  shooting: iconShooting(),
+  simulation: iconSimulation(),
+  sports: iconSports(),
+  strategy: iconStrategy(),
+  home: homeIcon(),
+  top: topIcon(),
+  fire: fireIcon(),
+  hot: hotIcon(),
+  game: gameIcon(),
+  category: categoryIcon(),
+  close: closeIcon(),
+  menu: menuIcon(),
+  star: starIcon(),
+  sparkle: sparkleIcon(),
+};
+
+// export default function getIcon(genre) {
+//   const categoryIcons = {
+//     action: iconAction(),
+//     casual: iconCasual(),
+//     defense: iconDefense(),
+//     puzzles: iconPuzzles(),
+//     shooting: iconShooting(),
+//     simulation: iconSimulation(),
+//     sports: iconSports(),
+//     strategy: iconStrategy(),
+//   };
+//   return categoryIcons[genre];
+// }
+
+export function homeIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+    </svg>
+  );
+}
+
+export function topIcon() {
   return (
     <svg
       width={20}
@@ -10,8 +62,8 @@ export const topIcon = () => {
       <path d="M16.136 0C19.877 0 21.989 2.122 22 5.863v10.274C22 19.877 19.877 22 16.136 22H5.863C2.122 22 0 19.877 0 16.137V5.863C0 2.122 2.122 0 5.863 0h10.273zM11.55 4.543a.924.924 0 00-1.41.869v11.209a.927.927 0 00.914.825.91.91 0 00.913-.825V5.412a.897.897 0 00-.417-.869zM6.413 8.151a.905.905 0 00-.968 0 .925.925 0 00-.429.869v7.601a.908.908 0 00.912.825.91.91 0 00.913-.825V9.02a.926.926 0 00-.428-.869zm10.185 3.993a.922.922 0 00-.978 0 .886.886 0 00-.418.869v3.608a.91.91 0 00.913.825.927.927 0 00.913-.825v-3.608a.918.918 0 00-.43-.869z" />
     </svg>
   );
-};
-export const fireIcon = () => {
+}
+export function fireIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +82,8 @@ export const fireIcon = () => {
       ></path>
     </svg>
   );
-};
-export const hotIcon = () => (
+}
+export function hotIcon() {
   <svg
     width={20}
     height={24}
@@ -40,10 +92,10 @@ export const hotIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path d="M0 23.25c0 .13.037.258.109.37a.794.794 0 00.3.275.904.904 0 00.824.013L10 19.603l8.767 4.305a.908.908 0 00.825-.013.794.794 0 00.299-.274.693.693 0 00.109-.371V3c0-.796-.351-1.559-.976-2.121C18.399.316 17.55 0 16.667 0H3.333C2.45 0 1.601.316.976.879.351 1.44 0 2.204 0 2.999v20.25zM10 6.614c2.312-2.138 8.09 1.605 0 6.415-8.09-4.81-2.312-8.551 0-6.412v-.003z" />
-  </svg>
-);
+  </svg>;
+}
 
-export const gameIcon = () => {
+export function gameIcon() {
   return (
     <svg
       width={24}
@@ -55,9 +107,9 @@ export const gameIcon = () => {
       <path d="M7.631 0c.495 0 .883.393.883.867 0 .347.295.624.648.624h1.166c1.778.012 3.227 1.434 3.238 3.168v.22c1.119 0 2.238.023 3.368.034C21.021 4.913 24 7.827 24 11.85v5.167c0 4.024-2.98 6.937-7.066 6.937-1.637.034-3.274.046-4.922.046-1.649 0-3.31-.012-4.946-.046C2.979 23.954 0 21.04 0 17.017V11.85c0-4.023 2.98-6.937 7.078-6.937 1.542-.023 3.12-.046 4.722-.046v-.196c0-.798-.671-1.446-1.472-1.446H9.162c-1.33 0-2.414-1.063-2.414-2.358 0-.474.4-.867.883-.867zm.871 11.48a.874.874 0 00-.883.867v1.214H6.371a.882.882 0 00-.883.867c0 .485.4.867.883.867h1.248v1.225c0 .474.389.867.883.867a.882.882 0 00.884-.867v-1.225h1.236a.874.874 0 00.883-.867c0-.474-.4-.867-.883-.867H9.386v-1.214c0-.474-.4-.867-.884-.867zm9.257 4.104h-.118a.866.866 0 100 1.734h.118a.874.874 0 00.883-.867c0-.474-.4-.867-.883-.867zm-2.014-3.977h-.118a.867.867 0 100 1.734h.118a.874.874 0 00.883-.867c0-.474-.4-.867-.883-.867z" />
     </svg>
   );
-};
+}
 
-export const categoryIcon = () => {
+export function categoryIcon() {
   return (
     <svg
       width={22}
@@ -69,9 +121,9 @@ export const categoryIcon = () => {
       <path d="M6.512 12.617a2.797 2.797 0 012.794 2.817v3.75C9.306 20.735 8.063 22 6.512 22H2.794C1.254 22 0 20.735 0 19.184v-3.75a2.804 2.804 0 012.794-2.817h3.718zm12.694 0A2.804 2.804 0 0122 15.434v3.75C22 20.735 20.746 22 19.206 22h-3.718c-1.55 0-2.794-1.265-2.794-2.816v-3.75a2.797 2.797 0 012.794-2.817h3.718zM6.512 0c1.551 0 2.794 1.265 2.794 2.817v3.75a2.796 2.796 0 01-2.794 2.816H2.794A2.803 2.803 0 010 6.567v-3.75C0 1.265 1.254 0 2.794 0h3.718zm12.694 0C20.746 0 22 1.265 22 2.817v3.75a2.803 2.803 0 01-2.794 2.816h-3.718a2.796 2.796 0 01-2.794-2.816v-3.75C12.694 1.265 13.937 0 15.488 0h3.718z" />
     </svg>
   );
-};
+}
 
-export const closeIcon = () => {
+export function closeIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +140,7 @@ export const closeIcon = () => {
       />
     </svg>
   );
-};
+}
 
 export function menuIcon() {
   return (
@@ -104,6 +156,44 @@ export function menuIcon() {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+export function starIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16">
+      <g transform="matrix(1,0,0,1,-329.337,-28)">
+        <g transform="matrix(1.04399,0,0,1.04399,-14.4863,-1.23162)">
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            strokeLinejoin="round"
+            strokeMiterlimit={2}
+            d="M336.004,28.617C336.192,28.239 336.578,28 337,28C337.422,28 337.808,28.239 337.996,28.617L339.77,32.187L343.713,32.771C344.131,32.833 344.478,33.126 344.608,33.528C344.739,33.93 344.631,34.371 344.329,34.666L341.482,37.456L342.145,41.387C342.216,41.804 342.044,42.224 341.702,42.472C341.361,42.72 340.908,42.754 340.533,42.558L337,40.713L333.467,42.558C333.092,42.754 332.639,42.72 332.298,42.472C331.956,42.224 331.784,41.804 331.855,41.387L332.518,37.456L329.671,34.666C329.369,34.371 329.261,33.93 329.392,33.528C329.522,33.126 329.869,32.833 330.287,32.771L334.23,32.187L336.004,28.617Z"
+            style="fill:rgb(255,138,0);"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+export function sparkleIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
       />
     </svg>
   );
@@ -185,7 +275,7 @@ export function iconPuzzles() {
   );
 }
 
-export const iconShooting = () => {
+export function iconShooting() {
   return (
     <svg
       width="17"
@@ -202,7 +292,7 @@ export const iconShooting = () => {
       />
     </svg>
   );
-};
+}
 
 export function iconSimulation() {
   return (
@@ -260,22 +350,3 @@ export function iconStrategy() {
     </svg>
   );
 }
-
-export const starIcon = () => {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16">
-      <g transform="matrix(1,0,0,1,-329.337,-28)">
-        <g transform="matrix(1.04399,0,0,1.04399,-14.4863,-1.23162)">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            strokeLinejoin="round"
-            strokeMiterlimit={2}
-            d="M336.004,28.617C336.192,28.239 336.578,28 337,28C337.422,28 337.808,28.239 337.996,28.617L339.77,32.187L343.713,32.771C344.131,32.833 344.478,33.126 344.608,33.528C344.739,33.93 344.631,34.371 344.329,34.666L341.482,37.456L342.145,41.387C342.216,41.804 342.044,42.224 341.702,42.472C341.361,42.72 340.908,42.754 340.533,42.558L337,40.713L333.467,42.558C333.092,42.754 332.639,42.72 332.298,42.472C331.956,42.224 331.784,41.804 331.855,41.387L332.518,37.456L329.671,34.666C329.369,34.371 329.261,33.93 329.392,33.528C329.522,33.126 329.869,32.833 330.287,32.771L334.23,32.187L336.004,28.617Z"
-            style="fill:rgb(255,138,0);"
-          />
-        </g>
-      </g>
-    </svg>
-  );
-};

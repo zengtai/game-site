@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getIcon } from "../lib/api";
+import { getIcon } from "../components/Icons";
 export default function CategoryList({ title, categories, icon }) {
   const categoryList = categories.map((category, index) => (
     <li key={index} className="mx-1 mb-2 capitalize">

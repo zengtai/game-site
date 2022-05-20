@@ -7,8 +7,8 @@ export default function GameListItem({ games, className, isPriority }) {
       {games.map((game, index) => (
         <li key={game.id} className={className}>
           <Link href={`/game/${game.slug}`}>
-            <a className="group aspect-square relative block md:hover:origin-bottom md:hover:scale-110 md:delay-50 transition duration-400 ease-in-out rounded-2xl overflow-hidden shadow-md hover:shadow-lg shadow-black/30 hover:shadow-black/40">
-              {isPriority && index < 3 ? (
+            <a className="md:delay-50 duration-400 group relative block aspect-square overflow-hidden rounded-2xl shadow-md shadow-black/30 transition ease-in-out hover:shadow-lg hover:shadow-black/40 md:hover:origin-bottom md:hover:scale-110">
+              {isPriority ? (
                 <Image
                   src={game.icon}
                   alt={game.title}
@@ -28,10 +28,10 @@ export default function GameListItem({ games, className, isPriority }) {
                   layout="responsive"
                 />
               )}
-              <div className="absolute hidden sm:flex justify-center items-end w-full h-full font-semibold -bottom-[150%] md:group-hover:bottom-0 group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 text-center text-xs">
-                <div className="p-2 h-auto w-full text-ellipsis text-center">
+              <div className="absolute -bottom-[150%] hidden h-full w-full items-end justify-center text-center text-xs font-semibold group-hover:bg-gradient-to-t group-hover:from-black group-hover:to-black/0 sm:flex md:group-hover:bottom-0">
+                <div className="h-auto w-full text-ellipsis p-2 text-center">
                   <h3 className="leading-4">{game.title}</h3>
-                  <p className="flex flex-row justify-center items-center text-xl font-bold text-orange-500">
+                  <p className="flex flex-row items-center justify-center text-xl font-bold text-orange-500">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="-ml-1 h-5 w-5"
