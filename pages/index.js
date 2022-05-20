@@ -25,7 +25,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
-        <div className="relative z-30 grow pt-12">
+        <div className="relative z-30 grow pt-12 md:pt-0">
           <h2 className="flex items-center space-x-1 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
             <span className="text-orange-500">{fireIcon()}</span>
             <span>Popular This Week</span>

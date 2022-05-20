@@ -27,7 +27,7 @@ export default function GamesListByCategory({ games, categories }) {
         </Head>
 
         <Banner
-          className={`banner mt-14`}
+          className={`banner mt-14 md:mt-0`}
           style={{ display: "block" }}
           slot={ADS_SLOT_ID.category}
           responsive="false"
