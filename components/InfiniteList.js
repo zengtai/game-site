@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "../components/Image";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -6,9 +6,15 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function InfiniteList({ games, init = 9, step = 9 }) {
   let data = games.slice();
   data = data.reverse();
-  // console.log(data[0], games[0]);
-  const initGames = data.slice(0, init);
+
+  // const initGames = data.slice(0, init);
+  const initGames =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("scrollGames")) || data.slice(0, init)
+      : data.slice(0, init);
+
   const total = data.length;
+
   const [scrollGames, setScrollGames] = useState(initGames);
   const [hasMore, setHasMore] = useState(true);
 
@@ -17,12 +23,17 @@ export default function InfiniteList({ games, init = 9, step = 9 }) {
       scrollGames.length,
       scrollGames.length + step
     );
+
     setScrollGames((game) => [...game, ...newScrollGames]);
 
     if (scrollGames.length >= total) {
       setHasMore(!hasMore);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("scrollGames", JSON.stringify(scrollGames));
+  }, [scrollGames]);
 
   return (
     <InfiniteScroll
