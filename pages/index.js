@@ -1,6 +1,12 @@
 import Head from "next/head";
-import { useState } from "react";
-import { fireIcon, topIcon, gameIcon, categoryIcon } from "../components/Icons";
+import { useEffect, useState } from "react";
+import {
+  fireIcon,
+  topIcon,
+  gameIcon,
+  categoryIcon,
+  historyIcon,
+} from "../components/Icons";
 import { getGames } from "../lib/api";
 
 import Layout from "../components/Layout";
@@ -19,6 +25,29 @@ const InfiniteList = dynamic(() => import("../components/InfiniteList"), {
 });
 
 export default function Home({ games, newGames, featuredGames, categories }) {
+  const [playedGames, setPlayedGames] = useState();
+
+  // if (typeof window !== "undefined") {
+  //   let playedGames = JSON.parse(localStorage.getItem("playedGames")) || [];
+  //   if (playedGames.length) {
+  //     playedGamesBySlug = games.filter((game) =>
+  //       playedGames.includes(game.slug)
+  //     );
+  //   }
+  // }
+  useEffect(() => {
+    let playedGamesBySlug;
+    if (typeof window !== "undefined") {
+      let playedGames = JSON.parse(localStorage.getItem("playedGames")) || [];
+      if (playedGames.length) {
+        playedGamesBySlug = games.filter((game) =>
+          playedGames.includes(game.slug)
+        );
+        setPlayedGames(() => playedGamesBySlug);
+      }
+    }
+  }, [games]);
+
   return (
     <>
       <Layout navItems={categories}>
@@ -26,12 +55,19 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
         <div className="relative z-30 grow pt-12 md:pt-0">
-          <h2 className="flex items-center space-x-1 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
+          {/* <h2 className="flex items-center space-x-1 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
             <span className="text-orange-500">{fireIcon()}</span>
             <span>Popular This Week</span>
-          </h2>
+          </h2> */}
 
-          <GameList games={featuredGames} isPriority cols="3" />
+          <GameList
+            icon={fireIcon()}
+            iconClassName="text-orange-500"
+            title="Popular This Week"
+            games={featuredGames}
+            isPriority
+            cols="3"
+          />
 
           <Banner
             className={`banner`}
@@ -39,6 +75,17 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             slot={ADS_SLOT_ID.home}
             responsive="false"
           />
+
+          {playedGames ? (
+            <GameList
+              icon={historyIcon()}
+              iconClassName="text-purple-400"
+              title="Continue Playing"
+              games={playedGames}
+              isPriority
+              cols="4"
+            />
+          ) : null}
 
           <GameList
             icon={topIcon()}

@@ -6,6 +6,7 @@ export default function GameList({
   icon,
   cols,
   className,
+  iconClassName,
   isPriority,
 }) {
   const setCol = () => {
@@ -33,7 +34,9 @@ export default function GameList({
       return (
         <>
           <h2 className="flex items-center space-x-2 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
-            <span className="text-green-500">{icon}</span>
+            <span className={iconClassName ? iconClassName : `text-green-500`}>
+              {icon}
+            </span>
             <span>{title}</span>
           </h2>
           <ul

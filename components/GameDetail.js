@@ -1,11 +1,20 @@
 import Image from "./Image";
 import Link from "next/link";
+import { starIcon } from "./Icons";
 
 export default function GameDetail({ game }) {
+  const handleClick = () => {
+    if (typeof window !== "undefined") {
+      let currentPlayedGames =
+        JSON.parse(localStorage.getItem("playedGames")) || [];
+      currentPlayedGames.push(game.slug);
+      localStorage.setItem("playedGames", JSON.stringify(currentPlayedGames));
+    }
+  };
   return (
     <>
-      <div className="flex flex-col mx-4 md:mx-0 md:flex-row items-center md:items-start bg-white border-8 border-sky-100 rounded-[2rem] p-5 shadow-lg shadow-black/10 text-emerald-700">
-        <div className="aspect-square w-24 h-24 md:w-40 md:h-40 shrink-0">
+      <div className="mx-4 flex flex-col items-center rounded-[2rem] border-8 border-sky-100 bg-white p-5 text-emerald-700 shadow-lg shadow-black/10 md:mx-0 md:flex-row md:items-start">
+        <div className="aspect-square h-24 w-24 shrink-0 md:h-40 md:w-40">
           <Image
             className="rounded-xl bg-black/5"
             src={game.icon}
@@ -15,43 +24,37 @@ export default function GameDetail({ game }) {
             layout={`responsive`}
           />
         </div>
-        <div className="text-center md:text-left md:px-5">
-          <h1 className="py-2 text-xl md:text-3xl font-semibold">
+        <div className="text-center md:px-5 md:text-left">
+          <h1 className="py-2 text-xl font-semibold md:text-3xl">
             <span>{game.title}</span>
           </h1>
           <p className="capitalize">
             <Link href={`/category/${game.category.toLowerCase()}`}>
-              <a className="text-xs py-1 px-2 bg-emerald-600/80 text-emerald-100/90 shadow-emerald-500/30 rounded-md shadow-md">
+              <a className="rounded-md bg-emerald-600/80 py-1 px-2 text-xs text-emerald-100/90 shadow-md shadow-emerald-500/30">
                 {game.category.toLowerCase()}
               </a>
             </Link>
           </p>
-          <p className="flex flex-row justify-center md:justify-start items-center mt-3 space-x-3">
+          <p className="mt-3 flex flex-row items-center justify-center space-x-3 md:justify-start">
             <span className="text-2xl font-bold">
               <span className="flex flex-row text-orange-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
+                {starIcon()}
                 {game.stars}
               </span>
             </span>
             <span className="opacity-80">{game.played} played</span>
           </p>
-          <p className="py-3 text-left text-slate-500 text-xs md:text-sm">
+          <p className="py-3 text-left text-xs text-slate-500 md:text-sm">
             {game.description}
           </p>
         </div>
       </div>
-      <p className="py-4 mx-4 md:pt-2">
+      <p className="mx-4 py-4 md:pt-2">
         <Link href={game.url}>
           <a
-            className="block md:hover:scale-110 md:hover:shadow-2xl md:hover:delay-100 md:hover:shadow-black/40 transition-transform ease-in-out duration-300 md:w-96 mx-auto bg-gradient-to-r from-yellow-500 to-orange-400 text-center p-3 lg:p-4 text-lg lg:text-2xl font-bold text-white rounded-full shadow-xl shadow-black/20"
+            className="mx-auto block rounded-full bg-gradient-to-r from-yellow-500 to-orange-400 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:shadow-2xl md:hover:shadow-black/40 md:hover:delay-100 lg:p-4 lg:text-2xl"
             title={`Play ${game.title} now`}
+            onClick={handleClick}
           >
             PLAY NOW
           </a>

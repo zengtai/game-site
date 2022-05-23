@@ -5,7 +5,7 @@ module.exports = {
     disableStaticImages: true,
   },
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   // basePath: "/webs/youle", // youle
   // distDir: "build",
   generateBuildId: async () => {

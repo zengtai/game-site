@@ -1,13 +1,15 @@
-import Layout from "../../components/Layout";
-import { getGameBySlug, getGames } from "../../lib/api";
-import GameDetail from "../../components/GameDetail";
 import Link from "next/link";
 import Head from "next/head";
-import { ADS_SLOT_ID, SITE_META } from "../../lib/constants";
 import dynamic from "next/dynamic";
-import GameListItem from "../../components/GameListItem";
 
+import Layout from "../../components/Layout";
+import GameListItem from "../../components/GameListItem";
+import GameDetail from "../../components/GameDetail";
 import { sparkleIcon } from "../../components/Icons";
+
+import { getGameBySlug, getGames } from "../../lib/api";
+import { ADS_SLOT_ID, SITE_META } from "../../lib/constants";
+
 const Banner = dynamic(() => import("../../components/Banner"), {
   loading: () => <div>Loading...</div>,
 });
@@ -75,23 +77,7 @@ export default function Games({
               <GameDetail game={game} />
             </div>
             <h3 className="flex flex-row px-4 text-lg font-semibold text-yellow-100/70 xl:sr-only">
-              <span className="mr-1 text-yellow-500">
-                {sparkleIcon()}
-                {/* <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg> */}
-              </span>
+              <span className="mr-1 text-yellow-500">{sparkleIcon()}</span>
               You may also like
             </h3>
             <div className="xl:col-span-2 xl:col-start-1 xl:row-span-5 xl:row-start-1 ">
