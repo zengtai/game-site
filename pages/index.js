@@ -27,14 +27,6 @@ const InfiniteList = dynamic(() => import("../components/InfiniteList"), {
 export default function Home({ games, newGames, featuredGames, categories }) {
   const [playedGames, setPlayedGames] = useState();
 
-  // if (typeof window !== "undefined") {
-  //   let playedGames = JSON.parse(localStorage.getItem("playedGames")) || [];
-  //   if (playedGames.length) {
-  //     playedGamesBySlug = games.filter((game) =>
-  //       playedGames.includes(game.slug)
-  //     );
-  //   }
-  // }
   useEffect(() => {
     let playedGamesBySlug;
     if (typeof window !== "undefined") {
@@ -55,11 +47,6 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
         <div className="relative z-30 grow pt-12 md:pt-0">
-          {/* <h2 className="flex items-center space-x-1 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
-            <span className="text-orange-500">{fireIcon()}</span>
-            <span>Popular This Week</span>
-          </h2> */}
-
           <GameList
             icon={fireIcon()}
             iconClassName="text-orange-500"
@@ -104,9 +91,14 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
           <h2 className="flex items-center space-x-2 px-4 py-2 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
             <span className="text-yellow-500">{gameIcon()}</span>
-            <span>All Games</span>
+            <span>
+              All Games <b className="text-sm">({games.length})</b>
+            </span>
           </h2>
           <InfiniteList games={games} />
+          {/* <InfiniteList
+            games={games.sort((a, b) => (a.created_at > b.created_at ? 1 : -1))}
+          /> */}
 
           <Banner
             className={`banner rectangle`}
