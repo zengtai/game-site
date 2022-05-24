@@ -95,10 +95,8 @@ export default function Home({ games, newGames, featuredGames, categories }) {
               All Games <b className="text-sm">({games.length})</b>
             </span>
           </h2>
+
           <InfiniteList games={games} />
-          {/* <InfiniteList
-            games={games.sort((a, b) => (a.created_at > b.created_at ? 1 : -1))}
-          /> */}
 
           <Banner
             className={`banner rectangle`}

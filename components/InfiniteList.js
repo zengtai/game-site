@@ -6,13 +6,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function InfiniteList({ games, init = 9, step = 9 }) {
   let data = games.slice();
 
-  // data = data.reverse();
+  data = data.reverse();
 
-  data.sort((a, b) =>
-    new Date(a.created_at) > new Date(b.created_at) ? 1 : -1
-  );
-
-  // const initGames = data.slice(0, init);
   const initGames =
     typeof window !== "undefined"
       ? JSON.parse(localStorage.getItem("scrollGames")) || data.slice(0, init)
