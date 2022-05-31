@@ -96,13 +96,53 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             </span>
           </h2>
 
-          <InfiniteList games={games} />
+          <InfiniteList
+            games={games.slice(0, 22)}
+            init={4}
+            step={9}
+            group={1}
+          />
 
-          <Banner
-            className={`banner rectangle`}
-            style={{ display: "block" }}
-            slot={ADS_SLOT_ID.home}
-            responsive="false"
+          <InfiniteList
+            games={games.slice(22, 44)}
+            init={0}
+            step={4}
+            group={2}
+          />
+
+          <InfiniteList
+            games={games.slice(44, 66)}
+            init={0}
+            step={4}
+            group={3}
+          />
+
+          <InfiniteList
+            games={games.slice(66, 88)}
+            init={0}
+            step={4}
+            group={4}
+          />
+
+          <InfiniteList
+            games={games.slice(88, 110)}
+            init={0}
+            step={4}
+            group={5}
+          />
+
+          <InfiniteList
+            games={games.slice(110, 132)}
+            init={0}
+            step={4}
+            group={6}
+          />
+
+          <InfiniteList
+            id="group7"
+            games={games.slice(132)}
+            init={0}
+            group={7}
           />
 
           <CategoryList
@@ -129,7 +169,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      games,
+      games: games.reverse(),
       newGames,
       featuredGames,
       categories,

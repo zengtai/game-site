@@ -28,7 +28,6 @@ export default function GameListItem({ games, className, isPriority }) {
                   layout="responsive"
                 />
               )}
-              <h3 className="bg-black p-2 text-xs">{game.created_at}</h3>
               <div className="absolute -bottom-[150%] hidden h-full w-full items-end justify-center text-center text-xs font-semibold sm:flex lg:group-hover:bottom-0 lg:group-hover:bg-gradient-to-t lg:group-hover:from-black lg:group-hover:to-black/0">
                 <div className="h-auto w-full text-ellipsis p-2 text-center">
                   <h3 className="leading-4">{game.title}</h3>
