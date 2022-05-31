@@ -2,12 +2,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "../components/Image";
 import InfiniteScroll from "react-infinite-scroll-component";
-import dynamic from "next/dynamic";
+import Banner from "../components/Banner";
 import { ADS_SLOT_ID } from "../lib/constants";
-
-const Banner = dynamic(() => import("../components/Banner"), {
-  loading: () => <div>Loading...</div>,
-});
 
 export default function InfiniteList({ games, init = 8, step = 5, group }) {
   console.log(games.length);
@@ -129,15 +125,15 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
             }
           })}
         </ul>
+        {scrollGames.length >= total ? (
+          <Banner
+            className={`banner rectangle`}
+            style={{ display: "block" }}
+            slot={ADS_SLOT_ID.home}
+            responsive="false"
+          />
+        ) : null}
       </InfiniteScroll>
-      {scrollGames.length >= total ? (
-        <Banner
-          className={`banner rectangle`}
-          style={{ display: "block" }}
-          slot={ADS_SLOT_ID.home}
-          responsive="false"
-        />
-      ) : null}
     </>
   );
 }
