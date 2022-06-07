@@ -12,6 +12,7 @@ import { getGames } from "../lib/api";
 import Layout from "../components/Layout";
 import { ADS_SLOT_ID, SITE_META, FEATURED_GAMES } from "../lib/constants";
 import GameList from "../components/GameList";
+import PlayedList from "../components/PlayedList";
 import CategoryList from "../components/CategoryList";
 
 import dynamic from "next/dynamic";
@@ -64,7 +65,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           />
 
           {playedGames ? (
-            <GameList
+            <PlayedList
               icon={historyIcon()}
               iconClassName="text-purple-400"
               title="Continue Playing"

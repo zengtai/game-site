@@ -6,7 +6,7 @@ import Banner from "../components/Banner";
 import { ADS_SLOT_ID } from "../lib/constants";
 
 export default function InfiniteList({ games, init = 8, step = 5, group }) {
-  console.log(games.length);
+  // console.log(games.length);
   let data = games.slice();
 
   // data = data.reverse();
