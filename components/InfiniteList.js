@@ -129,12 +129,21 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
           })}
         </ul>
         {scrollGames.length >= total && group % 2 == 0 ? (
-          <Banner
-            className={`banner rectangle`}
-            style={{ display: "block" }}
-            slot={ADS_SLOT_ID.home}
-            responsive="false"
-          />
+          group % 4 == 0 ? (
+            <Banner
+              className={`banner rectangle`}
+              style={{ display: "block" }}
+              slot={ADS_SLOT_ID.home}
+              responsive="false"
+            />
+          ) : (
+            <Banner
+              className={`banner`}
+              style={{ display: "block" }}
+              slot={ADS_SLOT_ID.home}
+              responsive="false"
+            />
+          )
         ) : null}
       </InfiniteScroll>
     </>
