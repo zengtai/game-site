@@ -56,7 +56,7 @@ export default function GameDetail({ game }) {
           className={`
             ${
               isShowAll ? `h-auto` : `max-h-16`
-            } relative w-full overflow-hidden text-ellipsis py-3 text-slate-500 after:absolute after:left-0 after:bottom-0 after:h-5 after:w-full after:bg-gradient-to-t after:from-white after:to-transparent`}
+            } relative w-full overflow-hidden text-ellipsis py-3 text-slate-500 after:absolute after:left-0 after:bottom-0 after:h-5 after:w-full after:bg-gradient-to-t after:from-white after:to-white/0`}
         >
           {game.description}
         </div>
