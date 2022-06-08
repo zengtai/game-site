@@ -128,7 +128,7 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
             }
           })}
         </ul>
-        {scrollGames.length >= total && group % 2 == 1 && group < 7 ? (
+        {scrollGames.length >= total && group % 2 == 1 && group < 5 ? (
           group % 6 == 1 ? (
             <Banner
               className={`banner`}
