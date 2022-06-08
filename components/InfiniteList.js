@@ -58,7 +58,10 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
           {scrollGames.map((game, index) => {
             if ((index - 8) % 11 === 0) {
               return (
-                <li key={game.id} className={`col-span-2 row-span-2`}>
+                <li
+                  key={game.id}
+                  className={`col-span-2 row-span-2 md:col-auto md:row-auto`}
+                >
                   <Link href={`/game/${game.slug}`}>
                     <a className="md:delay-50 duration-400 group relative block aspect-square overflow-hidden rounded-2xl shadow-md shadow-black/30 transition ease-in-out hover:shadow-lg hover:shadow-black/40 md:hover:origin-bottom md:hover:scale-110">
                       <Image
@@ -125,7 +128,7 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
             }
           })}
         </ul>
-        {scrollGames.length >= total ? (
+        {scrollGames.length >= total && group % 2 == 0 ? (
           <Banner
             className={`banner rectangle`}
             style={{ display: "block" }}
