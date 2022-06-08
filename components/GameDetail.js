@@ -1,8 +1,14 @@
+import { useState } from "react";
 import Image from "./Image";
 import Link from "next/link";
 import { starIcon } from "./Icons";
 
 export default function GameDetail({ game }) {
+  const [isShowAll, setIsShowAll] = useState(false);
+  function toggle() {
+    setIsShowAll(!isShowAll);
+  }
+
   const handleClick = () => {
     if (typeof window !== "undefined") {
       let currentPlayedGames =
@@ -13,40 +19,46 @@ export default function GameDetail({ game }) {
   };
   return (
     <>
-      <div className="mx-4 flex flex-col items-center rounded-[2rem] border-8 border-sky-100 bg-white p-5 text-emerald-700 shadow-lg shadow-black/10 md:mx-0 md:flex-row md:items-start">
-        <div className="aspect-square h-24 w-24 shrink-0 md:h-40 md:w-40">
-          <Image
-            className="rounded-xl bg-black/5"
-            src={game.icon}
-            alt={game.title}
-            width={100}
-            height={100}
-            layout={`responsive`}
-          />
-        </div>
-        <div className="text-center md:px-5 md:text-left">
-          <h1 className="py-2 text-xl font-semibold md:text-3xl">
-            <span>{game.title}</span>
-          </h1>
-          <p className="capitalize">
-            <Link href={`/category/${game.category.toLowerCase()}`}>
-              <a className="rounded-md bg-emerald-600/80 py-1 px-2 text-xs text-emerald-100/90 shadow-md shadow-emerald-500/30">
-                {game.category.toLowerCase()}
-              </a>
-            </Link>
-          </p>
-          <p className="mt-3 flex flex-row items-center justify-center space-x-3 md:justify-start">
-            <span className="text-2xl font-bold">
-              <span className="flex flex-row text-orange-500">
-                {starIcon()}
+      <div className="mx-4 flex flex-row flex-wrap items-center rounded-[2rem] border-8 border-sky-100 bg-white p-4 text-emerald-700 shadow-lg shadow-black/10 md:mx-0 md:items-start md:p-5">
+        <div className="flex space-x-3 md:space-x-6">
+          <div className="aspect-square h-20 w-20 shrink-0 md:h-40 md:w-40">
+            <Image
+              className="rounded-xl bg-black/5"
+              src={game.icon}
+              alt={game.title}
+              width={100}
+              height={100}
+              layout={`responsive`}
+            />
+          </div>
+          <div>
+            <h1 className="pb-2 text-xl font-semibold md:text-3xl">
+              <span>{game.title}</span>
+            </h1>
+            <p className="uppercase">
+              <Link href={`/category/${game.category.toLowerCase()}`}>
+                <a className="rounded-md bg-emerald-600/80 py-1 px-2 text-xs text-emerald-100/90 shadow-md shadow-emerald-500/30">
+                  {game.category}
+                </a>
+              </Link>
+            </p>
+            <p className="mt-3 flex flex-row items-center justify-center space-x-2 md:justify-start xl:space-x-3">
+              <span className="flex flex-row items-center text-lg font-bold text-orange-500 xl:text-2xl">
+                <b className="h-6 w-6 md:h-8 md:w-8">{starIcon()}</b>
                 {game.stars}
               </span>
-            </span>
-            <span className="opacity-80">{game.played} played</span>
-          </p>
-          <p className="py-3 text-left text-xs text-slate-500 md:text-sm">
-            {game.description}
-          </p>
+              <span className="text-sm opacity-80">{game.played} played</span>
+            </p>
+          </div>
+        </div>
+        <div
+          onClick={toggle}
+          className={`
+            ${
+              isShowAll ? `h-auto` : `max-h-16`
+            } relative w-full overflow-hidden text-ellipsis py-3 text-slate-500 after:absolute after:left-0 after:bottom-0 after:h-5 after:w-full after:bg-gradient-to-t after:from-white after:to-transparent`}
+        >
+          {game.description}
         </div>
       </div>
       <p className="mx-4 py-4 md:pt-2">

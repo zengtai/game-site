@@ -181,7 +181,7 @@ export function starIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-8 w-8"
+      className="max-w-8 max-h-8"
       viewBox="0 0 20 20"
       fill="currentColor"
     >
