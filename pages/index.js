@@ -84,10 +84,10 @@ export default function Home({ games, newGames, featuredGames, categories }) {
           />
 
           <Banner
-            className={`banner rectangle`}
             style={{ display: "block" }}
             slot={ADS_SLOT_ID.home}
-            responsive="false"
+            responsive="true"
+            auto
           />
 
           <h2 className="flex items-center space-x-2 px-4 py-2 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
