@@ -19,7 +19,7 @@ export default function GameDetail({ game }) {
   };
   return (
     <>
-      <div className="mx-4 flex flex-row flex-wrap items-center rounded-[2rem] border-8 border-sky-100 bg-white p-4 text-emerald-700 shadow-lg shadow-black/10 md:mx-0 md:items-start md:p-5">
+      <div className="mx-4 flex flex-row flex-wrap items-center rounded-[2rem] border-8 border-sky-100 bg-white p-4 text-sky-700 shadow-lg shadow-black/10 md:mx-0 md:items-start md:p-5">
         <div className="flex space-x-3 md:space-x-6">
           <div className="aspect-square h-20 w-20 shrink-0 md:h-40 md:w-40">
             <Image
@@ -37,7 +37,7 @@ export default function GameDetail({ game }) {
             </h1>
             <p className="uppercase">
               <Link href={`/category/${game.category.toLowerCase()}`}>
-                <a className="rounded-md bg-emerald-600/80 py-1 px-2 text-xs text-emerald-100/90 shadow-md shadow-emerald-500/30">
+                <a className="rounded-md bg-sky-600/80 py-1 px-2 text-xs text-sky-100/90 shadow-md shadow-sky-500/30 xl:hover:bg-sky-600">
                   {game.category}
                 </a>
               </Link>
@@ -64,7 +64,7 @@ export default function GameDetail({ game }) {
       <p className="mx-4 py-4 md:pt-2">
         <Link href={game.url}>
           <a
-            className="mx-auto block rounded-full bg-gradient-to-r from-yellow-500 to-orange-400 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:shadow-2xl md:hover:shadow-black/40 md:hover:delay-100 lg:p-4 lg:text-2xl"
+            className="mx-auto block rounded-full bg-lime-500 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:delay-100 lg:p-4 lg:text-2xl"
             title={`Play ${game.title} now`}
             onClick={handleClick}
           >

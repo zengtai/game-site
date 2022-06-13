@@ -90,7 +90,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             responsive="false"
           />
 
-          <h2 className="flex items-center space-x-2 px-4 py-2 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
+          <h2 className="flex items-center space-x-2 px-4 py-2 pb-0 font-semibold text-sky-100/70 md:px-12 md:text-lg">
             <span className="text-yellow-500">{gameIcon()}</span>
             <span>
               All Games <b className="text-sm">({games.length})</b>

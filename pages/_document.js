@@ -18,7 +18,7 @@ class MyDocument extends Document {
           />
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
-        <body className="bg-gradient-to-br from-emerald-700 to-emerald-900 bg-fixed">
+        <body className="bg-gradient-to-br from-blue-800 to-blue-900 bg-fixed">
           <Main />
           <NextScript />
         </body>

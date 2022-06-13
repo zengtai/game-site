@@ -38,13 +38,13 @@ export default function Navbar({ navItems, isOpen }) {
     <nav className="fixed z-50 w-full border-b border-black/10 bg-black/5 drop-shadow-sm backdrop-blur backdrop-filter md:relative md:border-b-0 md:bg-transparent md:backdrop-blur-none md:backdrop-filter-none">
       <div className="z-10 block md:relative">
         <Link href={`/`}>
-          <a className="lg:duration-400 absolute left-0 top-0 z-20 flex h-10 w-10 origin-center items-center justify-center rounded-full text-yellow-300 lg:top-8 lg:left-6 lg:bg-white lg:text-emerald-600 lg:transition lg:delay-75 lg:ease-in-out lg:hover:scale-125">
+          <a className="lg:duration-400 absolute left-0 top-0 z-20 flex h-10 w-10 origin-center items-center justify-center rounded-full text-lime-400 lg:top-8 lg:left-6 lg:bg-white lg:text-lime-500 lg:transition lg:delay-75 lg:ease-in-out lg:hover:scale-125">
             {homeIcon()}
           </a>
         </Link>
         <button
           onClick={toggle}
-          className="ml-auto flex h-10 w-10 items-center justify-center text-yellow-300 lg:hidden"
+          className="ml-auto flex h-10 w-10 items-center justify-center text-lime-400 lg:hidden"
         >
           {!isMenuOpen ? closeIcon() : menuIcon()}
         </button>
@@ -54,7 +54,7 @@ export default function Navbar({ navItems, isOpen }) {
               !isMenuOpen ? `hidden lg:block` : `block`
             } relative z-30 p-3 md:z-10`}
         >
-          <ul className="flex flex-wrap rounded-3xl bg-gradient-to-b from-yellow-500 to-amber-500 py-2 px-2 capitalize shadow-lg shadow-black/20 md:mt-2 lg:flex-nowrap lg:justify-center lg:rounded-full">
+          <ul className="flex flex-wrap rounded-3xl bg-gradient-to-br from-cyan-600 to-blue-500 py-2 px-2 capitalize shadow-lg shadow-black/20 md:mt-2 lg:flex-nowrap lg:justify-center lg:rounded-full">
             {categoryNav}
           </ul>
         </div>

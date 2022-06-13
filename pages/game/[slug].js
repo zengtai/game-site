@@ -76,7 +76,7 @@ export default function Games({
               </div>
               <GameDetail game={game} />
             </div>
-            <h3 className="flex flex-row px-4 text-lg font-semibold text-yellow-100/70 xl:sr-only">
+            <h3 className="flex flex-row px-4 text-lg font-semibold text-sky-100/70 xl:sr-only">
               <span className="mr-1 text-yellow-500">{sparkleIcon()}</span>
               You may also like
             </h3>

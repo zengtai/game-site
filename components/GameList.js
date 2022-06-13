@@ -33,7 +33,7 @@ export default function GameList({
     } else {
       return (
         <>
-          <h2 className="flex items-center space-x-2 py-2 px-4 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
+          <h2 className="flex items-center space-x-2 py-2 px-4 pb-0 font-semibold text-sky-100/70 md:px-12 md:text-lg">
             <span className={iconClassName ? iconClassName : `text-green-500`}>
               {icon}
             </span>

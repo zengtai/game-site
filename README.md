@@ -11,15 +11,15 @@ Next.js
 
 ## 输出路径
 
-`/webs/youle`
+`/webs/baxiang_main__new`
 
 ## 游戏路径
 
-`https://uptapapi.uptap.com/h5Game/?type=Game&platform=youletech&appid=`
+`https://uptapapi.uptap.com/h5Game/?type=Game&platform=baxiang&appid=`
 
 ## GA
 
-`G-DDF82DXW7Z`
+`UA-183890722-16`
 
 ## Adsense id
 
@@ -27,6 +27,6 @@ Next.js
 
 ## Adsense ADs Id
 
-首页 `8841942463`
-列表页 `2623469732`
-详情页 `7528860791`
+首页 `1977361307`
+列表页 `1977361307`
+详情页 `1977361307`

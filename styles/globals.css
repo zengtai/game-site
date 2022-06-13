@@ -1,9 +1,4 @@
 @tailwind base;
-@layer base {
-  body {
-    @apply bg-emerald-900 bg-gradient-to-br bg-fixed from-emerald-800 to-emerald-900;
-  }
-}
 @tailwind components;
 @tailwind utilities;
 
