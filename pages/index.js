@@ -46,10 +46,10 @@ export default function Home({ games, newGames, featuredGames, categories }) {
       <Layout navItems={categories}>
         <Head>
           <title>{SITE_META.name} | Play Free Games Online</title>
-          <meta
+          {/* <meta
             name="generator"
             content={`Next.js 12.1.6 | ${new Date().toLocaleString()}`}
-          />
+          /> */}
         </Head>
         <div className="relative z-30 grow pt-12 md:pt-0">
           <GameList
