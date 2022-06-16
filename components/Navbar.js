@@ -11,36 +11,19 @@ export default function Navbar({ list, isOpen }) {
   function toggle() {
     setMenuOpen(!isMenuOpen);
   }
-  // console.log(children);
-  const categoryNav = list.map((category) => {
-    return (
-      <li
-        className={`${
-          category == current.slug
-            ? `border-slate-50/80 md:shadow-lg bg-slate-50/20 md:bg-slate-50/10`
-            : `md:border-slate-50/0 md:shadow-none border-slate-50/20 bg-slate-50/10`
-        } m-1 transition ease-in-out duration-500 md:bg-slate-50/0 hover:bg-slate-50/10 border-2 rounded-xl`}
-        key={category}
-      >
-        <Link href={`/category/${category}`}>
-          <a
-            className={`${
-              category == current.slug
-                ? `opacity-80 bg-slate-50/10`
-                : `opacity-50`
-            } p-2 block text-white`}
-          >
-            {category}
-          </a>
-        </Link>
-      </li>
-    );
-  });
+
+  console.log(current);
+  console.log(router.pathname);
+
   return (
     <nav>
-      <div className="block relative z-10">
+      <div className="relative z-10 block">
         <Link href={`/`}>
-          <a className="absolute transition ease-in-out duration-500 md:backdrop-blur-sm md:hover:backdrop-blur-none md:top-3 md:left-3 flex justify-center items-center rounded-[100%] text-slate-600/80 w-20 h-20 -left-4 -top-5 z-20 bg-slate-200/80 shadow-[lg] shadow-stone-900">
+          <a
+            className={`${
+              `/` == router.pathname ? `text-slate-600` : `text-slate-600/80`
+            } shadow-[lg] absolute -left-4 -top-5 z-20 flex h-20 w-20 items-center justify-center rounded-[100%] bg-slate-200/80 shadow-stone-900 transition duration-500 ease-in-out md:top-3 md:left-3 md:backdrop-blur-sm md:hover:backdrop-blur-none`}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -53,18 +36,50 @@ export default function Navbar({ list, isOpen }) {
         </Link>
         <button
           onClick={toggle}
-          className="ml-auto flex justify-center items-center w-10 h-10 md:hidden"
+          className="ml-auto flex h-10 w-10 items-center justify-center md:hidden"
         >
           {!isMenuOpen ? closeIcon() : menuIcon()}
         </button>
         <div
           className={`${
             !isMenuOpen ? `hidden md:block` : `block`
-          } block p-3 relative z-30 md:z-10
+          } relative z-30 block p-3 md:z-10
           `}
         >
-          <ul className="flex md:pl-20 md:ml-3 flex-wrap p-2 md:mt-2 capitalize bg-slate-800 rounded-3xl shadow-lg shadow-slate-900/20">
-            {categoryNav}
+          <ul className="flex flex-wrap rounded-3xl bg-slate-800 p-2 capitalize shadow-lg shadow-slate-900/20 md:ml-3 md:mt-2 md:pl-20">
+            <li
+              className={`${
+                `/all` == router.pathname
+                  ? `border-slate-50/80 bg-slate-50/20 md:bg-slate-50/10 md:shadow-lg`
+                  : `border-slate-50/20 bg-slate-50/10 md:border-slate-50/0 md:shadow-none`
+              } m-1 rounded-xl border-2 transition duration-500 ease-in-out hover:bg-slate-50/10 md:bg-slate-50/0`}
+            >
+              <Link href={`/all`}>
+                <a className="block p-2 text-white opacity-50">All</a>
+              </Link>
+            </li>
+            {list.map((category) => (
+              <li
+                className={`${
+                  category == current.slug
+                    ? `border-slate-50/80 bg-slate-50/20 md:bg-slate-50/10 md:shadow-lg`
+                    : `border-slate-50/20 bg-slate-50/10 md:border-slate-50/0 md:shadow-none`
+                } m-1 rounded-xl border-2 transition duration-500 ease-in-out hover:bg-slate-50/10 md:bg-slate-50/0`}
+                key={category}
+              >
+                <Link href={`/category/${category}`}>
+                  <a
+                    className={`${
+                      category == current.slug
+                        ? `bg-slate-50/10 opacity-80`
+                        : `opacity-50`
+                    } block p-2 text-white`}
+                  >
+                    {category}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

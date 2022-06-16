@@ -8,19 +8,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.0.8",
+    "moment": "^2.29.3",
+    "next": "12.1.5",
     "nprogress": "^0.2.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-infinite-scroll-component": "^6.1.0",
-    "sharp": "^0.30.4",
-    "swr": "^1.1.2"
+    "sharp": "latest",
+    "swr": "latest"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
-    "eslint": "8.7.0",
-    "eslint-config-next": "12.0.8",
+    "eslint": "8.14.0",
+    "eslint-config-next": "12.1.5",
     "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.15"
+    "prettier-plugin-tailwindcss": "^0.1.11",
+    "tailwindcss": "^3.0.24"
   }
 }

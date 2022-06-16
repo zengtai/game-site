@@ -1,13 +1,14 @@
 import Head from "next/head";
-import { topIcon, gameIcon, categoryIcon } from "../components/Icons";
+import { categoryIcon } from "../components/Icons";
 import Layout from "../components/Layout";
 import { SITE_NAME } from "../lib/constants";
-import { getGames, getCategories } from "../lib/api";
+import { getGames, getCategories, getGamesByCategory } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
-import ScrollGameList from "../components/ScrollGameList";
+import Link from "next/link";
+// import ScrollGameList from "../components/ScrollGameList";
 
-export default function Home({ games, newGames, featuredGames, categories }) {
+export default function Home({ games, categories }) {
   // console.log(games);
   // console.log(categories);
   // const gameList = games.map((game) => <li key={game.id}>{game.name}</li>);
@@ -17,25 +18,32 @@ export default function Home({ games, newGames, featuredGames, categories }) {
         <Head>
           <title>{SITE_NAME} | Play Free Games Online</title>
         </Head>
-        <div className="grow relative z-30 md:px-4">
-          {/* <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
-            {hotIcon()}
-            <span>Popular Games</span>
-          </h2>
-          <GameList games={featuredGames} cols="2" /> */}
-          <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
-            {topIcon()}
-            <span>New Games</span>
-          </h2>
-          <GameList games={newGames} cols="3" />
-          <ScrollGameList
-            icon={gameIcon()}
-            games={games}
-            title="All Games"
-            className="third:col-span-2 md:third:col-auto third:row-span-2 md:third:row-auto"
-            init="36"
-            step="12"
-          />
+        <div className="relative z-30 grow md:px-4">
+          {categories.map((category) => {
+            let categoryGames = games.filter(
+              (game) => game.category.toLowerCase() == category
+            );
+            return (
+              <div key={category}>
+                <div className="flex flex-row items-center justify-between p-3 text-sm font-semibold xl:px-8 xl:pb-1">
+                  <h2 className="text-lg capitalize text-slate-600 xl:text-xl">
+                    {category} {categoryGames.length > 1 ? `Games` : `Game`}{" "}
+                    <span className="text-md font-normal">
+                      ({categoryGames.length})
+                    </span>
+                  </h2>
+                  {categoryGames.length > 12 ? (
+                    <div>
+                      <Link href={`/category/${category}`}>
+                        <a>MORE</a>
+                      </Link>
+                    </div>
+                  ) : null}
+                </div>
+                <GameList games={categoryGames.slice(0, 12)} />
+              </div>
+            );
+          })}
           <CategoryList
             icon={categoryIcon()}
             title="Categories"
@@ -49,17 +57,15 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
 export const getStaticProps = async () => {
   const games = await getGames();
-  const newGames = await getGames("LATEST", 12);
-  const featuredGames = await getGames("FEATURED_GAMES");
+  // const newGames = await getGames("LATEST", 12);
+  // const featuredGames = await getGames("FEATURED_GAMES");
   const categories = await getCategories();
 
   return {
     props: {
       games,
-      newGames,
-      featuredGames,
       categories,
     },
-    revalidate: 60,
+    // revalidate: 60,
   };
 };

@@ -26,26 +26,26 @@ export default function Games({
             Play {game} on {SITE_NAME}
           </title>
         </Head>
-        <div className="grow p-3 md:px-6 xl:p-8 relative z-30">
-          <div className="grid xl:grid-cols-12 xl:grid-rows-5 gap-3 xl:gap-6">
-            <div className="xl:col-start-3 xl:row-start-1 xl:col-span-8 xl:row-span-3">
+        <div className="relative z-30 grow p-3 md:px-6 xl:p-8">
+          <div className="grid gap-3 xl:grid-cols-12 xl:grid-rows-5 xl:gap-6">
+            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-3 xl:row-start-1">
               <GameDetail game={game} />
             </div>
-            <h3 className="text-lg font-semibold px-2 xl:sr-only">
+            <h3 className="px-2 text-lg font-semibold xl:sr-only">
               You may also like
             </h3>
-            <div className="xl:col-start-1 xl:row-start-1 xl:col-span-2 xl:row-span-5 ">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 xl:gap-6">
+            <div className="xl:col-span-2 xl:col-start-1 xl:row-span-5 xl:row-start-1 ">
+              <ul className="grid grid-cols-5 gap-3 md:grid-cols-10 xl:grid-cols-2 xl:gap-6">
                 <CustomGameList games={leftGames} />
               </ul>
             </div>
-            <div className="xl:col-start-11 xl:row-start-1 xl:col-span-2 xl:row-span-5">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-2 gap-3 xl:gap-6">
+            <div className="xl:col-span-2 xl:col-start-11 xl:row-span-5 xl:row-start-1">
+              <ul className="grid grid-cols-5 gap-3 md:grid-cols-10 xl:grid-cols-2 xl:gap-6">
                 <CustomGameList games={rightGames} />
               </ul>
             </div>
-            <div className="xl:col-start-3 xl:row-start-4 xl:col-span-8 xl:row-span-2">
-              <ul className="grid grid-cols-5 md:grid-cols-10 xl:grid-cols-8 gap-3 xl:gap-6">
+            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-2 xl:row-start-4">
+              <ul className="grid grid-cols-5 gap-3 md:grid-cols-10 xl:grid-cols-8 xl:gap-6">
                 <CustomGameList games={bottomGamesX44} />
               </ul>
             </div>
@@ -80,7 +80,7 @@ export async function getStaticProps(context) {
       bottomGamesX44: games.slice(22, 38),
       games,
     },
-    revalidate: 60,
+    // revalidate: 60,
   };
 }
 

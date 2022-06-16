@@ -21,8 +21,8 @@ export default function GamesListByCategory({ games, categories }) {
             {categoryName} Games | {SITE_NAME}
           </title>
         </Head>
-        <div className="grow relative z-30 md:px-4">
-          <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold text-slate-900/80 capitalize">
+        <div className="relative z-30 grow md:px-4">
+          <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold capitalize text-slate-900/80">
             {categoryName} {games.length > 1 ? `Games` : `Game`} ({games.length}
             )
           </h1>
@@ -42,7 +42,7 @@ export async function getStaticProps(context) {
       games,
       categories,
     },
-    revalidate: 60,
+    // revalidate: 60,
   };
 }
 
