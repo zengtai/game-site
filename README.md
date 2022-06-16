@@ -2,7 +2,7 @@
 
 Next.js
 
-### baxiang
+### Adbee
 
 - [x] Adsense code
 - [x] ads.txt
@@ -11,15 +11,15 @@ Next.js
 
 ## 输出路径
 
-`/webs/baxiang_main_new`
+`/webs/adbee/adbee_SG`
 
 ## 游戏路径
 
-`https://uptapapi.uptap.com/h5Game/?type=Game&platform=baxiang&appid=`
+`https://uptapapi.uptap.com/h5Game/?type=Game&platform=adbee_main&appid=`
 
 ## GA
 
-`UA-183890722-16`
+`UA-183890722-50`
 
 ## Adsense id
 
@@ -27,6 +27,6 @@ Next.js
 
 ## Adsense ADs Id
 
-首页 `3055394511`
-列表页 `8598905129`
-详情页 `2156785701`
+首页 `9761598854`
+列表页 `8448517188`
+详情页 `7170012963`

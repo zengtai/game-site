@@ -8,7 +8,7 @@ module.exports = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  basePath: "/webs/baxiang/baxiang_main_new",
+  basePath: "/webs/adbee/adbee_SG",
   // basePath: "/webs/baxiang/baxiang_main__new", // [*] 2022.06.14
 
   // async rewrites() {
@@ -37,7 +37,7 @@ module.exports = {
 
   generateBuildId: async () => {
     // You can, for example, get the latest git commit hash here
-    return "20220614";
+    return "20220616";
   },
   trailingSlash: true,
   // assetPrefix: `./`,
