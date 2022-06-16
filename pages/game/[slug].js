@@ -75,7 +75,7 @@ export default function Games({
                 <span className="opacity-50">{game.title}</span>
               </div>
               <Banner
-                className={`banner`}
+                className={`banner mb-3`}
                 style={{ display: "block" }}
                 slot={ADS_SLOT_ID.detail}
                 responsive="false"
