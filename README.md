@@ -19,11 +19,13 @@ Next.js
 
 ## GA
 
-`UA-183890722-50`
+`G-8QGPJ4THQE`
+`G-ZRHE93M5BX`
+`UA-183890722-45`
 
 ## Adsense id
 
-`ca-pub-9209477879340784`
+`ca-pub-9062459637265650`
 
 ## Adsense ADs Id
 
