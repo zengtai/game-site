@@ -29,14 +29,14 @@ export default function Games({
             {game.title} | Play {game.title} on {SITE_META.name}
           </title>
         </Head>
-        <Banner
+        {/* <Banner
           className={`banner mt-14 md:mt-0`}
           style={{ display: "block" }}
           slot={ADS_SLOT_ID.detail}
           responsive="false"
-        />
+        /> */}
 
-        <div className="relative z-30 grow py-4 md:px-12 md:py-10">
+        <div className="relative z-30 mt-10 grow py-4 md:px-12 md:py-10">
           <div className="grid gap-3 md:gap-6 xl:grid-cols-12 xl:grid-rows-5">
             <div className="xl:col-span-8 xl:col-start-3 xl:row-span-3 xl:row-start-1">
               <div className="flex flex-row px-4 pb-3">
@@ -74,6 +74,12 @@ export default function Games({
                 </span>
                 <span className="opacity-50">{game.title}</span>
               </div>
+              <Banner
+                className={`banner`}
+                style={{ display: "block" }}
+                slot={ADS_SLOT_ID.detail}
+                responsive="false"
+              />
               <GameDetail game={game} />
             </div>
             <h3 className="flex flex-row px-4 text-lg font-semibold text-sky-100/70 xl:sr-only">
