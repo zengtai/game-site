@@ -8,8 +8,8 @@ module.exports = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  // basePath: "/webs/baxiang/baxiang_main_new",
-  basePath: "/webs/baxiang/baxiang_main__new", // [*] 2022.06.14
+  basePath: "/webs/baxiang/baxiang_main_new",
+  // basePath: "/webs/baxiang/baxiang_main__new", // [*] 2022.06.14
 
   // async rewrites() {
   //   return [

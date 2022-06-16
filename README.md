@@ -2,7 +2,7 @@
 
 Next.js
 
-### youletech
+### baxiang
 
 - [x] Adsense code
 - [x] ads.txt
@@ -11,7 +11,7 @@ Next.js
 
 ## 输出路径
 
-`/webs/baxiang_main__new`
+`/webs/baxiang_main_new`
 
 ## 游戏路径
 
@@ -27,6 +27,6 @@ Next.js
 
 ## Adsense ADs Id
 
-首页 `1977361307`
-列表页 `1977361307`
-详情页 `1977361307`
+首页 `3055394511`
+列表页 `8598905129`
+详情页 `2156785701`
