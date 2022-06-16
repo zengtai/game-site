@@ -12,8 +12,8 @@ export default function Navbar({ list, isOpen }) {
     setMenuOpen(!isMenuOpen);
   }
 
-  console.log(current);
-  console.log(router.pathname);
+  // console.log(current);
+  // console.log(router.pathname);
 
   return (
     <nav>
@@ -55,7 +55,15 @@ export default function Navbar({ list, isOpen }) {
               } m-1 rounded-xl border-2 transition duration-500 ease-in-out hover:bg-slate-50/10 md:bg-slate-50/0`}
             >
               <Link href={`/all`}>
-                <a className="block p-2 text-white opacity-50">All</a>
+                <a
+                  className={`${
+                    `/all` == router.pathname
+                      ? `bg-slate-50/10 opacity-80`
+                      : `opacity-50`
+                  } block p-2 text-white`}
+                >
+                  All
+                </a>
               </Link>
             </li>
             {list.map((category) => (
