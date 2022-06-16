@@ -52,9 +52,9 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
     // console.log(`data`, JSON.stringify(data));
     // localStorage.getItem(`adbeeScrollGames${group}`) ?
     // localStorage.removeItem(`adbeeScrollGames${group}`);
-    localStorage && localStorage.getItem(`scrollGames${group}`) != null
-      ? localStorage.getItem(`scrollGames${group}`).time != time
-        ? localStorage.removeItem(`scrollGames${group}`)
+    localStorage && localStorage.getItem(`adbeeScrollGames${group}`) != null
+      ? localStorage.getItem(`adbeeScrollGames${group}`).time != timeStamp
+        ? localStorage.removeItem(`adbeeScrollGames${group}`)
         : null
       : null;
 
