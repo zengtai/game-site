@@ -5,7 +5,7 @@ import NProgress from "nprogress";
 import "../styles/globals.css";
 import "../public/nprogress.css";
 import * as gtag from "../lib/gtag";
-import { GA_ID } from "../lib/constants";
+import { GA_ID, GA_ID_A, GA_ID_B } from "../lib/constants";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
@@ -52,6 +52,15 @@ function MyApp({ Component, pageProps }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
+              'groups': 'default',
+              page_path: window.location.pathname,
+            });
+            gtag('config', '${GA_ID_A}', {
+              'groups': 'groupA',
+              page_path: window.location.pathname,
+            });
+            gtag('config', '${GA_ID_B}', {
+              'groups': 'groupB',
               page_path: window.location.pathname,
             });
           `,

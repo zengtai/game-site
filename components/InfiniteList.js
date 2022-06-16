@@ -12,10 +12,18 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
   // data = data.reverse();
 
   const initGames =
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem(`scrollGames${group}`)) ||
+    typeof window !== "undefined" &&
+    localStorage.getItem(`adbeeScrollGames${group}`) != null
+      ? JSON.parse(localStorage.getItem(`adbeeScrollGames${group}`)).games ||
         data.slice(0, init)
       : data.slice(0, init);
+
+  // typeof window !== "undefined" &&
+  // localStorage.getItem(`adbeeScrollGames${group}`)
+  //   ? console.log(localStorage.getItem(`adbeeScrollGames${group}`))
+  //   : null;
+
+  // const initGames = data.slice(0, init);
 
   const total = data.length;
 
@@ -36,8 +44,21 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
   };
 
   useEffect(() => {
-    localStorage.removeItem(`scrollGames${group}`);
-    localStorage.setItem(`scrollGames${group}`, JSON.stringify(scrollGames));
+    const timeStamp = new Date(`2022-06-16`);
+    let data = {
+      games: scrollGames,
+      time: timeStamp,
+    };
+    // console.log(`data`, JSON.stringify(data));
+    // localStorage.getItem(`adbeeScrollGames${group}`) ?
+    // localStorage.removeItem(`adbeeScrollGames${group}`);
+    localStorage && localStorage.getItem(`scrollGames${group}`) != null
+      ? localStorage.getItem(`scrollGames${group}`).time != time
+        ? localStorage.removeItem(`scrollGames${group}`)
+        : null
+      : null;
+
+    localStorage.setItem(`adbeeScrollGames${group}`, JSON.stringify(data));
   }, [scrollGames, group]);
 
   // useEffect(() => {

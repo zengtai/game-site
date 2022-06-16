@@ -8,32 +8,10 @@ module.exports = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  basePath: "/webs/adbee/adbee_SG",
-  // basePath: "/webs/baxiang/baxiang_main__new", // [*] 2022.06.14
+  // basePath: "/webs/adbee/adbee_SG", // [*]
+  // basePath: "/webs/adbee/adbee__SG", // [*] input
 
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: `/favicon.ico`,
-  //       destination: `/web/baxiang/baxiang_main_new_6/favicon.ico`,
-  //       basePath: false,
-  //     },
-  //   ];
-  // },
-
-  // async redirects() {
-  //   return [
-  //     {
-  //       // does not add /docs since basePath: false is set
-  //       source: "/favicon.ico",
-  //       destination: "/web/baxiang/baxiang_main_new_6/favicon.ico",
-  //       basePath: false,
-  //       permanent: false,
-  //     },
-  //   ];
-  // },
-
-  distDir: "build", // [*]
+  // distDir: "build", // [*]
 
   generateBuildId: async () => {
     // You can, for example, get the latest git commit hash here
