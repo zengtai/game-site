@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { categoryIcon } from "../components/Icons";
 import Layout from "../components/Layout";
-import { SITE_NAME } from "../lib/constants";
+import { SITE_META } from "../lib/constants";
 import { getGames, getCategories, getGamesByCategory } from "../lib/api";
 import GameList from "../components/GameList";
 import CategoryList from "../components/CategoryList";
@@ -12,12 +12,23 @@ export default function Home({ games, categories }) {
   // console.log(games);
   // console.log(categories);
   // const gameList = games.map((game) => <li key={game.id}>{game.name}</li>);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    url: SITE_META.url,
+    logo: `/brand/uptapgame-logo.svg`,
+  };
   return (
     <>
       <Layout list={categories}>
         <Head>
-          <title>{SITE_NAME} | Play Free Games Online</title>
+          <title>{SITE_META.name} | Play Free Games Online</title>
         </Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+
         <div className="relative z-30 grow md:px-4">
           {categories.map((category) => {
             let categoryGames = games.filter(

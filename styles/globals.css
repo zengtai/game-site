@@ -86,3 +86,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* Editor */
+td,
+th {
+  @apply border border-slate-200 p-2;
+}
+th {
+  @apply bg-slate-200;
+}
