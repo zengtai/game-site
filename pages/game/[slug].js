@@ -25,8 +25,11 @@ export default function Games({
     <>
       <Layout navItems={categories}>
         <Head>
-          <title>
+          {/* <title>
             {game.title} | Play {game.title} on {SITE_META.name}
+          </title> */}
+          <title>
+            {`${game.title} | Play ${game.title} on ${SITE_META.name}`}
           </title>
         </Head>
         {/* <Banner
