@@ -42,9 +42,9 @@ export default function Games({
           </title>
         </Head>
 
-        <div className="relative z-30 mt-10 grow py-4 md:mt-0 md:px-12 md:py-10">
-          <div className="grid gap-3 md:gap-6 xl:grid-cols-12 xl:grid-rows-5">
-            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-3 xl:row-start-1">
+        <div className="relative z-30 mt-10 grow py-4 md:mt-0 md:px-6 xl:px-10">
+          <div className="grid gap-3 md:gap-4 xl:grid-cols-12 xl:grid-rows-5 xl:gap-6">
+            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-4 xl:row-start-1">
               <div className="flex flex-row px-4 pb-3">
                 <Link href={`/`}>Home</Link>
                 <span>
@@ -81,7 +81,7 @@ export default function Games({
                 <span className="opacity-50">{game.title}</span>
               </div>
               <Banner
-                className={`banner mb-3`}
+                className={`banner safe mb-3 xl:mb-6`}
                 style={{ display: "block" }}
                 slot={ADS_SLOT_ID.detail}
                 responsive="false"
@@ -93,19 +93,19 @@ export default function Games({
               You may also like
             </h3>
             <div className="xl:col-span-2 xl:col-start-1 xl:row-span-5 xl:row-start-1 ">
-              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-2">
+              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-4 md:px-0 xl:grid-cols-2 xl:gap-6">
                 {/* <CustomGameList games={leftGames} /> */}
                 <GameListItem games={leftGames} />
               </ul>
             </div>
             <div className="xl:col-span-2 xl:col-start-11 xl:row-span-5 xl:row-start-1">
-              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-2">
+              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-4 md:px-0 xl:grid-cols-2 xl:gap-6">
                 {/* <CustomGameList games={rightGames} /> */}
                 <GameListItem games={rightGames} />
               </ul>
             </div>
-            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-2 xl:row-start-4">
-              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-6 md:px-0 xl:grid-cols-8">
+            <div className="xl:col-span-8 xl:col-start-3 xl:row-span-2 xl:row-start-5">
+              <ul className="grid grid-cols-5 gap-3 px-4 md:grid-cols-10 md:gap-4 md:px-0 xl:grid-cols-8 xl:gap-6">
                 {/* <CustomGameList games={bottomGames} /> */}
                 <GameListItem games={bottomGames} />
               </ul>
@@ -158,7 +158,7 @@ export async function getStaticProps(context) {
       categories,
       rightGames: relatedGames.slice(0, 10),
       leftGames: relatedGames.slice(11, 21),
-      bottomGames: relatedGames.slice(22, 38),
+      bottomGames: relatedGames.slice(22, 30),
     },
   };
 }

@@ -33,7 +33,7 @@ export default function GameDetail({ game, handlePlay }) {
     <>
       <div className="mx-4 flex flex-row flex-wrap items-center rounded-[2rem] border-8 border-sky-100 bg-white p-4 text-sky-700 shadow-lg shadow-black/10 md:mx-0 md:items-start md:p-5">
         <div className="flex space-x-3 md:space-x-6">
-          <div className="aspect-square h-20 w-20 shrink-0 md:h-40 md:w-40">
+          <div className="aspect-square h-20 w-20 shrink-0 xl:h-36 xl:w-36">
             <Image
               className="rounded-xl bg-black/5"
               src={game.icon}
