@@ -126,7 +126,7 @@ export default function Games({
                 LANDSCAPE_GAMES.includes(game.name)
                   ? `aspect-[16/9]`
                   : `aspect-[9/16]`
-              } fixed left-1/2 top-1/2 h-[96vh] -translate-x-1/2 -translate-y-1/2 overflow-hidden border-0 bg-white`}
+              } fixed left-1/2 top-1/2 h-[96vh] -translate-x-1/2 -translate-y-1/2 overflow-hidden border-0 bg-white bg-loading bg-center bg-no-repeat`}
               src={isPlay && url ? url : null}
             ></iframe>
           </div>
