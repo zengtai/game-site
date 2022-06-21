@@ -3,20 +3,32 @@ import Image from "./Image";
 import Link from "next/link";
 import { starIcon } from "./Icons";
 
-export default function GameDetail({ game }) {
+export default function GameDetail({ game, handlePlay }) {
   const [isShowAll, setIsShowAll] = useState(false);
+
   function toggle() {
     setIsShowAll(!isShowAll);
   }
 
-  const handleClick = () => {
+  const setHistory = () => {
     if (typeof window !== "undefined") {
       let currentPlayedGames =
         JSON.parse(localStorage.getItem("playedGames")) || [];
       currentPlayedGames.push(game.slug);
-      localStorage.setItem("playedGames", JSON.stringify(currentPlayedGames));
+      console.log(`currentPlayedGames`, currentPlayedGames);
+
+      localStorage.setItem(
+        "playedGames",
+        JSON.stringify([...new Set(currentPlayedGames)])
+      );
     }
   };
+
+  function handlePcClick() {
+    setHistory();
+    handlePlay(game.url);
+  }
+
   return (
     <>
       <div className="mx-4 flex flex-row flex-wrap items-center rounded-[2rem] border-8 border-sky-100 bg-white p-4 text-sky-700 shadow-lg shadow-black/10 md:mx-0 md:items-start md:p-5">
@@ -61,17 +73,33 @@ export default function GameDetail({ game }) {
           {game.description}
         </div>
       </div>
-      <p className="mx-4 py-4 md:pt-2">
+      <p className="mx-4 py-4 md:hidden md:pt-2">
         <Link href={game.url}>
           <a
             className="mx-auto block rounded-full bg-lime-500 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:delay-100 lg:p-4 lg:text-2xl"
             title={`Play ${game.title} now`}
-            onClick={handleClick}
+            onClick={setHistory}
           >
             PLAY NOW
           </a>
         </Link>
+        {/* <button
+          className="mx-auto block rounded-full bg-lime-500 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:delay-100 lg:p-4 lg:text-2xl"
+          title={`Play ${game.title} now`}
+          onClick={handleClick}
+        >
+          PLAY NOW
+        </button> */}
       </p>
+      <button className="mx-auto hidden py-4 md:block md:pt-2">
+        <span
+          className="mx-auto block rounded-full bg-lime-500 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:delay-100 lg:p-4 lg:text-2xl"
+          title={`Play ${game.title} now`}
+          onClick={handlePcClick}
+        >
+          PLAY NOW
+        </span>
+      </button>
     </>
   );
 }

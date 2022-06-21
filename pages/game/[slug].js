@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
@@ -8,7 +10,7 @@ import GameDetail from "../../components/GameDetail";
 import { sparkleIcon } from "../../components/Icons";
 
 import { getGameBySlug, getGames } from "../../lib/api";
-import { ADS_SLOT_ID, SITE_META } from "../../lib/constants";
+import { ADS_SLOT_ID, SITE_META, LANDSCAPE_GAMES } from "../../lib/constants";
 
 const Banner = dynamic(() => import("../../components/Banner"), {
   loading: () => <div>Loading...</div>,
@@ -21,25 +23,26 @@ export default function Games({
   rightGames,
   bottomGames,
 }) {
+  const [isPlay, setIsPlay] = useState(false);
+  const [url, setUrl] = useState();
+
+  function setState(url) {
+    console.log(`From Parent`, url);
+    setIsPlay(!isPlay);
+    setUrl(url);
+    // return state;
+  }
+
   return (
     <>
       <Layout navItems={categories}>
         <Head>
-          {/* <title>
-            {game.title} | Play {game.title} on {SITE_META.name}
-          </title> */}
           <title>
             {`${game.title} | Play ${game.title} on ${SITE_META.name}`}
           </title>
         </Head>
-        {/* <Banner
-          className={`banner mt-14 md:mt-0`}
-          style={{ display: "block" }}
-          slot={ADS_SLOT_ID.detail}
-          responsive="false"
-        /> */}
 
-        <div className="relative z-30 mt-10 grow py-4 md:px-12 md:py-10">
+        <div className="relative z-30 mt-10 grow py-4 md:mt-0 md:px-12 md:py-10">
           <div className="grid gap-3 md:gap-6 xl:grid-cols-12 xl:grid-rows-5">
             <div className="xl:col-span-8 xl:col-start-3 xl:row-span-3 xl:row-start-1">
               <div className="flex flex-row px-4 pb-3">
@@ -83,7 +86,7 @@ export default function Games({
                 slot={ADS_SLOT_ID.detail}
                 responsive="false"
               />
-              <GameDetail game={game} />
+              <GameDetail game={game} handlePlay={setState} />
             </div>
             <h3 className="flex flex-row px-4 text-lg font-semibold text-sky-100/70 xl:sr-only">
               <span className="mr-1 text-yellow-500">{sparkleIcon()}</span>
@@ -109,7 +112,25 @@ export default function Games({
             </div>
           </div>
         </div>
-
+        <div
+          className={`${
+            isPlay ? `z-[100]` : `-z-10 hidden`
+          } fixed top-0 left-0 h-screen w-full overflow-hidden bg-[#000000d0]`}
+          onClick={() => {
+            setIsPlay(!isPlay);
+          }}
+        >
+          <div className="fixed left-0 top-0 z-[120] my-3 h-full w-full overflow-hidden">
+            <iframe
+              className={`${
+                LANDSCAPE_GAMES.includes(game.name)
+                  ? `aspect-[16/9]`
+                  : `aspect-[9/16]`
+              } fixed left-1/2 top-1/2 h-[96vh] -translate-x-1/2 -translate-y-1/2 overflow-hidden border-0 bg-white`}
+              src={isPlay && url ? url : null}
+            ></iframe>
+          </div>
+        </div>
         <Banner
           className={`banner rectangle`}
           style={{ display: "block" }}
