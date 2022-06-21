@@ -11,6 +11,11 @@ module.exports = {
       backgroundImage: {
         loading: "url('../public/images/loading.svg')",
       },
+      aspectRatio: {
+        "3/4": "3 / 4",
+        "9/16": "9 / 16",
+        "16/9": "16 / 9",
+      },
     },
   },
   plugins: [

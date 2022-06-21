@@ -43,7 +43,16 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
     width: 970px;
     height: 90px;
   }
+  .safe {
+    width: 728px;
+  }
   .banner_lg {
     height: 250px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .safe {
+    width: 970px;
   }
 }
