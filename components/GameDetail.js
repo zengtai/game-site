@@ -73,7 +73,7 @@ export default function GameDetail({ game, handlePlay }) {
           {game.description}
         </div>
       </div>
-      <p className="mx-4 py-4 md:hidden md:pt-2">
+      <p className="mx-4 py-4 md:pt-2 lg:hidden">
         <Link href={game.url}>
           <a
             className="mx-auto block rounded-full bg-lime-500 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:delay-100 lg:p-4 lg:text-2xl"
@@ -91,7 +91,7 @@ export default function GameDetail({ game, handlePlay }) {
           PLAY NOW
         </button> */}
       </p>
-      <button className="mx-auto hidden py-4 md:block md:pt-2">
+      <button className="mx-auto hidden py-4 md:pt-2 lg:block">
         <span
           className="mx-auto block rounded-full bg-lime-500 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:delay-100 lg:p-4 lg:text-2xl"
           title={`Play ${game.title} now`}
