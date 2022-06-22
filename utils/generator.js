@@ -5,8 +5,8 @@ export const toTitle = (name) =>
   name
     .replace(/([A-Z])/g, " $1")
     .trim()
-    .replace(/([a-zA-Z])([0-9])/g, "$1 $2")
-    .replace(/3 D/g, " 3D");
+    .replace(/3 D/g, " 3D")
+    .replace(/([A-Za-z])([0-9])/g, "$1 $2");
 
 // 生成模拟数据
 function getRange(m, n, o) {
