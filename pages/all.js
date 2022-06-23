@@ -14,7 +14,7 @@ export default function AllGames({ games, categories }) {
     <>
       <Layout list={categories}>
         <Head>
-          <title>{SITE_NAME} | Play Free Games Online</title>
+          <title>{`All Games | ${SITE_NAME}`}</title>
         </Head>
         <div className="relative z-30 grow md:px-4">
           <ScrollGameList

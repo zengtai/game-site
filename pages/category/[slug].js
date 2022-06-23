@@ -17,9 +17,7 @@ export default function GamesListByCategory({ games, categories }) {
     <>
       <Layout list={categories} isOpen>
         <Head>
-          <title>
-            {categoryName} Games | {SITE_NAME}
-          </title>
+          <title>{`${categoryName} Games | ${SITE_NAME}`}</title>
         </Head>
         <div className="relative z-30 grow md:px-4">
           <h1 className="px-4 pt-2 pb-2 text-center text-2xl font-semibold capitalize text-slate-900/80">

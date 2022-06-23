@@ -22,9 +22,7 @@ export default function Games({
     <>
       <Layout list={categories}>
         <Head>
-          <title>
-            Play {game} on {SITE_NAME}
-          </title>
+          <title>{`Play ${game} on ${SITE_NAME}`}</title>
         </Head>
         <div className="relative z-30 grow p-3 md:px-6 xl:p-8">
           <div className="grid gap-3 xl:grid-cols-12 xl:grid-rows-5 xl:gap-6">

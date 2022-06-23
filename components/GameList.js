@@ -13,12 +13,12 @@ export default function GameList({ title, games, icon, cols, className }) {
   const gamesList = games.map((game) => (
     <li
       key={game.id}
-      className={`xl:hover:scale-125 transition ease-in-out duration-500 ${className}`}
+      className={`transition duration-500 ease-in-out xl:hover:scale-125 ${className}`}
     >
       <Link href={`/game/${toSlug(game.name)}`}>
         <a
           title={toTitle(game.name)}
-          className="block rounded-2xl overflow-hidden shadow-lg shadow-slate-900/30 bg-loading bg-center bg-no-repeat"
+          className="block overflow-hidden rounded-2xl bg-loading bg-center bg-no-repeat shadow-lg shadow-slate-900/30"
         >
           <Image
             src={game.icon}
@@ -30,7 +30,7 @@ export default function GameList({ title, games, icon, cols, className }) {
           />
         </a>
       </Link>
-      <h3 className="my-1 text-xs text-center leading-tight">
+      <h3 className="my-1 text-center text-xs leading-tight">
         {toTitle(game.name)}
       </h3>
     </li>
@@ -40,7 +40,7 @@ export default function GameList({ title, games, icon, cols, className }) {
       return (
         <>
           <ul
-            className={`grid ${setCol()} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`}
+            className={`grid ${setCol()} gap-4 p-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 xl:gap-6 xl:py-4 xl:px-8 2xl:grid-cols-12`}
           >
             <GameListItem games={games} />
           </ul>
@@ -49,12 +49,12 @@ export default function GameList({ title, games, icon, cols, className }) {
     } else {
       return (
         <>
-          <h2 className="flex items-center px-3 xl:px-8 py-2 xl:pb-1 pb-0 md:text-sm xl:text-xl font-semibold text-slate-600 space-x-2">
+          <h2 className="flex items-center space-x-2 px-3 py-2 pb-0 font-semibold text-slate-600 md:text-sm xl:px-8 xl:pb-1 xl:text-xl">
             {icon}
             <span>{title}</span>
           </h2>
           <ul
-            className={`overflow-auto grid ${setCol()} sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-12 gap-4 xl:gap-6 p-2 xl:py-4 xl:px-8`}
+            className={`grid overflow-auto ${setCol()} gap-4 p-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8 xl:gap-6 xl:py-4 xl:px-8 2xl:grid-cols-12`}
           >
             <GameListItem games={games} />
           </ul>
