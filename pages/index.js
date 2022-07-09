@@ -17,9 +17,11 @@ import CategoryList from "../components/CategoryList";
 
 import dynamic from "next/dynamic";
 
-const Banner = dynamic(() => import("../components/Banner"), {
-  loading: () => <div>Loading...</div>,
-});
+// const Banner = dynamic(() => import("../components/Banner"), {
+//   loading: () => <div>Loading...</div>,
+// });
+
+import Banner from "../components/Banner";
 
 const InfiniteList = dynamic(() => import("../components/InfiniteList"), {
   loading: () => <div>Loading...</div>,
