@@ -50,7 +50,7 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
 
     localStorage && localStorage.getItem(`scrollGames${group}`) != null
       ? localStorage.getItem(`scrollGames${group}`).time != timeStamp ||
-        localStorage.getItem(`scrollGames${group}`).time == null
+        localStorage.getItem(`scrollGames${group}`).time == undefined
         ? localStorage.removeItem(`scrollGames${group}`)
         : null
       : null;
