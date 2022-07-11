@@ -1699,9 +1699,9 @@ export const localData = {
     },
     {
       id: "1267",
-      name: "SharkisComing",
-      url: "https://uptapapi.uptap.com/h5Game/?type=Game&platform=uptap&appid=SharkisComing",
-      icon: "https://cdn.iwantalipstick.com/gameicon2/SharkisComing.png",
+      name: "SharkIsComing",
+      url: "https://uptapapi.uptap.com/h5Game/?type=Game&platform=uptap&appid=SharkIsComing",
+      icon: "https://cdn.iwantalipstick.com/gameicon2/SharkIsComing.png",
       category: "Casual",
       description:
         "Help the pirate escape now!Tap the screen and turn left and right to keep climbing up the mast.Be careful do not crash on the obstacle boards, or you will drop off and feed the shark.You can try to collect more drumsticks on your way, and you can spend them to revive.",
