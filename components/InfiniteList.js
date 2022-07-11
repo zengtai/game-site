@@ -18,7 +18,8 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
   const initGames =
     typeof window !== "undefined" &&
     localStorage.getItem(`scrollGames${group}`) !== null
-      ? JSON.parse(localStorage.getItem(`scrollGames${group}`)).games
+      ? JSON.parse(localStorage.getItem(`scrollGames${group}`)).games ||
+        data.slice(0, init)
       : data.slice(0, init);
 
   const total = data.length;
