@@ -32,22 +32,22 @@ export default function Home({ games, newGames, featuredGames, categories }) {
 
   useEffect(() => {
     let playedGamesBySlug;
-    if (typeof window !== "undefined") {
-      let playedGames = JSON.parse(localStorage.getItem("playedGames")) || [];
-      if (playedGames.length) {
-        playedGamesBySlug = games.filter((game) =>
-          playedGames.includes(game.slug)
-        );
-        setPlayedGames(() => playedGamesBySlug);
-      }
+    // if (typeof window !== "undefined") {
+    let playedGames = JSON.parse(localStorage.getItem("playedGames")) || [];
+    if (playedGames.length) {
+      playedGamesBySlug = games.filter((game) =>
+        playedGames.includes(game.slug)
+      );
+      setPlayedGames(() => playedGamesBySlug);
     }
+    // }
   }, [games]);
 
   return (
     <>
       <Layout navItems={categories}>
         <Head>
-          <title>{SITE_META.name} | Play Free Games Online</title>
+          <title>{`${SITE_META.name} | Play Free Games Online`}</title>
         </Head>
         <div className="relative z-30 grow pt-12 md:pt-0">
           <GameList

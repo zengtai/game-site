@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
+
 import Link from "next/link";
-import Image from "../components/Image";
+
 import InfiniteScroll from "react-infinite-scroll-component";
+
+import Image from "../components/Image";
 import Banner from "../components/Banner";
+
 import { ADS_SLOT_ID } from "../lib/constants";
 
 export default function InfiniteList({ games, init = 8, step = 5, group }) {
@@ -12,14 +16,15 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
   // data = data.reverse();
 
   const initGames =
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem(`scrollGames${group}`)) ||
-        data.slice(0, init)
+    typeof window !== "undefined" &&
+    localStorage.getItem(`scrollGames${group}`) !== null
+      ? JSON.parse(localStorage.getItem(`scrollGames${group}`)).games
       : data.slice(0, init);
 
   const total = data.length;
 
   const [scrollGames, setScrollGames] = useState(initGames);
+
   const [hasMore, setHasMore] = useState(true);
 
   const getMoreGames = () => {
@@ -36,14 +41,21 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
   };
 
   useEffect(() => {
-    localStorage.removeItem(`scrollGames${group}`);
-    localStorage.setItem(`scrollGames${group}`, JSON.stringify(scrollGames));
-  }, [scrollGames, group]);
+    const timeStamp = new Date(`2022-07-11`);
 
-  // useEffect(() => {
-  //   localStorage.removeItem(`scrollGames${group}`);
-  //   localStorage.setItem(`scrollGames${group}`, JSON.stringify(scrollGames));
-  // }, [scrollGames, group]);
+    let data = {
+      games: scrollGames,
+      time: timeStamp,
+    };
+
+    localStorage && localStorage.getItem(`scrollGames${group}`) != null
+      ? localStorage.getItem(`scrollGames${group}`).time != timeStamp
+        ? localStorage.removeItem(`scrollGames${group}`)
+        : null
+      : null;
+
+    localStorage.setItem(`scrollGames${group}`, JSON.stringify(data));
+  }, [scrollGames, group]);
 
   return (
     <>
