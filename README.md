@@ -2,7 +2,7 @@
 
 Next.js
 
-### youletech
+### bxn
 
 - [x] Adsense code
 - [x] ads.txt
@@ -11,22 +11,22 @@ Next.js
 
 ## 输出路径
 
-`/webs/youle`
+`/webs/bxn/games`
 
 ## 游戏路径
 
-`https://uptapapi.uptap.com/h5Game/?type=Game&platform=youletech&appid=`
+`https://uptapapi.uptap.com/h5Game/?type=Game&platform=bxn&appid=`
 
 ## GA
 
-`G-DDF82DXW7Z`
+`G-5FL7972H3P`
 
 ## Adsense id
 
-`ca-pub-9209477879340784`
+`ca-pub-9062459637265650`
 
 ## Adsense ADs Id
 
-首页 `8841942463`
-列表页 `2623469732`
-详情页 `7528860791`
+首页 `2401841365`
+列表页 `9957909518`
+详情页 `4346328481`
