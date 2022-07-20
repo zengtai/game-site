@@ -17,7 +17,8 @@ export default function Home({ games, categories }) {
     "@context": "https://schema.org",
     "@type": "Organization",
     url: SITE_META.url,
-    logo: `/brand/uptapgame-logo.svg`,
+    name: SITE_META.name,
+    logo: `${SITE_META.url}brand/uptapgame-logo.svg`,
   };
   return (
     <>
