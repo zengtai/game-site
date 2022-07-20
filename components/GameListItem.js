@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { toTitle, toSlug } from "../utils/generator";
-import moment from "moment";
+import dayjs from "dayjs";
 
 const GameListItem = ({ games, className }) => {
   return games.map((game) => (
@@ -28,7 +28,7 @@ const GameListItem = ({ games, className }) => {
         {toTitle(game.name)}
       </h3>
       <div className="hidden text-center text-xs">
-        {moment(new Date(game.time)).format("MMM Do, YYYY")}
+        {dayjs(new Date(game.time)).format("MMM DD, YYYY")}
       </div>
     </li>
   ));

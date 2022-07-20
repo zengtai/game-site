@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import useCurrentData from "../../data/CurrentData";
-import moment from "moment";
+import dayjs from "dayjs";
 import { getStars, toSlug, toTitle } from "../../utils/generator";
 import { GAME_PATH, LANDSCAPE_GAMES } from "../../lib/constants";
 import Image from "next/image";
@@ -143,7 +143,7 @@ export default function Editor({ data }) {
                         )}
                       </td>
                       <td>
-                        {moment(new Date(game.time)).format("MMM Do, YYYY")}
+                        {dayjs(new Date(game.time)).format("MMM DD, YYYY")}
                       </td>
                     </tr>
                   ))}
