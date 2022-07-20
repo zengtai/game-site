@@ -13,6 +13,11 @@ export default function Home({ games, categories }) {
   // console.log(games);
   // console.log(categories);
   // const gameList = games.map((game) => <li key={game.id}>{game.name}</li>);
+  function getGameTotal(category) {
+    let tmp = games.filter((game) => game.category.toLowerCase() == category);
+    return tmp.length;
+  }
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -33,34 +38,36 @@ export default function Home({ games, categories }) {
 
         <div className="relative z-30 grow md:px-4">
           <div className="flex flex-col xl:flex-row xl:flex-wrap">
-            {categories.map((category) => {
-              let categoryGames = games.filter(
-                (game) => game.category.toLowerCase() == category
-              );
-              return (
-                <div className="xl:basis-1/4" key={category}>
-                  <div className="flex flex-row items-center justify-between p-3 text-sm font-semibold xl:px-8 xl:pb-1">
-                    <h2 className="text-lg capitalize text-slate-600 xl:text-xl">
-                      {category} Games
-                      <span className="ml-2 rounded-md bg-slate-200 p-1 text-sm font-normal">
-                        {categoryGames.length}
-                      </span>
-                    </h2>
-                    {categoryGames.length > 6 ? (
-                      <div>
-                        <Link href={`/category/${category}`}>
-                          <a>MORE</a>
-                        </Link>
-                      </div>
-                    ) : null}
+            {categories
+              .sort((a, b) => (getGameTotal(a) < getGameTotal(b) ? 1 : -1))
+              .map((category) => {
+                let categoryGames = games.filter(
+                  (game) => game.category.toLowerCase() == category
+                );
+                return (
+                  <div className="xl:basis-1/4" key={category}>
+                    <div className="flex flex-row items-center justify-between p-3 text-sm font-semibold xl:px-8 xl:pb-1">
+                      <h2 className="text-lg capitalize text-slate-600 xl:text-xl">
+                        {category} Games
+                        <span className="ml-2 rounded-md bg-slate-200 p-1 text-sm font-normal">
+                          {categoryGames.length}
+                        </span>
+                      </h2>
+                      {categoryGames.length > 6 ? (
+                        <div>
+                          <Link href={`/category/${category}`}>
+                            <a>MORE</a>
+                          </Link>
+                        </div>
+                      ) : null}
+                    </div>
+                    {/* <GameList games={categoryGames.slice(0, 12)} cols={4} /> */}
+                    <ul className="grid grid-cols-3 gap-4 px-8 py-4">
+                      <GameListItem games={categoryGames.slice(0, 6)} />
+                    </ul>
                   </div>
-                  {/* <GameList games={categoryGames.slice(0, 12)} cols={4} /> */}
-                  <ul className="grid grid-cols-3 gap-4 px-8 py-4">
-                    <GameListItem games={categoryGames.slice(0, 6)} />
-                  </ul>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
           <CategoryList
             icon={categoryIcon()}
