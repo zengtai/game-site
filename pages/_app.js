@@ -37,7 +37,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href={`${router.basePath}/favicon.ico`} />
+        <link
+          rel="icon"
+          href={`${router.basePath}/images/favicon.png`}
+          sizes="16x16 32x32 64x64"
+          type="image/png"
+        />
       </Head>
       <Script
         strategy="afterInteractive"
