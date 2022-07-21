@@ -11,7 +11,7 @@ module.exports = {
 
   generateBuildId: async () => {
     // You can, for example, get the latest git commit hash here
-    return "20220714";
+    return "20220720";
   },
   trailingSlash: true,
   // assetPrefix: `./`,

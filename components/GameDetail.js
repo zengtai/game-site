@@ -66,7 +66,7 @@ export default function GameDetail({ game }) {
           <a
             className="mx-auto block rounded-full bg-gradient-to-r from-yellow-500 to-orange-400 p-3 text-center text-lg font-bold text-white shadow-xl shadow-black/20 transition-transform duration-300 ease-in-out md:w-96 md:hover:scale-110 md:hover:shadow-2xl md:hover:shadow-black/40 md:hover:delay-100 lg:p-4 lg:text-2xl"
             title={`Play ${game.title} now`}
-            onClick={handleClick}
+            // onClick={handleClick}
           >
             PLAY NOW
           </a>

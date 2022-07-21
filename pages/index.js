@@ -66,23 +66,13 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             responsive="false"
           />
 
-          {playedGames ? (
-            <PlayedList
-              icon={historyIcon()}
-              iconClassName="text-purple-400"
-              title="Continue Playing"
-              games={playedGames}
-              isPriority
-              cols="4"
-            />
-          ) : null}
-
           <GameList
             icon={topIcon()}
             games={newGames}
             title="New Games"
             isPriority
-            cols="5"
+            cols="4"
+            className={`special:col-span-2 special:row-span-2 special:md:col-auto special:md:row-auto`}
           />
 
           <Banner
@@ -90,68 +80,6 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             style={{ display: "block" }}
             slot={ADS_SLOT_ID.home}
             responsive="false"
-          />
-
-          <h2 className="flex items-center space-x-2 px-4 py-2 pb-0 font-semibold text-yellow-100/70 md:px-12 md:text-lg">
-            <span className="text-yellow-500">{gameIcon()}</span>
-            <span>
-              All Games <b className="text-sm">({games.length})</b>
-            </span>
-          </h2>
-
-          <InfiniteList
-            games={games.slice(0, 22)}
-            init={4}
-            step={9}
-            group={1}
-          />
-
-          <InfiniteList
-            games={games.slice(22, 44)}
-            init={0}
-            step={4}
-            group={2}
-          />
-
-          <InfiniteList
-            games={games.slice(44, 66)}
-            init={0}
-            step={4}
-            group={3}
-          />
-
-          <InfiniteList
-            games={games.slice(66, 88)}
-            init={0}
-            step={4}
-            group={4}
-          />
-
-          <InfiniteList
-            games={games.slice(88, 110)}
-            init={0}
-            step={4}
-            group={5}
-          />
-
-          <InfiniteList
-            games={games.slice(110, 132)}
-            init={0}
-            step={4}
-            group={6}
-          />
-
-          <InfiniteList
-            id="group7"
-            games={games.slice(132)}
-            init={0}
-            group={7}
-          />
-
-          <CategoryList
-            icon={categoryIcon()}
-            title="Categories"
-            categories={categories}
           />
         </div>
       </Layout>

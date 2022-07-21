@@ -42,12 +42,12 @@ export default function Navbar({ navItems, isOpen }) {
             {homeIcon()}
           </a>
         </Link>
-        <button
+        {/* <button
           onClick={toggle}
           className="ml-auto flex h-10 w-10 items-center justify-center text-yellow-300 lg:hidden"
         >
           {!isMenuOpen ? closeIcon() : menuIcon()}
-        </button>
+        </button> */}
         <div
           className={`
             ${
