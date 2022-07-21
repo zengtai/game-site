@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "./Image";
 import Link from "next/link";
 import { starIcon } from "./Icons";
+import { useBasePath } from "../lib/api";
 
 export default function GameDetail({ game }) {
   const [isShowAll, setIsShowAll] = useState(false);
@@ -9,12 +10,17 @@ export default function GameDetail({ game }) {
     setIsShowAll(!isShowAll);
   }
 
+  const currentPath = useBasePath();
+
   const handleClick = () => {
     if (typeof window !== "undefined") {
       let currentPlayedGames =
-        JSON.parse(localStorage.getItem("playedGames")) || [];
+        JSON.parse(localStorage.getItem(`${currentPath}-playedGames`)) || [];
       currentPlayedGames.push(game.slug);
-      localStorage.setItem("playedGames", JSON.stringify(currentPlayedGames));
+      localStorage.setItem(
+        `${currentPath}-playedGames`,
+        JSON.stringify(currentPlayedGames)
+      );
     }
   };
   return (

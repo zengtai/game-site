@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import Link from "next/link";
+
+import { useBasePath } from "../lib/api";
 
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -11,16 +13,37 @@ import { ADS_SLOT_ID } from "../lib/constants";
 
 export default function InfiniteList({ games, init = 8, step = 5, group }) {
   // console.log(games.length);
-  let data = games.slice();
+  let data = games.slice(); // 复制数组
+
+  const currentPath = useBasePath(); // 获取当前发布路径
+
+  // console.log(currentPath);
 
   // data = data.reverse();
 
-  const initGames =
+  // 初始加载，如果有缓存则取缓存数据（游戏id）
+
+  let initGames = [];
+
+  if (
     typeof window !== "undefined" &&
-    localStorage.getItem(`scrollGames${group}`) !== null
-      ? JSON.parse(localStorage.getItem(`scrollGames${group}`)).games ||
-        data.slice(0, init)
-      : data.slice(0, init);
+    localStorage.getItem(`${currentPath}-${group}`) !== null
+  ) {
+    let currentIds =
+      JSON.parse(localStorage.getItem(`${currentPath}-${group}`)).games || [];
+
+    // console.log(`Group: `, group, `, currentIds:`, currentIds);
+
+    data.forEach((game) =>
+      currentIds.includes(game.id) ? initGames.push(game) : null
+    );
+  } else {
+    initGames = data.slice(0, init);
+  }
+
+  // let initGames = data.map((game) => initGamesId.includes(game.id));
+
+  // console.log(`Group: `, group, `initGames: `, initGames);
 
   const total = data.length;
 
@@ -42,22 +65,22 @@ export default function InfiniteList({ games, init = 8, step = 5, group }) {
   };
 
   useEffect(() => {
-    const timeStamp = new Date(`2022-07-11`);
+    // const timeStamp = new Date(`2022-07-11`);
+    let timestamp = new Date(`2022-07-21 18:35`); // 当前使用版本（基于日期）
 
     let data = {
-      games: scrollGames,
-      time: timeStamp,
+      games: scrollGames.map((game) => game.id),
+      time: timestamp,
     };
 
-    localStorage && localStorage.getItem(`scrollGames${group}`) != null
-      ? localStorage.getItem(`scrollGames${group}`).time != timeStamp ||
-        localStorage.getItem(`scrollGames${group}`).time == undefined
-        ? localStorage.removeItem(`scrollGames${group}`)
+    localStorage && localStorage.getItem(`${currentPath}-${group}`) != null
+      ? localStorage.getItem(`${currentPath}-${group}`).time < timestamp
+        ? localStorage.removeItem(`${currentPath}-${group}`)
         : null
       : null;
 
-    localStorage.setItem(`scrollGames${group}`, JSON.stringify(data));
-  }, [scrollGames, group]);
+    localStorage.setItem(`${currentPath}-${group}`, JSON.stringify(data));
+  }, [scrollGames, currentPath, group]);
 
   return (
     <>

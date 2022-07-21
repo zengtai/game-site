@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Script from "next/script";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import NProgress from "nprogress";
 import "../styles/globals.css";
 import "../public/nprogress.css";
@@ -35,6 +36,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <link rel="shortcut icon" href={`${router.basePath}/favicon.ico`} />
+      </Head>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}

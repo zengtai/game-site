@@ -9,7 +9,7 @@ module.exports = {
   // basePath: "/webs/youle", // youle
   // basePath: "/webs/youle_1", // youle_1 2022.05.24
 
-  // basePath: "/webs/youle_2", // youle_2 2022.05.30
+  basePath: "/webs/youle_2", // youle_2 2022.05.30
   // basePath: "/webs/youle_3", // youle_2 2022.05.31
   // distDir: "build",
 

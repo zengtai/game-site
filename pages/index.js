@@ -9,6 +9,8 @@ import {
 } from "../components/Icons";
 import { getGames } from "../lib/api";
 
+import { useBasePath } from "../lib/api";
+
 import Layout from "../components/Layout";
 import { ADS_SLOT_ID, SITE_META, FEATURED_GAMES } from "../lib/constants";
 import GameList from "../components/GameList";
@@ -30,10 +32,13 @@ const InfiniteList = dynamic(() => import("../components/InfiniteList"), {
 export default function Home({ games, newGames, featuredGames, categories }) {
   const [playedGames, setPlayedGames] = useState();
 
+  const currentPath = useBasePath();
+
   useEffect(() => {
     let playedGamesBySlug;
     // if (typeof window !== "undefined") {
-    let playedGames = JSON.parse(localStorage.getItem("playedGames")) || [];
+    let playedGames =
+      JSON.parse(localStorage.getItem(`${currentPath}-playedGames`)) || [];
     if (playedGames.length) {
       playedGamesBySlug = games.filter((game) =>
         playedGames.includes(game.slug)
@@ -41,7 +46,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
       setPlayedGames(() => playedGamesBySlug);
     }
     // }
-  }, [games]);
+  }, [games, currentPath]);
 
   return (
     <>
@@ -120,33 +125,7 @@ export default function Home({ games, newGames, featuredGames, categories }) {
             group={3}
           />
 
-          <InfiniteList
-            games={games.slice(66, 88)}
-            init={0}
-            step={4}
-            group={4}
-          />
-
-          <InfiniteList
-            games={games.slice(88, 110)}
-            init={0}
-            step={4}
-            group={5}
-          />
-
-          <InfiniteList
-            games={games.slice(110, 132)}
-            init={0}
-            step={4}
-            group={6}
-          />
-
-          <InfiniteList
-            id="group7"
-            games={games.slice(132)}
-            init={0}
-            group={7}
-          />
+          <InfiniteList games={games.slice(66)} init={0} step={4} group={4} />
 
           <CategoryList
             icon={categoryIcon()}
